@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>44f04fcc-e4df-406f-b7ac-71923dd249c5</Id>
+  <Name>SQL Injection</Name>
+  <Version>0</Version>
+  <Category>SQL</Category>
+  <IsEnabled>false</IsEnabled>
+  <Patterns>
+    <Pattern>
+      <PatternStr>exec(ute)?\s*(IMMEDIATE|sp_executesql)?\s*(\(|\r|\r\n|\n)?\s*[@'"]</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>44f04fcc-e4df-406f-b7ac-71923dd249c5</PatternPackageId>
+    </Pattern>
+  </Patterns>
+</PatternPackage>
