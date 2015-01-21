@@ -1,0 +1,12 @@
+﻿<Window x:Class="Grep.Net.WPF.Client.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:entities="clr-namespace:Grep.Net.Entities;assembly=Grep.Net.Entities"
+        xmlns:cal="http://www.caliburnproject.org"
+        xmlns:controls="clr-namespace:Grep.Net.WPF.Client.Controls"
+        SizeToContent="Manual"
+        Height="700" Width="1500">
+    <DockPanel LastChildFill="True">
+        <ContentControl  cal:View.Model="{Binding RootViewModel}" />
+    </DockPanel>
+</Window>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>b6d3dcc9-cc2c-41d6-91c7-ada80168a689</Id>
+  <Name>Unsafe or Native APIs</Name>
+  <Version>0</Version>
+  <Category>.Net</Category>
+  <IsEnabled>false</IsEnabled>
+  <Patterns>
+    <Pattern>
+      <PatternStr>Marshal\.</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>b6d3dcc9-cc2c-41d6-91c7-ada80168a689</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>unsafe</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>b6d3dcc9-cc2c-41d6-91c7-ada80168a689</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>IntPtr</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>b6d3dcc9-cc2c-41d6-91c7-ada80168a689</PatternPackageId>
+    </Pattern>
+  </Patterns>
+</PatternPackage>

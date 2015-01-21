@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>Comments</Name>
+  <Version>0</Version>
+  <Category>Misc</Category>
+  <IsEnabled>false</IsEnabled>
+  <Patterns>
+    <Pattern>
+      <PatternStr>FIXME</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+    </Pattern>
+  </Patterns>
+  <Pattern>
+    <PatternStr>bugbug</PatternStr>
+    <IsEnabled>true</IsEnabled>
+    <PatternInfo />
+    <ReferenceUrl />
+    <Recommendation />
+  </Pattern>
+  <Pattern>
+    <PatternStr>TOFIX</PatternStr>
+    <IsEnabled>true</IsEnabled>
+    <PatternInfo />
+    <ReferenceUrl />
+    <Recommendation />
+  </Pattern>
+</PatternPackage>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FileTypeDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>32d4f905-aedf-4da3-9da7-46c1fe77e862</Id>
+  <Name>Binaries</Name>
+  <FileExtensions>
+    <FileExtension>
+      <Extension>.dll</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+    <FileExtension>
+      <Extension>.exe</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+    <FileExtension>
+      <Extension>.com</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+    <FileExtension>
+      <Extension>.bin</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+  </FileExtensions>
+  <IsEnabled>false</IsEnabled>
+  <Version>0</Version>
+</FileTypeDefinition>

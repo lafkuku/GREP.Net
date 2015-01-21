@@ -1,0 +1,139 @@
+﻿<UserControl x:Class="Grep.Net.WPF.Client.Views.OptionsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cont ="clr-namespace:Grep.Net.WPF.Client.Controls"
+             xmlns:beh="clr-namespace:Grep.Net.WPF.Client.Behaviours"
+             xmlns:cal="http://www.caliburnproject.org"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel>
+
+        <StackPanel DockPanel.Dock="Bottom">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" >
+                <cont:ClickableLabel Text="Save"     cal:Message.Attach="[Event Click] = [Action Save]" />
+                <cont:ClickableLabel Text="Cancel"   cal:Message.Attach="[Event Click] = [Action Cancel]" />
+            </StackPanel>
+        </StackPanel>
+        <TabControl DockPanel.Dock="Top">
+            <TabItem Header="General">
+                <Grid DockPanel.Dock="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*" />
+                        <RowDefinition Height="50*" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0">
+                        <GroupBox Header="Options">
+                            <StackPanel>
+
+                                <CheckBox Content="Auto-Save" 
+                                          ToolTip="Automatically save the application state when closed" 
+                                          IsChecked="{Binding Settings.AutoSave}" />
+                                <CheckBox Content="Recurse" 
+                                          ToolTip="Automatically save the application state when closed" 
+                                          IsChecked="{Binding Settings.Recurse}" />
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="Pattern Package Default Directory">
+                            <TextBox Text="{Binding Settings.PatternPackagesDir, UpdateSourceTrigger=PropertyChanged}" />
+                        </GroupBox>
+                        <GroupBox Header="File Type Defintion Default Directory">
+                            <TextBox Text="{Binding Settings.FileTypeDefinitionsDir, UpdateSourceTrigger=PropertyChanged}" />
+                        </GroupBox>
+                    </StackPanel>
+
+                    <DockPanel Grid.Row="1">
+                        <GroupBox  Header="Saved Paths">
+                            <ListBox ItemsSource="{Binding Settings.PathShortCuts}" SelectedItem="{Binding SelectedPath}">
+                                <ListBox.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Remove" 
+                                                  Command="{Binding RemoveSavedPath}" 
+                                                  />
+                                    </ContextMenu>
+                                </ListBox.ContextMenu>
+                            </ListBox>
+                        </GroupBox>
+                    </DockPanel>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Grepping">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*" />
+                        <RowDefinition Height="50*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <StackPanel Grid.Column="0">
+                            <cont:NameValueControl Text="Lines Before: ">
+                                <TextBox Text="{Binding Settings.LinesBefore, UpdateSourceTrigger=PropertyChanged}" />
+                            </cont:NameValueControl>
+                            <cont:NameValueControl Text="Lines After: ">
+                                <TextBox Text="{Binding Settings.LinesAfter, UpdateSourceTrigger=PropertyChanged}" />
+                            </cont:NameValueControl>
+                            <cont:NameValueControl Text="Max Context: " ToolTip="The max length of the Context property on the MatchInfo results.">
+                                <TextBox Text="{Binding Settings.MaxContextSize, UpdateSourceTrigger=PropertyChanged}" />
+                            </cont:NameValueControl>
+                            <cont:NameValueControl Text="Max Line: " ToolTip="The max length of a line returned by teh MatchInfo.">
+                                <TextBox Text="{Binding Settings.MaxLineSize, UpdateSourceTrigger=PropertyChanged}" />
+                            </cont:NameValueControl>
+                        </StackPanel>
+                    </Grid>
+                    <DockPanel Grid.Row="1">
+                        <TabControl VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <TabItem Header="Exclusions" x:Name="_rootItem">
+                                <DockPanel>
+                                    <StackPanel DockPanel.Dock="Bottom">
+                                        <DockPanel >
+                                            <Button Command="{Binding AddExclusionCommand}" DockPanel.Dock="Right" Content="Add" />
+                                            <TextBox Text="{Binding NewExclusion, UpdateSourceTrigger=PropertyChanged}">
+                                                <TextBox.InputBindings>
+                                                    <KeyBinding Key="Enter" Command="{Binding AddExclusionCommand}"/>
+                                                </TextBox.InputBindings>
+                                            </TextBox>
+                                        </DockPanel>
+                                        <TextBlock TextWrapping="Wrap" Text="Examples: \obj\, *.dll, c:\someDir, web.config, etc. See Exclusions in Select-String commandlet (PowerShell)" />
+                                    </StackPanel>
+
+                                    <ListBox DockPanel.Dock="Top" 
+                                             ItemsSource="{Binding Settings.Exclusions}">
+                                        <ListBox.ItemContainerStyle>
+                                            <Style TargetType="{x:Type ListBoxItem}">
+                                                <Setter Property="ContextMenu">
+                                                    <Setter.Value>
+                                                        <ContextMenu Tag="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
+                                                            <MenuItem Header="Remove" Command="{Binding Parent.Tag.RemoveExclusionCommand, RelativeSource={RelativeSource Self}}" CommandParameter="{Binding }" />
+                                                        </ContextMenu>
+                                                    </Setter.Value>
+                                                </Setter>
+                                                <Setter Property="Tag" Value="{Binding DataContext, ElementName=_rootItem}" />
+                                            </Style>
+                                        </ListBox.ItemContainerStyle>
+                                    </ListBox>
+
+                                </DockPanel>
+                            </TabItem>
+                        </TabControl>
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Threading">
+                <StackPanel>
+
+                    <cont:NameValueControl Text="Max Grep Threads: " Margin="0, 5, 0, 0">
+                        <TextBox Text="{Binding Settings.GrepThreadsMax, UpdateSourceTrigger=PropertyChanged}" />
+                    </cont:NameValueControl>
+                    <cont:NameValueControl Text="Min Runspaces: ">
+                        <TextBox Text="{Binding Settings.PoolRunspaceMin, UpdateSourceTrigger=PropertyChanged}" />
+                    </cont:NameValueControl>
+                    <cont:NameValueControl Text="Max Runspaces: ">
+                        <TextBox Text="{Binding Settings.PoolRunspaceMax, UpdateSourceTrigger=PropertyChanged}" />
+                    </cont:NameValueControl>
+                    <Label Content="Note: These options require an application restart to take effect." />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</UserControl>

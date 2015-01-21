@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="Grep.Net.WPF.Client.Views.Entities.PatternPackageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cal="http://www.caliburnproject.org"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Top">
+            <GroupBox Header="Name">
+                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+            </GroupBox>
+            <GroupBox Header="Category" ToolTip="This can be used as a base pattern. Example: (Avoid Comments) .. (Put example in at some poiont)">
+                <TextBox Text="{Binding Category, UpdateSourceTrigger=PropertyChanged}" />
+            </GroupBox>
+            <GroupBox Header="Base Pattern">
+                <TextBox Text="{Binding BasePattern, UpdateSourceTrigger=PropertyChanged}" />
+            </GroupBox>
+            <!--
+            <GroupBox Header="FileName">
+            <TextBox Text="{Binding FileName, UpdateSourceTrigger=PropertyChanged}" />
+            </GroupBox>-->
+        </StackPanel>
+        <GroupBox Header="Patterns">
+            <DataGrid ItemsSource="{Binding Patterns}" 
+                      SelectedItem="{Binding SelectedDataGridItem}"
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="PatternStr" Binding="{Binding PatternStr}"/>
+                    <DataGridTextColumn Header="ReferenceUrl" Binding="{Binding ReferenceUrl}"/>
+                    <DataGridTextColumn Header="PatternInfo" Binding="{Binding PatternInfo}"/>
+                    <DataGridTextColumn Header="Recommendation" Binding="{Binding Recommendation}"/>
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Delete" cal:Message.Attach="[Event Click]=[Action DeleteSelectedPattern]" />
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+        </GroupBox>
+    </DockPanel>
+</UserControl>

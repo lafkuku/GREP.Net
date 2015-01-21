@@ -1,0 +1,46 @@
+﻿<#+
+// <copyright file="OData.svc.cs.ttinclude" company="CompDJ">
+//  Copyright © CompDJ. All Rights Reserved.
+// </copyright>
+
+/// <summary>T4 Template file.</summary>
+public class ODataSvcCs : T4TemplateBase
+{
+	EntityContainer container = null;
+	
+    /// <summary>Initializes a new instance of the ODataSvcCs class.</summary>
+    public ODataSvcCs()
+    {
+		this.container = EntityHelpers.GetMetadataContainer(T4Gen.Parser);
+        this.OutputName = container.Name;
+		this.OutputExtension = ".svc";
+    }
+	
+	/// <summary>Renders output.</summary>
+	public override string TransformText()
+	{
+		CodeGenerationTools code = new CodeGenerationTools(this);
+		string currentNamespace = this.GetNamespace(T4Config.RepositoryNamespace, T4Config.Namespace);
+		string usings = this.GetUsings(T4Config.RepositoryNamespace, T4Config.Namespace);
+#>
+<%@ ServiceHost Language="C#" Factory="System.Data.Services.DataServiceHostFactory, System.Data.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" 
+	Service="<#=currentNamespace#>.<#=code.Escape(container)#>DataService" %>
+<#+
+        return this.GenerationEnvironment.ToString().Replace("\t", "    ");
+	}
+	
+	/// <summary>Validates the template.</summary>
+	protected override void Validate()
+    {
+		if (string.IsNullOrEmpty(this.OutputName))
+		{
+	        this.Error("OutputName property is empty");
+		}
+
+		if (string.IsNullOrEmpty(this.OutputExtension))
+		{
+	        this.Error("OutputExtension property is empty");
+		}
+    }	
+}
+#>

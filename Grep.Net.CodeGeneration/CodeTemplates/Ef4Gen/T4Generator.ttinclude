@@ -1,0 +1,239 @@
+﻿<#+
+    // <copyright file="T4Gen.ttinclude" company="CompDJ">
+    //  Copyright © CompDJ. All Rights Reserved.
+    // </copyright>
+
+    /// <summary>T4 Generator class.</summary>
+    public class T4Gen : Generator
+    {
+        private static Ef4EdmxParser parser = null;
+
+		public static ITextTemplatingEngineHost GetTextTemplatingEngineHost()
+        {
+			//// for VS2010 or below, change this to TransformationContext.Host
+			return TransformationContext.Current.Host;
+        }
+
+        /// <summary>Gets the Parser property.</summary>
+        public static IEdmxParser Parser
+        {
+            get
+            {
+                return parser;
+            }
+        }
+		
+        /// <summary>Gets the TemplatePath property.</summary>
+        /// <remarks>This ends up being the project folder.</remarks>
+        public static string TemplatePath {
+            get 
+            {
+                return System.IO.Path.GetDirectoryName(
+                    System.IO.Path.GetDirectoryName(
+                    System.IO.Path.GetDirectoryName(GetTextTemplatingEngineHost().TemplateFile))); 
+            }
+        }
+
+        /// <summary>Main method to generate the output.</summary>
+        protected override void RunCore()
+        {
+            string folder = TemplatePath;
+            folder = System.IO.Path.Combine(folder, "Generated");
+            folder = System.IO.Path.Combine(folder, T4Config.Folder);
+            string utFolder= "Unit-tests";
+
+            string modelFolder= System.IO.Path.Combine(folder, T4Config.ModelNamespace);
+            
+            string mockFolder = System.IO.Path.Combine(folder, utFolder);
+            string testsFolder = System.IO.Path.Combine(folder, utFolder);
+            
+            string interfaceFolder = System.IO.Path.Combine(folder, "Interfaces");
+            string odataFolder = System.IO.Path.Combine(folder, "OData");
+
+            mockFolder = System.IO.Path.Combine(mockFolder, "Mocks");
+            testsFolder = System.IO.Path.Combine(testsFolder, "MSTests");
+
+            string repoFolder = System.IO.Path.Combine(folder, "Repository");
+
+            if (T4Config.Language == LanguageType.CSharp)
+            {
+                var iContextCs = new IContextCs();
+                iContextCs.RenderToFile(System.IO.Path.Combine(interfaceFolder, iContextCs.OutputName + iContextCs.OutputExtension));
+
+                var contextCs = new ContextCs();
+                contextCs.RenderToFile(System.IO.Path.Combine(folder, contextCs.OutputName + contextCs.OutputExtension));
+
+                var connectionBuilderCs = new ConnectionBuilderCs();
+                connectionBuilderCs.RenderToFile(System.IO.Path.Combine(folder, connectionBuilderCs.OutputName + connectionBuilderCs.OutputExtension));
+
+                var contextFactoryCs = new ContextFactoryCs();
+                contextFactoryCs.RenderToFile(System.IO.Path.Combine(folder, contextFactoryCs.OutputName + contextFactoryCs.OutputExtension));
+
+                if (T4Config.GenerateUnitTests)
+                {
+                    var mockContextCs = new MockContextCs();
+                    mockContextCs.RenderToFile(System.IO.Path.Combine(mockFolder, mockContextCs.OutputName + mockContextCs.OutputExtension));
+
+                    var mockObjectSetCs = new MockObjectSetCs();
+                    mockObjectSetCs.RenderToFile(System.IO.Path.Combine(mockFolder, mockObjectSetCs.OutputName + mockObjectSetCs.OutputExtension));
+
+                    var mockUnitOfWorkCs = new MockUnitOfWorkCs();
+                    mockUnitOfWorkCs.RenderToFile(System.IO.Path.Combine(mockFolder, mockUnitOfWorkCs.OutputName + mockUnitOfWorkCs.OutputExtension));
+                
+					var mockConnectionCs = new MockConnectionCs();
+                    mockConnectionCs.RenderToFile(System.IO.Path.Combine(mockFolder, mockConnectionCs.OutputName + mockConnectionCs.OutputExtension));
+
+                    var unitTestConnectionBuilderCs = new UnitTestConnectionBuilderCs();
+                    unitTestConnectionBuilderCs.RenderToFile(System.IO.Path.Combine(testsFolder, unitTestConnectionBuilderCs.OutputName + unitTestConnectionBuilderCs.OutputExtension));
+
+                    var unitTestContextFactoryCs = new UnitTestContextFactoryCs();
+                    unitTestContextFactoryCs.RenderToFile(System.IO.Path.Combine(testsFolder, unitTestContextFactoryCs.OutputName + unitTestContextFactoryCs.OutputExtension));
+				
+                    var unitTestUnitOfWorkCs = new UnitTestUnitOfWorkCs();
+                    unitTestUnitOfWorkCs.RenderToFile(System.IO.Path.Combine(testsFolder, unitTestUnitOfWorkCs.OutputName + unitTestUnitOfWorkCs.OutputExtension));
+
+                    var unitTestMockObjectSetCs = new UnitTestMockObjectSetCs();
+                    unitTestMockObjectSetCs.RenderToFile(System.IO.Path.Combine(testsFolder, unitTestMockObjectSetCs.OutputName + unitTestMockObjectSetCs.OutputExtension));
+
+                    var unitTestMockEntitiesCs = new UnitTestMockEntitiesCs();
+                    unitTestMockEntitiesCs.RenderToFile(System.IO.Path.Combine(testsFolder, unitTestMockEntitiesCs.OutputName + unitTestMockEntitiesCs.OutputExtension));
+
+					foreach (EntityType table in T4Gen.Parser.Metadata.GetItems<EntityType>().OrderBy(c => c.Name))
+					{
+						var unitTestRepositoryCs = new UnitTestRepositoryCs();
+						unitTestRepositoryCs.OutputName = table.Name;
+						unitTestRepositoryCs.RenderToFile(System.IO.Path.Combine(testsFolder, unitTestRepositoryCs.OutputName + "Repository_Test" + unitTestRepositoryCs.OutputExtension));
+					}
+				}
+
+                if  (T4Config.GenerateOData)
+                {
+                    var oDataSvcCs = new ODataSvcCs();
+                    oDataSvcCs.RenderToFile(System.IO.Path.Combine(odataFolder, oDataSvcCs.OutputName + oDataSvcCs.OutputExtension));
+
+                    var oDataCs = new ODataCs();
+                    oDataCs.RenderToFile(System.IO.Path.Combine(odataFolder, oDataCs.OutputName + oDataCs.OutputExtension));
+                }
+
+                var fixupCollectionCs = new FixupCollectionCs();
+                fixupCollectionCs.RenderToFile(System.IO.Path.Combine(modelFolder, fixupCollectionCs.OutputName + fixupCollectionCs.OutputExtension));
+				
+                var iUnitOfWorkCs = new IUnitOfWorkCs();
+                iUnitOfWorkCs.RenderToFile(System.IO.Path.Combine(interfaceFolder, iUnitOfWorkCs.OutputName + iUnitOfWorkCs.OutputExtension));
+                
+                var unitOfWorkCs = new UnitOfWorkCs();
+                unitOfWorkCs.RenderToFile(System.IO.Path.Combine(repoFolder, unitOfWorkCs.OutputName + unitOfWorkCs.OutputExtension));
+
+                var iRepositoryCs = new IRepositoryCs();
+                iRepositoryCs.RenderToFile(System.IO.Path.Combine(interfaceFolder, iRepositoryCs.OutputName + iRepositoryCs.OutputExtension));
+
+                var entityRepositoryCs = new EntityRepositoryCs();
+                entityRepositoryCs.RenderToFile(System.IO.Path.Combine(repoFolder, entityRepositoryCs.OutputName + entityRepositoryCs.OutputExtension));
+
+                foreach (EntityType table in T4Gen.Parser.Metadata.GetItems<EntityType>().OrderBy(c => c.Name))
+                {
+                    var repositoryCs = new RepositoryCs();
+                    repositoryCs.OutputName = table.Name;
+                    repositoryCs.RenderToFile(System.IO.Path.Combine(repoFolder, repositoryCs.OutputName + "Repository" + repositoryCs.OutputExtension));
+                }
+
+
+                if (T4Config.UseINotifyPropertyChanged)
+                {
+                    var observableObjectCs = new ObservableObjectCs();
+                    observableObjectCs.RenderToFile(System.IO.Path.Combine(modelFolder, observableObjectCs.OutputName + observableObjectCs.OutputExtension));
+
+                    foreach (EntityType table in T4Gen.Parser.Metadata.GetItems<EntityType>().OrderBy(c => c.Name))
+                    {
+                        var modelCs = new ModelCs();
+                        modelCs.IsComplexType = false;
+                        modelCs.OutputName = table.Name;
+                        modelCs.RenderToFile(System.IO.Path.Combine(modelFolder, modelCs.OutputName + modelCs.OutputExtension));
+                    }
+
+                    foreach (ComplexType table in T4Gen.Parser.Metadata.GetItems<ComplexType>().OrderBy(c => c.Name))
+                    {
+                        var modelCs = new ModelCs();
+                        modelCs.IsComplexType = true;
+                        modelCs.OutputName = table.Name;
+                        modelCs.RenderToFile(System.IO.Path.Combine(modelFolder, modelCs.OutputName + modelCs.OutputExtension));
+                    }
+                }
+                else
+                {
+                    foreach (EntityType table in T4Gen.Parser.Metadata.GetItems<EntityType>().OrderBy(c => c.Name))
+                    {
+                        var modelPocoCs = new ModelPocoCs();
+                        modelPocoCs.IsComplexType = false;
+                        modelPocoCs.OutputName = table.Name;
+                        modelPocoCs.RenderToFile(System.IO.Path.Combine(modelFolder, modelPocoCs.OutputName + modelPocoCs.OutputExtension));
+                    }
+
+                    foreach (ComplexType table in T4Gen.Parser.Metadata.GetItems<ComplexType>().OrderBy(c => c.Name))
+                    {
+                        var modelPocoCs = new ModelPocoCs();
+                        modelPocoCs.IsComplexType = true;
+                        modelPocoCs.OutputName = table.Name;
+                        modelPocoCs.RenderToFile(System.IO.Path.Combine(modelFolder, modelPocoCs.OutputName + modelPocoCs.OutputExtension));
+                    }
+                }
+            }
+            else
+            {
+                //var tplVb = new T4TemplateVb();
+                //tplVb.RenderToFile(System.IO.Path.Combine(folder, tplVb.OutputName + tplVb.OutputExtension));
+            }				
+        }
+
+        /// <summary>Validates code generation parameters.</summary>
+        protected override void Validate()
+        {
+            string templateName= "EF4Gen";
+
+            if (T4Config.Namespace == "CompDJ.T4Code")
+            {
+                this.Error("Setup - Please configure the main " + templateName + ".tt file (Namespace).");
+            }
+
+            if (string.IsNullOrEmpty(T4Config.Folder))
+            {
+                this.Error("Setup - Please configure the main " + templateName + ".tt file (folder).");
+            }
+
+            if (string.IsNullOrEmpty(T4Config.CompanyName))
+            {
+                this.Error("T4Config.CompanyName property is not set");
+            }
+		
+            if (T4Config.Name.ToLowerInvariant().Contains("ef4gen.edmx"))
+            {
+                this.Error("Setup - Please configure the main " + templateName + ".tt file (your .edmx file).");
+            }
+
+            if (T4Config.Language == LanguageType.VB)
+            {
+                this.Error("Sorry, no VB.NET version, yet.");
+            }
+			
+            string fileName = this.ResolveRelativePath(T4Gen.TemplatePath, T4Config.Name);
+
+            if (!System.IO.File.Exists(fileName))
+            {
+                this.Error(string.Format("File does not exist: {0}", fileName));
+            }
+
+            parser = new Ef4EdmxParser();
+            parser.ParseEdmxFromFile(fileName);
+            if (parser.Metadata == null)
+            {
+                this.Error("Metadata is null");
+            }
+        }
+
+        private string ResolveRelativePath(string referencePath, string relativePath) 
+        { 
+            System.Uri uri = new System.Uri(Path.Combine(referencePath, relativePath)); 
+            return System.IO.Path.GetFullPath(uri.AbsolutePath); 
+        }
+    }
+#>

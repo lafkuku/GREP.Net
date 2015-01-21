@@ -1,0 +1,185 @@
+﻿<UserControl x:Class="Grep.Net.WPF.Client.Views.GrepResultsTreeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:cal="http://www.caliburnproject.org"     
+             xmlns:local="clr-namespace:Grep.Net.WPF.Client.ViewModels"
+             xmlns:ext="clr-namespace:Grep.Net.WPF.Client.Extensions"
+             xmlns:entities="clr-namespace:Grep.Net.Entities;assembly=Grep.Net.Entities">
+    <Grid x:Name="_rootElement">
+        <ListView ItemsSource="{Binding RootGrepResults}"  
+                  VerticalContentAlignment="Stretch" 
+                  HorizontalContentAlignment="Stretch">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Expander HorizontalContentAlignment="Stretch"
+                              Tag="{Binding DataContext, ElementName=_rootElement}">
+                        <Expander.Header>
+                            <DockPanel>
+                                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                                    <TextBlock HorizontalAlignment="Right" 
+                                               Text="{Binding Children.Count, StringFormat={} - {0}}" />
+                                    <TextBlock HorizontalAlignment="Right" 
+                                               Text="{Binding RunTime, StringFormat={} : Runtime: {0}}" />
+
+                                </StackPanel>
+                                <TextBlock Text="{Binding GrepResult.GrepContext.RootPath}" 
+                                           Tag="{Binding DataContext, ElementName=_rootElement}" 
+                                           DockPanel.Dock="Left" />
+                            </DockPanel>
+                        </Expander.Header>
+                        <DataGrid ItemsSource="{Binding Children}" 
+                                  Height="300"
+                                  HorizontalAlignment="Stretch"
+                                  ext:GridViewSort.AutoSort="True"
+                                  cal:Message.Attach="[Event SelectionChanged] = [Action SelectedItemChanged($executionContext)]"
+                                  cal:Action.TargetWithoutContext="{Binding Path=Tag, RelativeSource={RelativeSource AncestorType={x:Type Expander}}}"
+                                  AutoGenerateColumns="False"
+                                  IsReadOnly="True"
+                                  VirtualizingPanel.IsVirtualizingWhenGrouping="True">
+                            <DataGrid.Resources>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="cal:Message.Attach" Value="[Event MouseDoubleClick] = [Action ShowResultInWin($executionContext)]" />
+                                </Style>
+                            </DataGrid.Resources>
+
+                            <DataGrid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Remove Selected"
+                                              DataContext="{Binding Path=Tag, RelativeSource={RelativeSource Mode=Self}}"  
+                                              cal:Message.Attach="[Event Click] = [Action RemoveMatchInfoAction($executionContext)]" 
+                                              Tag="{Binding Path=Parent.PlacementTarget.DataContext, RelativeSource={RelativeSource Mode=Self}}" />
+                                    <MenuItem Header="To Clipboard">
+                                        <MenuItem Header="FileName"
+                                                  DataContext="{Binding Path=Parent.Parent.PlacementTarget.Parent.Tag, RelativeSource={RelativeSource Mode=Self}}"   
+                                                  cal:Message.Attach="[Event Click] = [Action ToClipboard('FileName')]"    />
+                                        <MenuItem Header="FilePath"
+                                                  DataContext="{Binding Path=Parent.Parent.PlacementTarget.Parent.Tag, RelativeSource={RelativeSource Mode=Self}}"   
+                                                  cal:Message.Attach="[Event Click] = [Action ToClipboard('FilePath')]"    />
+                                        <MenuItem Header="FilePath:Line#"
+                                                  DataContext="{Binding Path=Parent.Parent.PlacementTarget.Parent.Tag, RelativeSource={RelativeSource Mode=Self}}"   
+                                                  cal:Message.Attach="[Event Click] = [Action ToClipboard('FilePathLine')]"    />
+                                        <MenuItem Header="FilePath:Line#-Pattern"
+                                                  DataContext="{Binding Path=Parent.Parent.PlacementTarget.Parent.Tag, RelativeSource={RelativeSource Mode=Self}}"   
+                                                  cal:Message.Attach="[Event Click] = [Action ToClipboard('FilePathLinePattern')]"    />
+                                        <MenuItem Header="Xml"
+                                                  DataContext="{Binding Path=Parent.Parent.PlacementTarget.Parent.Tag, RelativeSource={RelativeSource Mode=Self}}"   
+                                                  cal:Message.Attach="[Event Click] = [Action ToClipboard('Xml')]"    />
+                                    </MenuItem>
+                                </ContextMenu>
+                            </DataGrid.ContextMenu>
+                            <DataGrid.GroupStyle>
+                                <GroupStyle>
+                                    <GroupStyle.ContainerStyle>
+                                        <Style TargetType="{x:Type GroupItem}">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate>
+                                                        <Expander IsExpanded="False">
+                                                            <Expander.Header>
+                                                                <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="14" />
+                                                            </Expander.Header>
+                                                            <ItemsPresenter />
+                                                        </Expander>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </GroupStyle.ContainerStyle>
+                                </GroupStyle>
+                            </DataGrid.GroupStyle>
+                            <DataGrid.Columns>
+                                <!--
+                                <DataGridTemplateColumn Header="IsReviewed">
+                                <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                <CheckBox IsChecked="{Binding Reviewed}"
+                                cal:Message.Attach="[Clicked]=[ReviewedChanging($executionContext)]"/>
+                                </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                -->
+                                <DataGridTextColumn Width="80"  
+                                                    Header="File" Binding="{Binding MatchInfo.FileInfo.Name}">
+                                    <DataGridTextColumn.CellStyle>
+                                        <Style TargetType="DataGridCell">
+                                            <Setter Property="ToolTip" Value="{Binding MatchInfo.FileInfo.FullName}" />
+                                        </Style>
+                                    </DataGridTextColumn.CellStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn  Width="40"  
+                                                     Header="Line#"     
+                                                     Binding="{Binding MatchInfo.LineNumber}" />
+
+                                <DataGridTextColumn  Width="80"  Header="Pattern"  
+                                                     Binding="{Binding MatchInfo.Pattern.PatternStr}" />
+                                <DataGridTextColumn  Width="Auto" 
+                                                     Header="Context" Binding="{Binding MatchInfo.Line}" />
+
+                            </DataGrid.Columns>
+
+                            <!--<DataGrid.View>
+                            <GridView>
+                            <GridViewColumn Width="30" ext:GridViewSort.PropertyName="Reviewed">
+                            <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                            <CheckBox IsChecked="{Binding Reviewed}"
+                            cal:Message.Attach="[Clicked]=[ReviewedChanging($executionContext)]"/>
+                            </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="80"  
+                            Header="File"  
+                            ext:GridViewSort.PropertyName="MatchInfo.FileInfo.FullName">
+                            <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                            <TextBlock Text="{Binding MatchInfo.FileInfo.Name}" 
+                            ToolTip="{Binding MatchInfo.FileInfo.FullName}" />
+                            </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="40"  Header="Line#"     
+                            DisplayMemberBinding="{Binding MatchInfo.LineNumber}" 
+                            ext:GridViewSort.PropertyName="MatchInfo.LineNumber"  />
+                                    
+                            <GridViewColumn Width="80"  Header="Pattern"  
+                            DisplayMemberBinding="{Binding MatchInfo.Pattern.PatternStr}" 
+                            ext:GridViewSort.PropertyName="MatchInfo.Pattern.PatternStr" />
+                            <GridViewColumn Width="Auto" 
+                            Header="Context"   
+                            ext:GridViewSort.PropertyName="MatchInfo.Line">
+                            <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                            <TextBlock Text="{Binding MatchInfo.Line}" ToolTip="{Binding MatchInfo.Context}" />
+                            </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            </GridView>
+                            </DataGrid.View>-->
+                        </DataGrid>
+                    </Expander>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</UserControl>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>1167f1bf-6d40-467c-a12c-a99f159626c1</Id>
+  <Name>Dangerous APIs</Name>
+  <Version>0</Version>
+  <Category>JavaScript</Category>
+  <IsEnabled>false</IsEnabled>
+  <Patterns>
+    <Pattern>
+      <PatternStr>Document\.cookie</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Document\.referrer</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Document\.location</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Document\.url</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Document\.urlunencoded</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Window\.location</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Document\.write</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Document\.writeln</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>\.innerHTML</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>document\.createElement</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>location\.assign</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>location\.replace</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>window\.navigate</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>location\.href</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>insertAdjacentHTML</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>insertAdjacentElement</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>insertBefore</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>createElement</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>eval</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>execScript</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>execCommand</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>System\.shell\.execute</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>setTimeout</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>setInterval</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>\.html</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>\.addEventListener</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>1167f1bf-6d40-467c-a12c-a99f159626c1</PatternPackageId>
+    </Pattern>
+  </Patterns>
+</PatternPackage>

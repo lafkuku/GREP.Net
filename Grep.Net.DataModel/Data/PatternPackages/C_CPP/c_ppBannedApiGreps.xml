@@ -1,0 +1,1018 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>552375eb-050b-40f9-b623-b8dbdca31ae9</Id>
+  <Name>Banned APIs</Name>
+  <Version>0</Version>
+  <Category>C/C++</Category>
+  <IsEnabled>false</IsEnabled>
+  <Patterns>
+    <Pattern>
+      <PatternStr>wcscpy(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_tcscpy(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>mbscpy(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCpy(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCpyA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCpyW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>lstrcpy(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>lstrcpyA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>lstrcpyW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_tccpy(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_fstrcpy(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_ftcscpy(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCat(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCatA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCatBuff(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCatBuffA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCatBuffW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCatChainW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCatW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_mbscat(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_tcscat(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>lstrcat(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>lstrcatA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>lstrcatW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>wcscat(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_ftcscat(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_fstrcat(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_stprintf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>sprintf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>sprintfA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>sprintfW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>swprintf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>wnsprintf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>wnsprintfA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>wnsprintfW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>wsprintf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>wsprintfA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>wsprintfW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_snprintf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_sntprintf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_snwprintf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>nsprintf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_vstprintf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>vsprintf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>vswprintf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>wvsprintf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>wvsprintfA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>wvsprintfW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_vsnprintf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_vsntprintf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_vsnwprintf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>wvnsprintf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>wvnsprintfA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>wvnsprintfW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCpyN(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCpyNA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCpyNW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrNCpy(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrNCpyA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrNCpyW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_mbsnbcpy(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_mbsncpy(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_tcsncpy(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>lstrcpyn(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>lstrcpynA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>lstrcpynW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>wcsncpy(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_fstrncpy(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCatN(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCatNA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCatNW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrNCat(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrNCatA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrNCatW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_fstrncat(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_mbsnbcat(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_mbsncat(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_tcsncat(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>lstrcatn(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>lstrcatnA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>lstrcatnW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>lstrncat(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>wcsncat(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_mbstok(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_tcstok(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>strtok(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>wcstok(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_makepath(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_tmakepath(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_wmakepath(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_splitpath(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_tsplitpath(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_wsplitpath(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>makepath(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_tscanf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>scanf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>wscanf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_stscanf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>sscanf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>swscanf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_sntscanf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>snscanf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>snwscanf(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_itoa(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_itow(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_getts(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_gettws(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>gets(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CharToOem(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CharToOemA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CharToOemW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>OemToChar(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>OemToCharA(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>OemToCharW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_ftccpy(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_mbccpy(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>IsBadCodePtr(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>IsBadHugeReadPtr(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>IsBadHugeWritePtr(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>IsBadReadPtr(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>IsBadStringPtr(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>IsBadWritePtr(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ualstrcpyW(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>memcpy(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CopyMemory(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlCopyMemory(?!_s)</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>552375eb-050b-40f9-b623-b8dbdca31ae9</PatternPackageId>
+    </Pattern>
+  </Patterns>
+</PatternPackage>

@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="Grep.Net.WPF.Client.Views.FileTypeDefinitionTreeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vms="clr-namespace:Grep.Net.WPF.Client.ViewModels"
+             xmlns:evms="clr-namespace:Grep.Net.WPF.Client.ViewModels.Entities"
+             xmlns:cal="http://www.caliburnproject.org"
+             mc:Ignorable="d" 
+             
+             
+             d:DesignHeight="300" d:DesignWidth="300">
+    <TreeView  ItemsSource="{Binding RootItems}" cal:Message.Attach="[Event SelectedItemChanged]=[Action SelectedItemChanged($executionContext)]">
+        <TreeView.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Add FileTypeDefinition" Command="{Binding AddNewFileTypeDefinition}"></MenuItem>
+                <MenuItem Header="Import FileTypeDefinition">
+                    <MenuItem Header="From XmlFile" Command="{Binding Import}" CommandParameter="FileTypeDefinition"></MenuItem>
+                </MenuItem>
+            </ContextMenu>
+        </TreeView.ContextMenu>
+        <TreeView.Resources>
+            <Style TargetType="TreeViewItem" BasedOn="{StaticResource {x:Type TreeViewItem}}">
+                <!-- <Style.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
+                <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent" />
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
+                <SolidColorBrush x:Key="{x:Static SystemColors.ControlTextBrushKey}" Color="Black" />
+                </Style.Resources> -->
+                <Setter Property="FontWeight" Value="Normal" />
+                <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+            </Style>
+
+            <HierarchicalDataTemplate ItemsSource="{Binding Children}" DataType="{x:Type vms:FileTypeDefinitionTreeViewItemViewModel}">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Add" Command="{Binding AddNewExtension}" CommandParameter="{Binding FileTypeDefinitionViewModel.FileTypeDefinition}" />
+                            <MenuItem Header="Remove" Command="{Binding RemoveFileTypeDefinition}" CommandParameter="{Binding FileTypeDefinitionViewModel.FileTypeDefinition}" />
+                            <MenuItem Header="Export As">
+                                <MenuItem Header="Xml File" Command="{Binding ExportAsXmlCommand}" CommandParameter="{Binding FileTypeDefinitionViewModel.FileTypeDefinition}" />
+                            </MenuItem>
+                        </ContextMenu>
+                    </StackPanel.ContextMenu>
+                    <CheckBox IsChecked="{Binding FileTypeDefinitionViewModel.IsEnabled}" />
+                    <TextBlock Text=" - " />
+                    <TextBlock Text="{Binding FileTypeDefinitionViewModel.Name}" />
+                </StackPanel>
+            </HierarchicalDataTemplate>
+
+            <DataTemplate DataType="{x:Type vms:FileExtensionTreeViewItemViewModel}">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Remove" Command="{Binding DeleteExtension}" CommandParameter="{Binding}" />
+                        </ContextMenu>
+                    </StackPanel.ContextMenu>
+                    <CheckBox IsChecked="{Binding FileExtensionViewModel.IsEnabled}" />
+                    <TextBlock Text=" - " />
+                    <TextBlock Text="{Binding FileExtensionViewModel.Extension}" />
+                </StackPanel>
+            </DataTemplate>
+        </TreeView.Resources>
+    </TreeView>
+</UserControl>

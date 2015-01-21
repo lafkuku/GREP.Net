@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Grep.Net.WPF.Client.Views.MatchInfoEditorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:controls="clr-namespace:Grep.Net.WPF.Client.Controls"
+             xmlns:diagnostics="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+             xmlns:cal="http://www.caliburnproject.org"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel>
+
+        <ContentControl Content="{Binding Editor}" DockPanel.Dock="Top">
+            <ContentControl.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Copy" cal:Message.Attach="[Event Click] = [Action CopySelected()]" />
+                    <MenuItem Header="GTSearch" cal:Message.Attach="[Event Click] = [Action GTSearch()]" />
+                    <MenuItem Header="FilePathToClipboard" cal:Message.Attach="[Event Click] = [Action CopyFilePath()]" />
+                </ContextMenu>
+            </ContentControl.ContextMenu>
+        </ContentControl>
+    </DockPanel>
+</UserControl>

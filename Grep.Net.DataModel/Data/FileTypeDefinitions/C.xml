@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FileTypeDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>4ccac021-709f-4a7e-9b81-97cda9822d99</Id>
+  <Name>C_C++</Name>
+  <FileExtensions>
+    <FileExtension>
+      <Extension>.c</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+    <FileExtension>
+      <Extension>.cpp</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+    <FileExtension>
+      <Extension>.cxx</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+    <FileExtension>
+      <Extension>.h</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+    <FileExtension>
+      <Extension>.hpp</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+    <FileExtension>
+      <Extension>.hxx</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+    <FileExtension>
+      <Extension>.idl</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+  </FileExtensions>
+  <IsEnabled>false</IsEnabled>
+  <Version>0</Version>
+</FileTypeDefinition>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>54fed8d1-f89d-42e9-8dc1-d1af28f83586</Id>
+  <Name>Asp_Mvc</Name>
+  <Version>0</Version>
+  <Category>.Net</Category>
+  <IsEnabled>false</IsEnabled>
+  <Patterns>
+    <Pattern>
+      <PatternStr>ViewData</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>54fed8d1-f89d-42e9-8dc1-d1af28f83586</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>OnRender</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>54fed8d1-f89d-42e9-8dc1-d1af28f83586</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ViewBag</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>54fed8d1-f89d-42e9-8dc1-d1af28f83586</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Html\.Raw</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>54fed8d1-f89d-42e9-8dc1-d1af28f83586</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>MvcHtmlString</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>54fed8d1-f89d-42e9-8dc1-d1af28f83586</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>\@MvcHtmlString\.Create\(</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>54fed8d1-f89d-42e9-8dc1-d1af28f83586</PatternPackageId>
+    </Pattern>
+  </Patterns>
+</PatternPackage>

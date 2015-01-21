@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>f7e5b3ef-3ecb-4bc6-b0f2-95aeffe2251b</Id>
+  <Name>ConfigFiles</Name>
+  <Version>0</Version>
+  <Category>.Net</Category>
+  <IsEnabled>false</IsEnabled>
+  <Patterns>
+    <Pattern>
+      <PatternStr>machineKey</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>f7e5b3ef-3ecb-4bc6-b0f2-95aeffe2251b</PatternPackageId>
+    </Pattern>
+  </Patterns>
+</PatternPackage>

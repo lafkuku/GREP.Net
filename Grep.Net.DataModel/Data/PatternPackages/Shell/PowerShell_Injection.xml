@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>79996343-d2bd-4d73-97d4-e48d9dd1aeef</Id>
+  <Name>Injection</Name>
+  <Version>0</Version>
+  <Category>PowerShell</Category>
+  <IsEnabled>false</IsEnabled>
+  <Patterns>
+    <Pattern>
+      <PatternStr>invoke-</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>79996343-d2bd-4d73-97d4-e48d9dd1aeef</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>invoke-expression</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>79996343-d2bd-4d73-97d4-e48d9dd1aeef</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>invoke-command</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>79996343-d2bd-4d73-97d4-e48d9dd1aeef</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>\[scriptblock\]</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>79996343-d2bd-4d73-97d4-e48d9dd1aeef</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>sql</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>79996343-d2bd-4d73-97d4-e48d9dd1aeef</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>\.\s*\$</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>79996343-d2bd-4d73-97d4-e48d9dd1aeef</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>&amp;</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>79996343-d2bd-4d73-97d4-e48d9dd1aeef</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>iex</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>79996343-d2bd-4d73-97d4-e48d9dd1aeef</PatternPackageId>
+    </Pattern>
+  </Patterns>
+</PatternPackage>

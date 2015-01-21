@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>c36912b1-58b6-43b2-93de-e0343e4e799e</Id>
+  <Name>Dangerous XML APIs</Name>
+  <Version>0</Version>
+  <Category>.Net</Category>
+  <IsEnabled>false</IsEnabled>
+  <Patterns>
+    <Pattern>
+      <PatternStr>XPathDocument</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>c36912b1-58b6-43b2-93de-e0343e4e799e</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>XmlSchema\.Read</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>c36912b1-58b6-43b2-93de-e0343e4e799e</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>XmlSerializationReader</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>c36912b1-58b6-43b2-93de-e0343e4e799e</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>XmlSerializer</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>c36912b1-58b6-43b2-93de-e0343e4e799e</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>new XmlTextReader\(</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>c36912b1-58b6-43b2-93de-e0343e4e799e</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>XmlDocument</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>c36912b1-58b6-43b2-93de-e0343e4e799e</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>XmlDataDocument</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>c36912b1-58b6-43b2-93de-e0343e4e799e</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>\.Transform\(</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>c36912b1-58b6-43b2-93de-e0343e4e799e</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>XmlValidatingReader</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>c36912b1-58b6-43b2-93de-e0343e4e799e</PatternPackageId>
+    </Pattern>
+  </Patterns>
+</PatternPackage>

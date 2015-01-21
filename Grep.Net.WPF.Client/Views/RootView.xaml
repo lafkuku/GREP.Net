@@ -1,0 +1,130 @@
+﻿<UserControl x:Class="Grep.Net.WPF.Client.Views.RootView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:entities="clr-namespace:Grep.Net.Entities;assembly=Grep.Net.Entities"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:calTypes="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+             xmlns:controls="clr-namespace:Grep.Net.WPF.Client.Controls"
+             xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
+             xmlns:dockingResources="clr-namespace:Grep.Net.WPF.Client.Docking"
+             xmlns:vms="clr-namespace:Grep.Net.WPF.Client.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="900">
+    <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0">
+
+            <MenuItem Header="File">
+                <MenuItem cal:Message.Attach="[Event Click] = [Action Exit]" Header="Exit" />
+            </MenuItem>
+            <MenuItem  cal:Message.Attach="[Event Click] = [Action ShowOptions]" Header="Options" />
+            <MenuItem Header="Import">
+                <MenuItem Header="GrepResult" cal:Message.Attach="[Event Click] = [Action ImportResult]" />
+            </MenuItem>
+            <MenuItem  Header="Manage Data"
+                       ToolTip="Adds the Manage document to the DockView."
+                       cal:Message.Attach="[Event Click] = [Action ShowManageTypes]">
+            </MenuItem>
+        </Menu>
+
+        <!-- Menu Wrappers    -->
+        <avalonDock:DockingManager x:Name="dockingManager" 
+                                   ActiveContent="{Binding ActiveViewModel, Mode=TwoWay}"
+                                   DocumentsSource="{Binding Documents}"
+                                   Grid.Row="1">
+
+            <avalonDock:LayoutRoot>
+                <avalonDock:LayoutPanel Orientation="Vertical">
+
+                    <avalonDock:LayoutPanel Orientation="Horizontal">
+                        <avalonDock:LayoutAnchorablePane Name="Selectors" 
+                                                         DockWidth="300">
+                            <avalonDock:LayoutAnchorable Title="Configuration" 
+                                                         CanClose="False" 
+                                                         CanHide="False" 
+                                                         CanAutoHide="False">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100*" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.Resources>
+                                        <BitmapImage x:Key="imgStart" UriSource="../Images/start.ico" />
+                                    </Grid.Resources>
+
+                                    <ContentControl Grid.Row="0" cal:View.Model="{Binding SelectItemsViewModel}" />
+                                    <StackPanel Grid.Row="1" HorizontalAlignment="Stretch">
+                                        <Button cal:Message.Attach="[Event Click] = [Action Start()]" >
+                                            <Button.Content>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Image Source="{StaticResource imgStart}" />
+                                                    <TextBlock Text=" Run" />
+                                                </StackPanel>
+                                            </Button.Content>
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                            </avalonDock:LayoutAnchorable>
+                        </avalonDock:LayoutAnchorablePane>
+                        <avalonDock:LayoutDocumentPane    />
+                    </avalonDock:LayoutPanel>
+                    <avalonDock:LayoutPanel DockHeight="200">
+                        <avalonDock:LayoutAnchorablePane Name="Results">
+                            <avalonDock:LayoutAnchorable>
+                                <DockPanel>
+                                    <!--  <ContentControl cal:View.Model="{Binding GrepResultsTreeView}" /> -->
+                                    <!-- <ContentControl cal:View.Model="{Binding ResultsViewModel}" /> -->
+                                    <ContentControl cal:View.Model="{Binding GrepResultCrumbListViewViewModel}" />
+                                </DockPanel>
+                            </avalonDock:LayoutAnchorable>
+                        </avalonDock:LayoutAnchorablePane>
+                    </avalonDock:LayoutPanel>
+                </avalonDock:LayoutPanel>
+            </avalonDock:LayoutRoot>
+
+            <avalonDock:DockingManager.LayoutItemTemplateSelector>
+                <vms:DockingTemplateSelector>
+                    <vms:DockingTemplateSelector.PropertyChangedTemplate>
+                        <DataTemplate DataType="{x:Type calTypes:PropertyChangedBase}">
+                            <ContentControl cal:View.Model="{Binding }"/>
+                        </DataTemplate>
+                    </vms:DockingTemplateSelector.PropertyChangedTemplate>
+                </vms:DockingTemplateSelector>
+            </avalonDock:DockingManager.LayoutItemTemplateSelector>
+
+            <avalonDock:DockingManager.LayoutItemContainerStyleSelector>
+                <vms:LayoutItemStyleSelector>
+                    <vms:LayoutItemStyleSelector.AnchorableStyle>
+                        <Style TargetType="{x:Type avalonDock:LayoutAnchorableItem}">
+                            <Setter Property="CanClose" Value="False"/>
+                            <Setter Property="CanHide" Value="False" />
+                        </Style>
+                    </vms:LayoutItemStyleSelector.AnchorableStyle>
+
+                    <vms:LayoutItemStyleSelector.StaticDocumentStyle>
+                        <Style TargetType="{x:Type avalonDock:LayoutItem}">
+                            <Setter Property="Title" Value="{Binding Model.Name}"/>
+                            <Setter Property="CanClose" Value="False" />
+                            <Setter Property="ToolTip" Value="{Binding Model.Tooltip}" />
+                        </Style>
+                    </vms:LayoutItemStyleSelector.StaticDocumentStyle>
+
+                    <vms:LayoutItemStyleSelector.DocumentStyle>
+                        <Style TargetType="{x:Type avalonDock:LayoutItem}">
+                            <Setter Property="Title" Value="{Binding Model.Name}"/>
+                            <Setter Property="CanClose" Value="{Binding Model.Closeable}"/>
+                        </Style>
+                    </vms:LayoutItemStyleSelector.DocumentStyle>
+                </vms:LayoutItemStyleSelector>
+            </avalonDock:DockingManager.LayoutItemContainerStyleSelector>
+        </avalonDock:DockingManager>
+    </Grid>
+</UserControl>

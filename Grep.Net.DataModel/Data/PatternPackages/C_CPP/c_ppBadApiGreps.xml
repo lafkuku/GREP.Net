@@ -1,0 +1,3746 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>0b008262-3065-4af4-990a-055a7d452101</Id>
+  <Name>Bad APIs</Name>
+  <Version>0</Version>
+  <Category>C/C++</Category>
+  <IsEnabled>false</IsEnabled>
+  <Patterns>
+    <Pattern>
+      <PatternStr>_fmemccpy</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_fmemcpy</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_fmemmove</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_fmemset</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_fstrcat</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_fstrcpy</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_fstrncat</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_fstrncpy</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_ftccat</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_ftccpy</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_getsw</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_getws</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_hread</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_i64tot</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_itot</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_lcreat</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_lread</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_ltoa</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_ltot</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_ltow</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>_memccpy</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>7DD95801</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>7DD95802</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>A2BSTR</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>A2COLE</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>A2CT</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>A2CW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>A2OLE</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>A2T</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>A2W</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>AcceptSecurityContext</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>AddAccessAllowedAce</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>AddAccessAllowedAceEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>AddAccessAllowedObjectAce</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>AddAccessDeniedAce</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>AddAccessDeniedAceEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>AddAccessDeniedObjectAce</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>AddAuditAccessAce</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>AddAuditAccessAceEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>AddAuditAccessObjectAce</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>AdjustTokenGroups</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>AdjustTokenPrivileges</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>AllocateAndInitializeSid</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BackupRead</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BINDF_IGNORESECURITYPROBLEM</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildExplicitAccessWithName</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildExplicitAccessWithNameA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildExplicitAccessWithNameW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildImpersonateExplicitAccessWithName</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildImpersonateExplicitAccessWithNameA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildImpersonateExplicitAccessWithNameW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildImpersonateTrustee</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildImpersonateTrusteeA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildImpersonateTrusteeW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildSecurityDescriptor</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildSecurityDescriptorA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildSecurityDescriptorW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildTrusteeWithName</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildTrusteeWithNameA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildTrusteeWithNameW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildTrusteeWithObjectsAndName</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildTrusteeWithObjectsAndNameA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildTrusteeWithObjectsAndNameW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildTrusteeWithObjectsAndSid</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildTrusteeWithObjectsAndSidA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildTrusteeWithObjectsAndSidW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildTrusteeWithSid</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildTrusteeWithSidA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>BuildTrusteeWithSidW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CB_GETLBTEXT</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CEvent</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CharToOemBuff</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CMutex</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CoCreateInstance</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CoGetClassObject</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CoImpersonateClient</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CoInitializeSecurity</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CoInitializeSecurityParam</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ConvertStringSecurityDescriptorToSecurityDescriptor</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ConvertStringSecurityDescriptorToSecurityDescriptorA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ConvertStringSecurityDescriptorToSecurityDescriptorW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ConvertStringSidToSid</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ConvertStringSidToSidA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ConvertStringSidToSidW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CopyFile</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CopyFileA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CopyFileEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CopyFileExA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CopyFileExW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CopyFileW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CopySid</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CoRegisterClassObject</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateDirectory</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateDirectoryA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateDirectoryEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateDirectoryExA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateDirectoryExW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateDirectoryW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateEvent</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateEventA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateEventW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateFile</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateFileA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateFileMapping</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateFileMappingA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateFileMappingW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateFileW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateHardLink</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateHardLinkA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateHardLinkW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateJobObject</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateJobObjectA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateJobObjectW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateMailslot</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateMailslotA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateMailslotW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateMutex</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateMutexA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateMutexW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateNamedPipe</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateNamedPipeA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateNamedPipeW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateProcess</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateProcessA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateProcessAsUser</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateProcessAsUserA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateProcessAsUserW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateProcessW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateProcessWithLogon</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateProcessWithLogonA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateProcessWithLogonW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateRestrictedToken</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateSemaphore</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateSemaphoreA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateSemaphoreW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateWaitableTimer</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateWaitableTimerA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CreateWaitableTimerW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CryptDeriveKey</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CryptGenKey</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CSemaphore</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CWinListBox</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>CWinListBoxT</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>desktop.ini</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>DuplicateToken</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>DuplicateTokenEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>EnterCriticalSection</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>EqualDomainSid</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>EqualPrefixSid</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>EqualSid</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ES_PASSWORD</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ExpandEnvironmentStringsForUser</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ExpandEnvironmentStringsForUserA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ExpandEnvironmentStringsForUserW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>FILE_FLAG_BACKUP_SEMANTICS</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>FillMemory</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>FormatMessage</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>FormatMessageA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>FormatMessageW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetMultipleTrustee</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetMultipleTrusteeA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetMultipleTrusteeOperation</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetMultipleTrusteeOperationA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetMultipleTrusteeOperationW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetMultipleTrusteeW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetPrivateProfileBinary</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetPrivateProfileBinaryA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetPrivateProfileBinaryW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetPrivateProfileInt</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetPrivateProfileSecitonW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetPrivateProfileSection</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetPrivateProfileSectionA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetPrivateProfileSectionNames</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetPrivateProfileSectionNamesA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetPrivateProfileSectionNamesW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetPrivateProfileSectionW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetPrivateProfileString</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetPrivateProfileStringA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetPrivateProfileStringW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetPrivateProfileStruct</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetPrivateProfileStructA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetProfileBinary</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetProfileBinaryA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetProfileBinaryW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetProfileInt</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetProfileSection</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetProfileSectionA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetProfileSectionW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetProfileString</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetProfileStringA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetProfileStringW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetQueueCompletionStatus</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>GetQueuedCompletionStatus</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>hmemcpy</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>IBindStatusCallback</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>IHttpSecurity::OnSecurityProblem</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>IInternetHostSecurityManager</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>IInternetSecurityManager</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ImpersonateAnonymousToken</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ImpersonateDdeClientWindow</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ImpersonateLoggedOnUser</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ImpersonateNamedPipeClient</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ImpersonateSecurityContest</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ImpersonateSecurityContext</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ImpersonateSelf</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>InitializeAcl</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>InitializeCriticalSection</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>InitializeSecurityDescriptor</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>InitializeSid</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>innerHTML</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>insertAdjacentHTML</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>INTERFACESAFE_FOR_UNTRUSTED_CALLER</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>INTERFACESAFE_FOR_UNTRUSTED_DATA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>IObjectSafety</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>IPersistFile</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>IPersistPropertyBag</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>IPersistStorage</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>IPersistStream</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ISecurityManager</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>IsWellKnownSid</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>KEY_ALL_ACCESS</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>LB_GETTEXT</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>LoadLibrary</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>LoadLibraryA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>LoadLibraryEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>LoadLibraryExA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>LoadLibraryExW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>LoadLibraryW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>longjmp</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ltoa</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>LVM_GETISEARCHSTRING</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>LVM_GETISEARCHSTRINGA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>LVM_GETISEARCHSTRINGW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>MapViewOfFile</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>MapViewOfFileEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>mbstowcs</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>memmove</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>memset</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>MoveFile</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>MoveFileA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>MoveFileEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>MoveFileExA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>MoveFileExW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>MoveFileW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>MoveFileWithProgress</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>MoveFileWithProgressA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>MoveFileWithProgressW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>MoveMemory</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>MultiByteToWideChar</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>nsprintf</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ocscat</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ocscpy</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>OemToCharBuff</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>OemToCharBuffA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>OemToCharBuffW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>OLE2A</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>OLE2CA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>OLE2CT</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>OLE2CW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>OLE2T</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>OLE2W</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>OpenProcess</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>outerHTML</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>PathAddBackslash</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>PathAddBackslashA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>PathAddBackslashW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>PathAppend</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>PathAppendA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>PathAppendW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>PathCanonicalize</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>PathCanonicalizeA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>PathCanonicalizeW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>PathCombine</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>PathCombineA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>PathCombineW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>QueryMultiStringValue</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>QueryStringValue</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>QueryValue</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ReadConsole</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ReadConsoleInput</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ReadFileEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ReadFileScatter</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>recv</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RegCreateKey</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RegCreateKeyA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RegCreateKeyEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RegCreateKeyExA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RegCreateKeyExW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RegCreateKeyW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RegOpenKey</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RegOpenKeyA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RegOpenKeyW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RegQueryValue</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RegQueryValueA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RegQueryValueEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RegQueryValueExA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RegQueryValueExW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RegQueryValueW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ReplaceFile</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ReplaceFileA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ReplaceFileW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ReportEvent</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ReportEventA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ReportEventW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RevertToSelf</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcImpersonateClient</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcRevertToSelf</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcRevertToSelfEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerRegisterAuthInfo</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerRegisterAuthInfoA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerRegisterAuthInfoW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseAllProtseqs</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseAllProtseqsEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseAllProtseqsIf</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseAllProtseqsIfEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseq</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseqA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseqEp</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseqEpA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseqEpEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseqEpExA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseqEpExW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseqEpW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseqEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseqExA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseqExW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseqIf</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseqIfA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseqIfEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseqIfExA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseqIfExW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseqIfW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RpcServerUseProtseqW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlAddAccessAllowedAce</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlAddAccessAllowedAceEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlAddAccessAllowedObjectAce</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlAddAccessDeniedAce</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlAddAccessDeniedAceEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlAddAccessDeniedObjectAce</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlAddAce</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlAddAuditAccessAce</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlAddAuditAccessAceEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlAddAuditAccessObjectAce</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlAddCompoundAce</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlAdjustPrivilege</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlAreAllAccessesGranted</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlAreAnyAccessesGranted</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlCopyMemory</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlCopyMemory32</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlCopyString</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlCopyUnicodeString</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlCreateAcl</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlCreateSecurityDescriptor</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlCreateSecurityDescriptorRelative</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlDeleteAce</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlEqualSid</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlFillBytes</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlFillMemory</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlFillMemoryUlong</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlFillMemoryUlonglong</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlGetAce</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlImpersonateSelf</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlInitAnsiString</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlInitializeResource</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlInitUnicodeString</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlInitUnicodeStringEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlMoveMemory</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlNewSecurityGrantedAccess</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlSetAttributesSecurityDescriptor</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlSetControlSecurityDescriptor</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlSetDaclSecurityDescriptor</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlSetGroupSecurityDescriptor</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlSetInformationAcl</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlSetOwnerSecurityDescriptor</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlSetSaclSecurityDescriptor</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlSetSecurityDescriptorRMControl</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlUnicodeStringToInteger</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlZeroBytes</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>RtlZeroMemory</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SB_GETTEXT</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SB_GETTEXTA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SB_GETTEXTW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SearchPath</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SearchPathA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SearchPathW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SECURITY_NULL_SID_AUTHORITY</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SECURITY_WORLD_SID_AUTHORITY</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>send</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetAclInformation</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetEntriesInAcl</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetEntriesInAclA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetEntriesInAclW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetFileSecurity</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetFileSecurityA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetFileSecurityW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>setjmp</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetKernelObjectSecurity</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetNamedSecurityInfo</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetNamedSecurityInfoA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetNamedSecurityInfoW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetSecurityDescriptorControl</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetSecurityDescriptorDacl</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetSecurityDescriptorGroup</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetSecurityDescriptorOwner</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetSecurityDescriptorRMControl</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetSecurityDescriptorSacl</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetSecurityInfo</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SetThreadToken</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SHBrowseForFolder</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SHBrowseForFolderA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SHBrowseForFolderW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ShellExecute</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ShellExecuteA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ShellExecuteEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ShellExecuteExA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ShellExecuteExW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ShellExecuteW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCat</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCatA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCmp</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCmpA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>StrCmpW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>strncpy</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SysAllocStringByteLen</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>SysAllocStringLen</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>T2A</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>T2BSTR</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>T2CA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>T2COLE</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>T2CW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>T2OLE</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>T2W</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>TB_GETBUTTONTEXT</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>TB_GETBUTTONTEXTA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>TB_GETBUTTONTEXTW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>TerminateProcess</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>TerminateThread</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>TreeResetNamedSecurityInfo</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>TreeResetNamedSecurityInfoA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>TreeResetNamedSecurityInfoW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>TTM_GETTEXT</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>TTM_GETTEXTA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>TTM_GETTEXTW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>TVM_GETISEARCHSTRING</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>TVM_GETISEARCHSTRINGA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>TVM_GETISEARCHSTRINGW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ualstrcpy</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ualstrcpyA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ualstrcpyn</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ualstrcpynA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ualstrcpynW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ualstrcpyW</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>VirtualLock</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>VirtualProtect</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>VirtualProtectEx</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>vprintf</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>W2A</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>W2BSTR</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>W2CA</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>W2COLE</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>W2CT</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>W2OLE</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>W2T</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>WideCharToMultiByte</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>WinExec</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>WriteProcessMemory</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>ZeroMemory</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>0b008262-3065-4af4-990a-055a7d452101</PatternPackageId>
+    </Pattern>
+  </Patterns>
+</PatternPackage>

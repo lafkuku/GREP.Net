@@ -1,0 +1,6 @@
+﻿TODO: 
+Add remove shortcut to Directories Explorer. 
+Fix bug that doesnt recognize the root folder in the directory explorer as a legit folder. This causes the sub-folders to be ran concurrently as different "GrepResults"
+Add Export Results
+Add Rebase Results
+Add Import Results

@@ -1,0 +1,70 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Grep.Net.Model.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PatternPackagesDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\Data\PatternPackages</Value>
+    </Setting>
+    <Setting Name="FileTypeDefinitionsDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\Data\FileTypeDefinitions</Value>
+    </Setting>
+    <Setting Name="TemplatesDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\Data\Templates</Value>
+    </Setting>
+    <Setting Name="ClassificationsDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\Data\Classifications</Value>
+    </Setting>
+    <Setting Name="AutoSave" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SaveLayout" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Exclusions" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;*.dll&lt;/string&gt;
+  &lt;string&gt;*.com&lt;/string&gt;
+  &lt;string&gt;*.exe&lt;/string&gt;
+  &lt;string&gt;*.bin&lt;/string&gt;
+  &lt;string&gt;*.obj&lt;/string&gt;
+  &lt;string&gt;*.pch&lt;/string&gt;
+  &lt;string&gt;*.pdb&lt;/string&gt;
+  &lt;string&gt;*.sdf&lt;/string&gt;
+  &lt;string&gt;*.mdf&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="PathShortCuts" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
+    </Setting>
+    <Setting Name="LinesBefore" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="LinesAfter" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="MaxContextSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="MaxLineSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="GrepThreadsMax" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">25</Value>
+    </Setting>
+    <Setting Name="PoolRunspaceMin" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="PoolRunspaceMax" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">25</Value>
+    </Setting>
+    <Setting Name="Recurse" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="RecentSearches" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

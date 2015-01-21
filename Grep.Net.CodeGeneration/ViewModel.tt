@@ -1,0 +1,154 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ Assembly Name="EnvDTE" #>
+<#@ Assembly Name="EnvDTE100" #>
+<#@ assembly name="Microsoft.VisualBasic" #>
+<#@ include file="T4Toolbox.tt" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="EnvDTE" #>
+<#@ import namespace="EnvDTE100" #>
+<#@ import namespace="Microsoft.VisualBasic" #>
+<#
+    // insert your template code here the tempalte code will be syntaxhighlighted
+    // and you will have intellisense for all namespaces in the full edition
+
+	
+	string entityBaseNamespace = "GTServices.Entities"; 
+	string viewModelBaseNamespace = "GTServices.WPF.Client.ViewModels.Entities"; 
+
+	bool useViewModelsInsteadOfEntityReferences = false;
+
+    string className = GetClassFileName();
+    CodeClass codeClass = null;
+
+    if(className != null && 
+       className != "Unknown")
+    { 
+        codeClass = GetClassFromFile(className);
+    }       
+
+if(codeClass != null){
+   string internalClassPropertyName = "_" + FirstLetterLower(codeClass.Name);
+#>
+using System;
+using System.ComponentModel;
+using Caliburn.Micro;
+using <#= codeClass.Namespace.FullName #>;
+using <#= viewModelBaseNamespace #>
+
+
+namespace MyNameSpace
+{
+    public class <#= codeClass.Name #>ViewModel : PropertyChangedBase
+    {
+        private <#= codeClass.Name #> <#= internalClassPropertyName #>;
+        public  <#= codeClass.Name #> <#= codeClass.Name #>{
+            get { return _<#= FirstLetterLower(codeClass.Name) #>; }
+            set {
+                <#= internalClassPropertyName#> = value;
+                NotifyOfPropertyChange(()=> <#= codeClass.Name #>); 
+            }
+        }
+             
+             
+        public <#= codeClass.Name #>ViewModel()
+        {
+        }
+           
+        public <#= codeClass.Name #>ViewModel(<#= codeClass.Name #> <#= FirstLetterLower(codeClass.Name) #>)
+        {
+            <#= internalClassPropertyName#> = <#= FirstLetterLower(codeClass.Name) #>;
+        }
+          
+      
+<#          
+    foreach(var x in codeClass.Members)
+    {
+        var p = x as CodeProperty;
+        if(p != null && p.Access == vsCMAccess.vsCMAccessPublic)
+		{
+		bool tst = p.Type.AsString.StartsWith(entityBaseNamespace); 
+	
+		string propertyType = "";
+		if(useViewModelsInsteadOfEntityReferences && 
+		   p.Type.AsString.StartsWith(entityBaseNamespace)){
+			propertyType = viewModelBaseNamespace + p.Type.AsString.Substring(entityBaseNamespace.Length) + "ViewModel"; 
+		}else{
+			propertyType = p.Type.AsString; 
+		}  
+		int i =0; 
+#>
+        public <#= propertyType #> <#= p.Name #>
+        {
+            get { return <#= internalClassPropertyName #>.<#= p.Name #>; }
+            set {
+                <#= internalClassPropertyName #>.<#= p.Name #> = value;
+                NotifyOfPropertyChange(()=> <#= p.Name #>); 
+            }
+        }                               
+<#     
+        }
+    }    
+#>
+ }
+}
+
+
+<#
+}
+#>
+
+<#+
+
+private string GetClassFileName(){
+    string input = Interaction.InputBox("Enter clss file name: ", "Class Picker", "Unknown");
+    return input;
+}
+
+private string FirstLetterLower(string str){
+        StringBuilder sb = new StringBuilder(str);
+        if(sb.Length > 0){
+            sb[0] = sb[0].ToString().ToLower()[0];
+        }
+        return sb.ToString();   
+}
+
+
+
+
+private CodeClass GetClassFromFile(string file)
+ {
+       var visualStudio = (this.Host as IServiceProvider).GetService(typeof(EnvDTE.DTE)) as EnvDTE.DTE;
+	   var projs = visualStudio.Solution.Projects;
+	   var coun = projs.Count;
+
+       var projectItem = visualStudio.Solution.FindProjectItem(file);
+       
+       //ProjectItem projectItem = dte.Solution.FindProjectItem(file);
+       FileCodeModel codeModel = projectItem.FileCodeModel;
+       return FindClass(codeModel.CodeElements);
+ }
+ 
+  
+ private CodeClass FindClass(CodeElements elements)
+ {
+       foreach (CodeElement element in elements)
+       {
+        CodeClass codeClass = element as CodeClass;
+        if (codeClass != null) return codeClass;
+        codeClass = FindClass(element.Children);
+        if (codeClass != null) return codeClass;
+       }
+      
+       return null;
+ }
+      
+#>

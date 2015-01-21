@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FileTypeDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>65c45468-4d1d-4cb6-b27d-d7ee341a1c11</Id>
+  <Name>JavaScript</Name>
+  <FileExtensions>
+    <FileExtension>
+      <Extension>.js</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+    <FileExtension>
+      <Extension>.htm</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+    <FileExtension>
+      <Extension>.html</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+    <FileExtension>
+      <Extension>.ts</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+  </FileExtensions>
+  <IsEnabled>false</IsEnabled>
+  <Version>0</Version>
+</FileTypeDefinition>

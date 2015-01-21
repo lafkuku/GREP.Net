@@ -1,0 +1,89 @@
+﻿<#+
+// <copyright file="T4SampleDataGenerator.ttinclude" company="CompDJ">
+//  Copyright © CompDJ. All Rights Reserved.
+// </copyright>
+
+/// <summary>T4 sample data generator class.</summary>
+
+    public static class T4SampleDataGenerator
+    {
+        private static int intValue = 0;
+        private static Random rnd;
+
+		static T4SampleDataGenerator()
+		{
+			rnd = new Random();
+		}
+
+
+        public static int GetNextInt()
+        {
+            intValue++;
+            return intValue;
+        }
+
+        public static int GetRandomInt(int min, int max)
+        {
+            int r = 1;
+
+            for (int i = 0; i < 11; i++)
+            {
+                r = rnd.Next(min, max);
+            }
+
+            return r;
+        }
+
+        public static Guid GetRandomGuid()
+        {
+            return Guid.NewGuid();
+        }
+
+        public static bool GetRandomBool()
+        {
+            int r = 1;
+
+            for (int i = 0; i < 11; i++)
+            {
+                r = GetRandomInt(0, 1);
+            }
+
+            if (r == 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public static string GetRandomString(int maxLength = 20)
+        {
+            char paddingChar = System.Convert.ToChar("X");
+            string x = string.Empty;
+            return x.PadRight(maxLength, paddingChar);
+        }
+
+        public static System.DateTime GetCurrentDate()
+        {
+            return System.DateTime.Today;
+        }
+
+        public static System.DateTime GetRandomDate()
+        {
+            int year = GetRandomInt(1900, GetCurrentDate().Year);
+            int month = GetRandomInt(1, 12);
+            int day = GetRandomInt(1, 28);
+
+            int hour = GetRandomInt(0, 23);
+            int min = GetRandomInt(0, 59);
+            int sec = GetRandomInt(0, 59);
+
+            return new System.DateTime(year, month, day, hour, min, sec);
+        }
+
+        public static void Reset()
+        {
+            intValue = 0;
+        }
+    }
+#>

@@ -1,0 +1,195 @@
+﻿<#+
+// <copyright file="T4Helpers.ttinclude" company="CompDJ">
+//  Copyright © CompDJ. All Rights Reserved.
+// </copyright>
+
+/// <summary>T4 Helpers class.</summary>
+public static class T4Helpers 
+{
+	public static string GetTypeAlias(System.Type type)
+    {
+        string retVal = type.ToString();
+		
+        switch (type.ToString())
+        {
+            case "System.Boolean":
+                retVal = "bool";
+                break;
+
+            case "System.Byte":
+                retVal = "byte";
+                break;
+
+            case "System.SByte":
+                retVal = "sbyte";
+                break;
+
+            case "System.Char":
+                retVal = "char";
+                break;
+
+            case "System.Decimal":
+                retVal = "decimal";
+                break;
+
+            case "System.Double":
+                retVal = "double";
+                break;
+
+            case "System.Single":
+                retVal = "float";
+                break;
+
+            case "System.Int32":
+                retVal = "int";
+                break;
+
+            case "System.UInt32":
+                retVal = "uint";
+                break;
+
+            case "System.Int64":
+                retVal = "long";
+                break;
+
+            case "System.UInt64":
+                retVal = "ulong";
+                break;
+
+            case "System.Object":
+                retVal = "object";
+                break;
+
+            case "System.Int16":
+                retVal = "short";
+                break;
+
+            case "System.UInt16":
+                retVal = "ushort";
+                break;
+
+            case "System.String":
+                retVal = "string";
+                break;
+
+            case "System.Nullable`1[System.Boolean]":
+                retVal = "bool?";
+                break;
+
+            case "System.Nullable`1[System.Byte]":
+                retVal = "byte?";
+                break;
+
+            case "System.Nullable`1[System.SByte]":
+                retVal = "sbyte?";
+                break;
+
+            case "System.Nullable`1[System.Char]":
+                retVal = "char?";
+                break;
+
+            case "System.Nullable`1[System.Decimal]":
+                retVal = "decimal?";
+                break;
+
+            case "System.Nullable`1[System.Double]":
+                retVal = "double?";
+                break;
+
+            case "System.Nullable`1[System.Single]":
+                retVal = "float?";
+                break;
+
+            case "System.Nullable`1[System.Int32]":
+                retVal = "int?";
+                break;
+
+            case "System.Nullable`1[System.UInt32]":
+                retVal = "uint?";
+                break;
+
+            case "System.Nullable`1[System.Int64]":
+                retVal = "long?";
+                break;
+
+            case "System.Nullable`1[System.UInt64]":
+                retVal = "ulong?";
+                break;
+
+            case "System.Nullable`1[System.Object]":
+                retVal = "object?";
+                break;
+
+            case "System.Nullable`1[System.Int16]":
+                retVal = "short?";
+                break;
+
+            case "System.Nullable`1[System.UInt16]":
+                retVal = "ushort?";
+                break;
+
+            case "System.Nullable`1[System.String]":
+                retVal = "string?";
+                break;
+
+        } //eof switch 
+
+        return retVal;
+    }
+	
+	public static bool IsUpperCase(string inputString)
+	{
+		return System.Text.RegularExpressions.Regex.IsMatch(inputString, "^[A-Z]+$");
+	}
+	
+	/// <summary>
+	/// Reformats the passed string from camelCase to Proper Case
+	/// </summary>
+	/// <param name="sIn">The string to reformat to proper case</param>
+	/// <returns>The reformatted string</returns>
+	public static string ParseCamelToProper(string sIn)
+	{
+		if (T4Helpers.IsUpperCase(sIn)) 
+		{
+			return sIn;
+		}
+
+		if (string.IsNullOrEmpty(sIn))
+		{
+			return "";
+		}
+
+		char[] letters = sIn.ToCharArray();
+		System.Text.StringBuilder sOut = new System.Text.StringBuilder();
+		int index = 0;
+		
+		if (sIn.Contains("ID")) 
+		{
+			sOut.Append(letters[0]);
+			sOut.Append(sIn.Substring(1, (sIn.Length - 1)));
+		}
+		else 
+		{
+			foreach (char c in letters) {
+				if ((index == 0)) 
+				{
+					sOut.Append(" ");
+					sOut.Append(c.ToString().ToUpper());
+				} 
+				else if (char.IsUpper(c)) 
+				{
+					sOut.Append(" ");
+					sOut.Append(c);
+				} 
+				else 
+				{
+					sOut.Append(c);
+				}
+				index += 1;
+			}
+		}
+		
+		return System.Text.RegularExpressions.Regex.Replace(sOut.ToString().Trim(), "(?<=[A-Z]) (?=[A-Z])", string.Empty);
+	}	
+}
+#>

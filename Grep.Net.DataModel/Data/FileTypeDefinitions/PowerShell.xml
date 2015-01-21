@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FileTypeDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>e44e789c-8d74-48a1-ae21-45824390b970</Id>
+  <Name>PowerShell</Name>
+  <FileExtensions>
+    <FileExtension>
+      <Extension>.ps1</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+    <FileExtension>
+      <Extension>.pm1</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+    <FileExtension>
+      <Extension>.pd1</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+  </FileExtensions>
+  <IsEnabled>false</IsEnabled>
+  <Version>0</Version>
+</FileTypeDefinition>

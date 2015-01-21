@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FileTypeDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>290429e0-c54a-4afd-a180-4b11cd43caa5</Id>
+  <Name>Config</Name>
+  <FileExtensions>
+    <FileExtension>
+      <Extension>.ini</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+    <FileExtension>
+      <Extension>.config</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+    <FileExtension>
+      <Extension>.cfg</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+  </FileExtensions>
+  <IsEnabled>false</IsEnabled>
+  <Version>0</Version>
+</FileTypeDefinition>

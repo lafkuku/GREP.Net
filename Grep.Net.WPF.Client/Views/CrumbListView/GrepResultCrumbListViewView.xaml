@@ -1,0 +1,207 @@
+﻿<UserControl x:Class="Grep.Net.WPF.Client.Views.CrumbListView.GrepResultCrumbListViewView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:entities="clr-namespace:Grep.Net.Entities;assembly=Grep.Net.Entities"
+             xmlns:control="clr-namespace:Grep.Net.WPF.Client.Controls"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:cvms="clr-namespace:Grep.Net.WPF.Client.ViewModels.CrumbListView"
+             xmlns:vms="clr-namespace:Grep.Net.WPF.Client.ViewModels.Entities"
+             xmlns:ext="clr-namespace:Grep.Net.WPF.Client.Extensions"
+             xmlns:collection="clr-namespace:System.Collections;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             Name="RootElement">
+    <DockPanel>
+        <DockPanel.Resources>
+            <ResourceDictionary>
+                <collection:ArrayList x:Key="mnuExport" x:Shared="False">
+                    <MenuItem Header="Export As.." >
+                        <MenuItem Header="XML" cal:Message.Attach="[Event Click]=[Action  ExportAs('xml')]" />
+                        <MenuItem Header="CSV" cal:Message.Attach="[Event Click]=[Action  ExportAs('csv')]" />
+                        <MenuItem Header="TSV" cal:Message.Attach="[Event Click]=[Action  ExportAs('tsv')]" />
+                        <MenuItem Header="JSON" cal:Message.Attach="[Event Click]=[Action ExportAs('json')]" />
+                    </MenuItem>
+                    
+                </collection:ArrayList>
+                <ContextMenu x:Key="mnuSelectedItems" DataContext="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
+                    <ContextMenu.ItemsSource>
+                        <CompositeCollection>
+                            <CollectionContainer Collection="{StaticResource mnuExport}" />
+                            <MenuItem Header="Remove" cal:Message.Attach="[Event Click] = [Action RemoveSelected()]"/>
+                        </CompositeCollection>
+                    </ContextMenu.ItemsSource>
+                </ContextMenu>
+            </ResourceDictionary>
+            
+        </DockPanel.Resources>
+        <DockPanel DockPanel.Dock="Top" Background="LightGray">
+            <StatusBar DockPanel.Dock="Left" ItemsSource="{Binding Crumbs}" >
+                <StatusBar.ItemTemplate>
+                    <DataTemplate>
+                        <control:ClickableLabel Text="{Binding Display}" cal:Message.Attach="[Event Click]=[Action GoBack($dataContext)]"  />
+                    </DataTemplate>
+                </StatusBar.ItemTemplate>
+            </StatusBar>
+           
+        </DockPanel>
+      
+        <ContentPresenter Content="{Binding CurrentCrumb}">
+            <ContentPresenter.Resources>
+                <DataTemplate DataType="{x:Type cvms:GrepResultsCrumb}">
+                    <ListView ItemsSource="{Binding ItemsSource}"
+                              cal:Message.Attach="[Event SelectionChanged] = [Action SelectedItemChanged($this.SelectedItems)]"
+                              Tag="{Binding DataContext, ElementName=RootElement}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Setter Property="cal:Message.Attach" Value="[Event MouseDoubleClick] = [Action OnNavigate($dataContext)]" />
+                                <Setter Property="cal:Action.TargetWithoutContext" Value="{Binding Tag, RelativeSource={RelativeSource AncestorType=ListView}}" />
+                                <Setter Property="Tag" Value="{Binding Tag, RelativeSource={RelativeSource AncestorType=ListView}}" />
+                                <Setter Property="ContextMenu">
+                                    <Setter.Value>
+                                        <ContextMenu DataContext="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
+                                            <ContextMenu.ItemsSource>
+                                                <CompositeCollection>
+                                                    <CollectionContainer Collection="{StaticResource mnuExport}" />
+                                                    <MenuItem Header="Import" >
+                                                        <MenuItem Header="Xml" cal:Message.Attach="[Event Click] = [Action Import('xml')]" />
+                                                    </MenuItem>
+                                                    <MenuItem Header="Remove" cal:Message.Attach="[Event Click] = [Action RemoveSelected()]"/>
+                                                </CompositeCollection>
+                                            </ContextMenu.ItemsSource>
+                                        </ContextMenu>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.View>
+                            <GridView>
+                                <!-- We bind to the "Entity" property because that will be the ViewModel type, GrepResult -->
+                                <GridViewColumn DisplayMemberBinding="{Binding Entity.GrepContext.RootPath}"
+                                                ext:GridViewSort.PropertyName="GrepResult.GrepContext.RootPath" 
+                                                Header="Path" />
+                                <GridViewColumn DisplayMemberBinding="{Binding MatchInfos.Count}" 
+                                                ext:GridViewSort.PropertyName="MatchInfos.Count" 
+                                                Header="Count" />
+                                <GridViewColumn DisplayMemberBinding="{Binding Entity.GrepContext.TimeStarted}" 
+                                                ext:GridViewSort.PropertyName="GrepResult.GrepContext.TimeStarted" 
+                                                Header="StartTime" />
+                               
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type cvms:PatternPackageCrumb}">
+                    <ListView ItemsSource="{Binding ItemsSource}"
+                              cal:Message.Attach="[Event SelectionChanged] = [Action SelectedItemChanged($this.SelectedItems)]"
+                             Tag="{Binding DataContext, ElementName=RootElement}">
+                        <ListView.View>
+                            <GridView>
+                                <!-- We bind to the "Entity" property because that will be the ViewModel type, GrepResult -->
+                                <GridViewColumn DisplayMemberBinding="{Binding Name}"
+                                                ext:GridViewSort.PropertyName="Name" 
+                                                Header="Package" />
+                            </GridView>
+                        </ListView.View>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Setter Property="cal:Message.Attach" Value="[Event MouseDoubleClick] = [Action OnNavigate($dataContext)]" />
+                                <Setter Property="cal:Action.TargetWithoutContext" Value="{Binding Tag, RelativeSource={RelativeSource AncestorType=ListView}}" />
+                                <Setter Property="Tag" Value="{Binding Tag, RelativeSource={RelativeSource AncestorType=ListView}}" />
+                                <Setter Property="ContextMenu" Value="{StaticResource mnuSelectedItems}" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type cvms:MatchInfosCrumb}">
+                    <DockPanel>
+                        <DockPanel DockPanel.Dock="Bottom">
+                            <Label Content="Filter: " DockPanel.Dock="Left" />
+                            <TextBox Text="{Binding FilterStr, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" />
+                        </DockPanel>
+                        <ListView ItemsSource="{Binding ItemsSource}" 
+                              Tag="{Binding DataContext, ElementName=RootElement}"
+                              ext:GridViewSort.AutoSort="True"
+                              cal:Message.Attach="[Event SelectionChanged] = [Action SelectedItemChanged($this.SelectedItems)]"
+                              DockPanel.Dock="Top">
+                  
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="cal:Message.Attach" Value="[Event MouseDoubleClick] = [Action ShowResultInWin]" />
+                                    <Setter Property="cal:Action.TargetWithoutContext" Value="{Binding Tag, RelativeSource={RelativeSource AncestorType=ListView}}" />
+                                    <Setter Property="ToolTip" Value="{Binding MatchInfo.FileInfo.FullName}" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            
+                            <ListView.ContextMenu>
+                                <ContextMenu DataContext="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
+                                    <MenuItem Header="Remove Selected"
+                                          cal:Message.Attach="[Event Click] = [Action RemoveSelected()]" />
+                                    <MenuItem Header="To Clipboard">
+                                        <MenuItem Header="FileName"
+                                              cal:Message.Attach="[Event Click] = [Action ToClipboard('FileName')]"    />
+                                        <MenuItem Header="FilePath"
+                                              cal:Message.Attach="[Event Click] = [Action ToClipboard('FilePath')]"    />
+                                        <MenuItem Header="FilePath:Line#"  
+                                              cal:Message.Attach="[Event Click] = [Action ToClipboard('FilePathLine')]"    />
+                                        <MenuItem Header="FilePath:Line#-Pattern"
+                                              cal:Message.Attach="[Event Click] = [Action ToClipboard('FilePathLinePattern')]"    />
+                                        <MenuItem Header="Line"
+                                              cal:Message.Attach="[Event Click] = [Action ToClipboard('Line')]"    />
+                                    </MenuItem>
+                                    <MenuItem Header="Export As.." >
+                                        <MenuItem Header="XML" cal:Message.Attach="[Event Click]=[Action  ExportAs('xml')]" />
+                                        <MenuItem Header="CSV" cal:Message.Attach="[Event Click]=[Action  ExportAs('csv')]" />
+                                        <MenuItem Header="TSV" cal:Message.Attach="[Event Click]=[Action  ExportAs('tsv')]" />
+                                        <MenuItem Header="JSON" cal:Message.Attach="[Event Click]=[Action ExportAs('json')]" />
+                                    </MenuItem>
+                                    <MenuItem Header="Uniquify">
+                                        <MenuItem Header="File"  cal:Message.Attach="[Event Click] = [Action Uniquify('File')]"    />
+                                        <MenuItem Header="Match" cal:Message.Attach="[Event Click] = [Action Uniquify('Match')]"    />
+                                        <MenuItem Header="Context" cal:Message.Attach="[Event Click] = [Action Uniquify('Context')]"    />
+                                        <MenuItem Header="Line" cal:Message.Attach="[Event Click] = [Action Uniquify('Line')]"    />
+                                    </MenuItem>
+                                </ContextMenu>
+                            </ListView.ContextMenu>
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Entity.FileInfo.Name}"
+                                                ext:GridViewSort.PropertyName="Entity.FileInfo.Name" 
+                                                Header="File" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding Entity.Pattern.PatternStr}" 
+                                                ext:GridViewSort.PropertyName="Entity.Pattern.PatternStr" 
+                                                Header="Pattern" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding Entity.Match}" 
+                                                ext:GridViewSort.PropertyName="Entity.Match" 
+                                                Header="Match" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding Entity.LineNumber}" 
+                                                ext:GridViewSort.PropertyName="Entity.LineNumber" 
+                                                Header="Line#" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding Entity.Line}"
+                                                ext:GridViewSort.PropertyName="Entity.Line" 
+                                                Header="Line" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </DockPanel>
+                    
+                </DataTemplate>
+                
+                <DataTemplate DataType="{x:Type cvms:UniqueCrumb}">
+                    <ListView ItemsSource="{Binding ItemsSource}">
+                        <ListView.ContextMenu>
+                            <ContextMenu DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
+                                <MenuItem Header="To TextFile" cal:Message.Attach="[Event Click]=[Action ToTextFile]" />
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                    </ListView>
+                </DataTemplate>
+            </ContentPresenter.Resources>
+        </ContentPresenter>
+
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="Grep.Net.WPF.Client.Views.SearchView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:b="clr-namespace:Grep.Net.WPF.Client.Behaviours"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel Grid.Row="2">
+        <DockPanel.Resources>
+            <BitmapImage x:Key="imgSearch" UriSource="../Images/Search.ico" />
+        </DockPanel.Resources>
+        <DockPanel Height="25" DockPanel.Dock="Top">
+            <Button DockPanel.Dock="Right" Command="{Binding SearchCommand}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource imgSearch}" />
+                        <TextBlock Text=" Search" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" VerticalContentAlignment="Center">
+                <TextBox.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding SearchCommand}"/>
+                </TextBox.InputBindings>
+            </TextBox>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Bottom">
+            <!-- This will contain recent search terms -->
+            <GroupBox Header="Recent" x:Name="_rootItem">
+                <ListBox ItemsSource="{Binding RecentSearches}">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListBoxItem}">
+                            <Setter Property="cal:Message.Attach" Value="[Event MouseDoubleClick]=[Action MouseDoubleClick($executionContext)]" />
+                            <Setter Property="ContextMenu">
+                                <Setter.Value>
+                                    <ContextMenu Tag="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
+                                        <MenuItem Header="Remove" Command="{Binding Parent.Tag.RemoveSearch, RelativeSource={RelativeSource Self}}" CommandParameter="{Binding }" />
+                                        <MenuItem Header="Clear All" Command="{Binding Parent.Tag.RemoveAllSearches, RelativeSource={RelativeSource Self}}" />
+                                    </ContextMenu>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Tag" Value="{Binding DataContext, ElementName=_rootItem}" />
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Remove All" Command="{Binding RemoveAllSearches}" />
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
+                </ListBox>
+            </GroupBox>
+        </DockPanel>
+    </DockPanel>
+</UserControl>

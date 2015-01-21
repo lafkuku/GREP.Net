@@ -1,0 +1,113 @@
+﻿<#+
+// <copyright file="T4Config.ttinclude" company="CompDJ">
+//  Copyright © CompDJ. All Rights Reserved.
+// </copyright>
+
+/// <summary>T4 Config file.</summary>
+public static class T4Config 
+{
+	/// <summary>Gets or sets the AppName property.</summary>
+	public static string AppName { get; set; }
+	
+	/// <summary>Gets or sets the AppVersion property.</summary>
+	public static string AppVersion { get; set; }
+	
+	/// <summary>Gets or sets the UseINotifyPropertyChanged property.</summary>
+	public static bool UseINotifyPropertyChanged { get; set; }
+
+	/// <summary>Gets or sets the MarkModelsAsExcludedFromCodeCoverage property.</summary>
+	public static bool MarkModelsAsExcludedFromCodeCoverage { get; set; }
+
+	/// <summary>Gets or sets the GenerateUnitTests property.</summary>
+	public static bool GenerateUnitTests { get; set; }
+	
+	/// <summary>Gets or sets the GenerateOData property.</summary>
+	public static bool GenerateOData { get; set; }
+	
+	/// <summary>Gets or sets the GenerateCodeFirstContext property.</summary>
+	public static bool GenerateCodeFirstContext { get; set; }
+	
+	/// <summary>Gets or sets the Folder property.</summary>
+	public static string Folder { get; set; }
+	
+	/// <summary>Gets or sets the CompanyName property.</summary>
+	public static string CompanyName { get; set; }
+	
+	/// <summary>Gets or sets the Name property.</summary>
+	public static string Name { get; set; }
+
+	/// <summary>Gets or sets the Namespace property.</summary>
+	public static string Namespace { get; set; }
+
+	/// <summary>Gets or sets the ModelNamespace property.</summary>
+	public static string ModelNamespace { get; set; }
+
+	/// <summary>Gets or sets the ContextNamespace property.</summary>
+	public static string ContextNamespace { get; set; }
+
+	/// <summary>Gets or sets the RepositoryNamespace property.</summary>
+	public static string RepositoryNamespace { get; set; }
+
+	/// <summary>Gets or sets the UINamespace property.</summary>
+	public static string UINamespace { get; set; }
+
+	/// <summary>Gets or sets the TestNamespace property.</summary>
+	public static string TestNamespace { get; set; }
+
+	/// <summary>Gets or sets the Language property.</summary>
+	public static LanguageType Language { get; set; }
+	
+	/// <summary>Gets or sets the Technology property.</summary>
+	public static TechnologyType Technology { get; set; }
+	
+	/// <summary>Retrieves the name of the language.</summary>
+	public static string LanguageString()
+	{
+		string tmp = Language.ToString().ToUpperInvariant();
+		
+		if (tmp == "CSHARP")
+		{
+			tmp = "C#";
+		}
+		else if (tmp == "VB")
+		{
+			tmp = "vb";
+		}
+
+		return tmp;
+	}
+
+	/// <summary>Retrieves the file extension of the Language.</summary>
+	public static string LanguageFileString()
+	{
+		string tmp = Language.ToString().ToUpperInvariant();
+		
+		if (tmp == "CSHARP")
+		{
+			tmp = ".cs";
+		}
+		else if (tmp == "VB")
+		{
+			tmp = ".vb";
+		}
+
+		return tmp;
+	}
+}
+
+public enum LanguageType : int
+{
+	VB = 0,
+	CSharp = 1
+}
+
+public enum TechnologyType : int
+{
+	Silverlight = 0,
+	ASPNET = 1,
+	WPF = 2,
+	WindowsPhone = 3,
+	WindowsForms = 4
+}
+
+#>

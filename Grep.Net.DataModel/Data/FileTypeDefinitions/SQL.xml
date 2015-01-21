@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FileTypeDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>4d583d0b-0426-44f2-b207-47f21fb6bf0b</Id>
+  <Name>SQL</Name>
+  <FileExtensions>
+    <FileExtension>
+      <Extension>.sql</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+  </FileExtensions>
+  <IsEnabled>false</IsEnabled>
+  <Version>0</Version>
+</FileTypeDefinition>

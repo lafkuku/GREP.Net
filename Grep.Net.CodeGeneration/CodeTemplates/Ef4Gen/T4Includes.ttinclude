@@ -1,0 +1,54 @@
+﻿
+<#@ Assembly name="System.Data" #>
+<#@ Assembly name="System.Data.Entity" #>
+
+<#@ import namespace="System" #>
+<#@ import namespace="System.ComponentModel" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Collections.ObjectModel" #>
+<#@ import namespace="System.Data.Metadata.Edm"#>
+<#@ import namespace="System.Data.Mapping"#>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
+
+<#@ include file="EF.Utility.CS.ttinclude"#>
+
+<#@ include file="T4Config.ttinclude"#>
+<#@ include file="T4Generator.ttinclude"#>
+<#@ include file="T4Helpers.ttinclude"#>
+<#@ include file="T4TemplateBase.ttinclude"#>
+<#@ include file="T4SampleDataGenerator.ttinclude"#>
+<#@ include file="EdmxParser.ttinclude"#>
+
+<#@ include file="Templates\CSharp\IContext.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\ContextFactory.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\Context.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\MockContext.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\MockObjectSet.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\ObservableObject.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\Model.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\ModelPoco.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\FixupCollection.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\IUnitOfWork.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\UnitOfWork.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\MockUnitOfWork.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\ConnectionBuilder.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\IRepository.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\Repository.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\EntityRepository.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\OData.svc.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\OData.svc.cs.cs.ttinclude"#>
+
+<#@ include file="Templates\CSharp\UnitTestConnectionBuilder.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\UnitTestContextFactory.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\UnitTestMockEntities.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\UnitTestMockObjectSet.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\UnitTestRepository.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\UnitTestUnitOfWork.cs.ttinclude"#>
+<#@ include file="Templates\CSharp\MockConnection.cs.ttinclude"#>

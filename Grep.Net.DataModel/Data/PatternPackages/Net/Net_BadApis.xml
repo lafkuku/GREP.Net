@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>c9c7216b-cc54-46d9-ba0d-2ff270710681</Id>
+  <Name>Bad APIs</Name>
+  <Version>0</Version>
+  <Category>.Net</Category>
+  <IsEnabled>false</IsEnabled>
+  <Patterns>
+    <Pattern>
+      <PatternStr>UriKind.Relative</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>c9c7216b-cc54-46d9-ba0d-2ff270710681</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>new StreamWriter</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>c9c7216b-cc54-46d9-ba0d-2ff270710681</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>FromBase64\(</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>c9c7216b-cc54-46d9-ba0d-2ff270710681</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>new SecureString\(</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>c9c7216b-cc54-46d9-ba0d-2ff270710681</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>new Regex\(</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>c9c7216b-cc54-46d9-ba0d-2ff270710681</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>new HMACSHA1</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>c9c7216b-cc54-46d9-ba0d-2ff270710681</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>new MD5\(</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>c9c7216b-cc54-46d9-ba0d-2ff270710681</PatternPackageId>
+    </Pattern>
+  </Patterns>
+</PatternPackage>

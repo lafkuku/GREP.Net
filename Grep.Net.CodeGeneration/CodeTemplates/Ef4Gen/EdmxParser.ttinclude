@@ -1,0 +1,287 @@
+﻿<#+
+    // <copyright file="EdmxParser.ttinclude" company="CompDJ">
+    //  Copyright © CompDJ. All Rights Reserved.
+    // </copyright>
+
+    /// <summary>OData constants.</summary>
+    internal static class ODataConstants
+    {
+        public static readonly XNamespace EdmxNamespace = "http://schemas.microsoft.com/ado/2007/06/edmx";
+        public static readonly XNamespace awNamespace = "http://schemas.microsoft.com/ado/2006/04/edm/ssdl";
+    }
+
+    /// <summary>Entity Framework 4 constants.</summary>
+    internal static class EF4Constants
+    {
+        public static readonly XNamespace EdmxNamespace = "http://schemas.microsoft.com/ado/2008/10/edmx";
+        public static readonly XNamespace EfSmNamespace = "http://schemas.microsoft.com/ado/2009/02/edm/ssdl";
+        public static readonly XNamespace EfCmNamespace = "http://schemas.microsoft.com/ado/2008/09/edm";
+        public static readonly XNamespace EfMaNamespace = "http://schemas.microsoft.com/ado/2008/09/mapping/cs";
+    }
+
+    /// <summary>Edmx Parser interface.</summary>
+    public interface IEdmxParser
+    {
+        /// <summary>Gets or sets the Metadata property.</summary>
+        System.Data.Mapping.StorageMappingItemCollection Mapping { get; set; }
+
+        /// <summary>Gets or sets the Storage property.</summary>
+        System.Data.Metadata.Edm.EdmItemCollection Metadata { get; set; }
+
+        /// <summary>Gets or sets the Mapping property.</summary>
+        System.Data.Metadata.Edm.StoreItemCollection Storage { get; set; }
+
+        /// <summary>Parses an edmx from a file</summary>
+        /// <param name="fileName">File name to parse</param>
+        /// <returns>Returns an xelement</returns>
+        XElement ParseEdmxFromFile(string fileName);
+
+        /// <summary>Parses an edmx from a service url</summary>
+        /// <param name="serviceUri">Url to parse</param>
+        /// <returns>Returns an xelement</returns>
+        XElement ParseEdmxFromService(string serviceUri);
+    }
+
+    /// <summary>OData Edmx Parser class.</summary>
+    public class ODataEdmxParser : IEdmxParser
+    {
+        /// <summary>Gets or sets the Metadata property.</summary>
+        public EdmItemCollection Metadata { get; set; }
+
+        /// <summary>Gets or sets the Storage property.</summary>
+        public StoreItemCollection Storage { get; set; }
+
+        /// <summary>Gets or sets the Mapping property.</summary>
+        public StorageMappingItemCollection Mapping { get; set; }
+
+        /// <summary>Parses an edmx from a file</summary>
+        /// <param name="fileName">File name to parse</param>
+        /// <returns>Returns an xelement</returns>
+        public XElement ParseEdmxFromFile(string fileName)
+        {
+            XElement edmx = XElement.Load(fileName);
+
+            this.ParseEdmxDocument(edmx);
+            return edmx;
+        }
+
+        /// <summary>Parses an edmx from a service url</summary>
+        /// <param name="serviceUri">Url to parse</param>
+        /// <returns>Returns an xelement</returns>
+        public XElement ParseEdmxFromService(string serviceUri)
+        {
+            if (!serviceUri.EndsWith("/", StringComparison.Ordinal))
+            {
+                serviceUri += "/";
+            }
+            string metadataUri = serviceUri + "$metadata";
+            XElement edmx = XElement.Load(metadataUri);
+            this.ParseEdmxDocument(edmx);
+
+            return edmx;
+        }
+
+        /// <summary>
+        /// Function Name: ParseEdmxDocument
+        /// This function accepts a XElement that stores the entire metadata, parses the metadata in xml format and store it in EdmItemCollection form.
+        /// A temporary edmx file is saved under the TextTemplating folder. This saves efforts when generating the tests.
+        /// Exceptions: Runtime exceptions might be thrown out if schema's namespace doesn't pass the verification of creating new EdmItemCollection instance.
+        ///</summary>
+        private void ParseEdmxDocument(XElement edmx)
+        {
+            XElement dataServicesElement = edmx.Element(ODataConstants.EdmxNamespace + "DataServices");
+            XElement[] schemas = dataServicesElement.Elements().Where(c => c.Name.LocalName == "Schema").ToArray();
+            XmlReader[] readers = schemas.Select(c => c.CreateReader()).ToArray();
+            this.Metadata = new EdmItemCollection(readers);
+        }
+    }
+
+    /// <summary>Entity Framework Edmx Parser class.</summary>
+    public class Ef4EdmxParser : IEdmxParser
+    {
+        /// <summary>Gets or sets the Metadata property.</summary>
+        public EdmItemCollection Metadata { get; set; }
+
+        /// <summary>Gets or sets the Storage property.</summary>
+        public StoreItemCollection Storage { get; set; }
+
+        /// <summary>Gets or sets the Mapping property.</summary>
+        public StorageMappingItemCollection Mapping { get; set; }
+
+        /// <summary>Parses an edmx from a file</summary>
+        /// <param name="fileName">File name to parse</param>
+        /// <returns>Returns an xelement</returns>
+        public XElement ParseEdmxFromFile(string fileName)
+        {
+            XElement edmx = XElement.Load(fileName);
+
+            this.ParseEdmxDocument(edmx);
+            return edmx;
+        }
+
+        /// <summary>Parses an edmx from a service url</summary>
+        /// <param name="serviceUri">Url to parse</param>
+        /// <returns>Returns an xelement</returns>
+        public XElement ParseEdmxFromService(string serviceUri)
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// Function Name: ParseEdmxDocument
+        /// This function accepts a XElement that stores the entire metadata, parses the metadata in xml format and store it in EdmItemCollection form.
+        /// A temporary edmx file is saved under the TextTemplating folder. This saves efforts when generating the tests.
+        /// Exceptions: Runtime exceptions might be thrown out if schema's namespace doesn't pass the verification of creating new EdmItemCollection instance.
+        ///</summary>
+        private void ParseEdmxDocument(XElement edmx)
+        {
+            XElement runtimeElement = edmx.Element(EF4Constants.EdmxNamespace + "Runtime");
+			
+            XElement storageElement = runtimeElement.Element(EF4Constants.EdmxNamespace + "StorageModels");
+            XElement storageSchema = storageElement.Element(EF4Constants.EfSmNamespace + "Schema");
+			
+            XElement modelElement = runtimeElement.Element(EF4Constants.EdmxNamespace + "ConceptualModels");
+            XElement modelSchema = modelElement.Element(EF4Constants.EfCmNamespace + "Schema");
+			
+            XElement mapElement = runtimeElement.Element(EF4Constants.EdmxNamespace + "Mappings");
+            XElement mapSchema = mapElement.Element(EF4Constants.EfMaNamespace + "Mapping");
+
+            this.Metadata = new EdmItemCollection(new XmlReader[] { modelSchema.CreateReader() });
+            this.Storage = new StoreItemCollection(new XmlReader[] { storageSchema.CreateReader() });
+            this.Mapping = new StorageMappingItemCollection(this.Metadata, this.Storage, new XmlReader[] { mapSchema.CreateReader() });
+        }
+    }
+
+    /// <summary>Entity model static helpers class.</summary>
+    public static class EntityHelpers
+    {
+        /// <summary>Gets the EntityTypes from the metadata model.</summary>
+        /// <param name="parser">Parser to use</param>
+        /// <returns>Returns an enumeration of EntityType</returns>
+        public static IEnumerable<EntityType> GetMetadataEntityTypes(IEdmxParser parser)
+        {
+            return (from g in parser.Metadata
+                    where g.BuiltInTypeKind == System.Data.Metadata.Edm.BuiltInTypeKind.EntityType
+                    select (EntityType)g).AsEnumerable<EntityType>();
+        }
+
+        /// <summary>Gets the EntityTypes from the storage model.</summary>
+        /// <param name="parser">Parser to use</param>
+        /// <returns>Returns an enumeration of EntityType</returns>
+        public static IEnumerable<EntityType> GetStorageEntityTypes(IEdmxParser parser)
+        {
+            return (from g in parser.Storage
+                    where g.BuiltInTypeKind == System.Data.Metadata.Edm.BuiltInTypeKind.EntityType
+                    select (EntityType)g).AsEnumerable<EntityType>();
+        }
+
+        /// <summary>Gets the EntityContainer from the metadata model.</summary>
+        /// <param name="parser">Parser to use</param>
+        /// <returns>Returns an EntityContainer object</returns>
+        public static EntityContainer GetMetadataContainer(IEdmxParser parser)
+        {
+            var q = (from g in parser.Metadata
+                     where g.BuiltInTypeKind == System.Data.Metadata.Edm.BuiltInTypeKind.EntityContainer
+                     select (EntityContainer)g).FirstOrDefault();
+
+            return q;
+        }
+
+        /// <summary>Gets the EntityContainer from the storage model.</summary>
+        /// <param name="parser">Parser to use</param>
+        /// <returns>Returns an EntityContainer object</returns>
+        public static EntityContainer GetStorageContainer(IEdmxParser parser)
+        {
+            var q = (from g in parser.Storage
+                     where g.BuiltInTypeKind == System.Data.Metadata.Edm.BuiltInTypeKind.EntityContainer
+                     select (EntityContainer)g).FirstOrDefault();
+
+            return q;
+        }
+
+        /// <summary>Gets a value indicating whether the property is an identity column.</summary>
+        /// <param name="prop">EDM Property to use</param>
+        /// <returns>Returns an value indicating whether the property is an identity column</returns>
+        public static bool GetIsIdentity(EdmProperty prop)
+        {
+            var facet = (from g in prop.TypeUsage.Facets where g.Name == "StoreGeneratedPattern" select g).FirstOrDefault();
+            if (facet != null)
+            {
+                if (facet.Value.ToString() == "Identity")
+                {
+                    return true;
+                }                
+            }
+
+            return false;
+        }
+
+        /// <summary>Gets the max length of the property.</summary>
+        /// <param name="prop">EDM Property to use</param>
+        /// <returns>Returns an integer</returns>
+        public static int GetPropertyMaxLength(EdmProperty prop)
+        {
+            int retVal = 0;
+            var x = (from g in prop.TypeUsage.Facets where g.Name == "MaxLength" select g).FirstOrDefault();
+
+            if (x != null)
+            {
+                int.TryParse(x.Value.ToString(), out retVal);
+            }
+
+            return retVal;
+        }
+
+        /// <summary>Gets if the property is nullable.</summary>
+        /// <param name="prop">EDM Property to use</param>
+        /// <returns>Returns an bool value</returns>
+        public static bool GetPropertyIsKey(EdmProperty prop)
+        {
+            int found = 0;
+            bool retVal = false;
+
+            if (prop.DeclaringType is EntityType)
+            {
+                var table = (EntityType)prop.DeclaringType;
+                found = (from g in table.KeyMembers where g.Name == prop.Name select g).Count();
+            }
+
+            if (found > 0)
+            {
+                retVal = true;
+            }
+
+            return retVal;
+        }
+
+        /// <summary>Gets if the property is nullable.</summary>
+        /// <param name="prop">EDM Property to use</param>
+        /// <returns>Returns an bool value</returns>
+        public static bool GetPropertyNullable(EdmProperty prop)
+        {
+            bool retVal = false;
+            var x = (from g in prop.TypeUsage.Facets where g.Name == "Nullable" select g).FirstOrDefault();
+
+            if (x != null)
+            {
+                bool.TryParse(x.Value.ToString(), out retVal);
+            }
+
+            return retVal;
+        }
+
+        /// <summary>Gets the default value of the property as a string.</summary>
+        /// <param name="prop">EDM Property to use</param>
+        /// <returns>Returns an string</returns>
+        public static string GetPropertyDefaultValue(EdmProperty prop)
+        {
+            string retVal = string.Empty;
+            if (prop.DefaultValue != null)
+            {
+                retVal = System.Convert.ToString(prop.DefaultValue);
+            }
+
+            return retVal;
+        }
+    }
+#>

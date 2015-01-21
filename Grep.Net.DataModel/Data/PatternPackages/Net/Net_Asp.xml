@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>2b6712c2-39e7-41e3-8c1f-73575482ff2a</Id>
+  <Name>AspNET</Name>
+  <Version>0</Version>
+  <Category>.Net</Category>
+  <IsEnabled>true</IsEnabled>
+  <Patterns>
+    <Pattern>
+      <PatternStr>Request\.Form</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Request\.QueryString</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Request\.Params</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Request\.Cookies</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Request\.Item</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Request\.Path</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Request\.PathInfo</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Request\.RawUrl</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Request\.Url</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Request\.UrlReferrer</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Request\.FilePath</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Request\.ServerVariables</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>recordSet\(</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Request\.AcceptTypes</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Request\.ContentType</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Request\.UserAgent</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Request\.UserLanguages</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Response\.Write</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Response\.BinaryWrite</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Response\.Redirect</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>&lt;%=</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Request\[</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+    <Pattern>
+      <PatternStr>Response\.Output\.Write</PatternStr>
+      <IsEnabled>true</IsEnabled>
+      <PatternInfo />
+      <ReferenceUrl />
+      <Recommendation />
+      <PatternPackageId>2b6712c2-39e7-41e3-8c1f-73575482ff2a</PatternPackageId>
+    </Pattern>
+  </Patterns>
+</PatternPackage>

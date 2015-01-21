@@ -1,0 +1,83 @@
+﻿<#+
+    // <copyright file="T4TemplateBase.ttinclude" company="CompDJ">
+    //  Copyright © CompDJ. All Rights Reserved.
+    // </copyright>
+
+    /// <summary>T4 Template base file.</summary>
+    public abstract class T4TemplateBase : Template
+    {
+        /// <summary>Initializes a new instance of the T4TemplateBase class.</summary>
+        public T4TemplateBase()
+        {
+            this.OutputName = "T4TemplateBase";
+            this.OutputExtension = ".cs";
+			code = new CodeGenerationTools(this);
+        }
+
+		public CodeGenerationTools code = null;
+		
+        /// <summary>Gets or sets the OutputName property.</summary>
+        public string OutputName { get; set; }
+
+        /// <summary>Gets or sets the OutputExtension property.</summary>
+        public string OutputExtension { get; set; }
+
+        /// <summary>Gets the namespace.</summary>
+		public string GetNamespace(string currentNamespace, string baseNamespace)
+        {
+            if (string.IsNullOrEmpty(currentNamespace))
+            {
+				return baseNamespace;
+            }
+
+			string retVal = string.Format("{0}.{1}", baseNamespace, currentNamespace);
+
+            if (currentNamespace.Contains("."))
+            {
+				retVal = currentNamespace;
+            }
+
+			return retVal;
+        }
+
+        /// <summary>Gets the namespace.</summary>
+		public string GetUsings(string currentNamespace, string baseNamespace)
+        {
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+			string current = this.GetNamespace(currentNamespace, baseNamespace);
+			string ns = string.Empty;
+
+			ns = this.GetNamespace(T4Config.ContextNamespace, baseNamespace);
+
+            if (!string.IsNullOrEmpty(ns))
+            {
+				if (ns != current && ns != baseNamespace)
+				{
+					sb.AppendLine(string.Format("	using {0};", ns));
+				}			
+            }
+
+			ns = this.GetNamespace(T4Config.ModelNamespace, baseNamespace);
+
+            if (!string.IsNullOrEmpty(ns))
+            {
+				if (ns != current && ns != baseNamespace)
+				{
+					sb.AppendLine(string.Format("	using {0};", ns));
+				}			
+            }
+
+			ns = this.GetNamespace(T4Config.RepositoryNamespace, baseNamespace);
+
+            if (!string.IsNullOrEmpty(ns))
+            {
+				if (ns != current && ns != baseNamespace)
+				{
+					sb.AppendLine(string.Format("	using {0};", ns));
+				}			
+            }
+
+			return sb.ToString();
+        }
+    }
+#>

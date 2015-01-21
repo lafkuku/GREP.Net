@@ -1,0 +1,66 @@
+﻿<#@ template language="C#" hostspecific="True" debug="True" #>
+<#@ output extension="txt" #>
+<#@ include file="T4Toolbox.tt" #>
+<#@ include file="T4Includes.ttinclude" #>
+<#
+    // <copyright file="EF4Gen.tt" company="CompDJ">
+    //  Copyright © CompDJ. All Rights Reserved.
+    // </copyright>
+
+    // ****************************************************************
+    T4Config.AppName = "EF4Templates";
+	T4Config.AppVersion = "2.0.0.0";
+    // ****************************************************************
+
+    // ----------------------------------------------------------------
+    // -- NOTE: Requires T4 Toolbox http://t4toolbox.codeplex.com/
+	// -- If you have VS2010 or below, change the 
+	// -- T4Generator.ttinclude GetTextTemplatingEngineHost() method.
+	// -- 
+	// -- Generated ObservableObject class from MVVM Light library
+	// -- http://mvvmlight.codeplex.com/
+    // ----------------------------------------------------------------
+
+    //// Language to generate in, and technology
+    T4Config.Language = LanguageType.CSharp;
+    T4Config.Technology = TechnologyType.ASPNET; //// Not currently used for anything
+
+    //// Names and namespaces
+    T4Config.CompanyName = "CompDJ";
+    T4Config.Namespace = "Ef4Templates2.Chinook.Data";
+    T4Config.ModelNamespace = "Model";
+    T4Config.RepositoryNamespace = "Repository";
+    T4Config.ContextNamespace = "Repository";
+	T4Config.TestNamespace = "Tests";
+    T4Config.UINamespace = "UI"; //// Not currently used for anything
+ 
+    //// Folder name to generate to
+    T4Config.Folder = "EF4Templates";
+
+    //// Entity Framework/OData .edmx file to use
+    T4Config.Name = @"ChinookModel.edmx";
+
+    // ----------------------------------------------------------------
+    // -- What to generate, and options
+    // ----------------------------------------------------------------
+
+    //// Use a code-first style DbContext instead of model first.
+	T4Config.GenerateCodeFirstContext = false;
+
+    //// Use the INotifyPropertyChanged interface on the models
+	T4Config.UseINotifyPropertyChanged = false;
+
+    //// Mark the models as excluded from code coverage
+	T4Config.MarkModelsAsExcludedFromCodeCoverage = true;
+
+    //// If you are going to unit test the generated code, set to true
+    T4Config.GenerateUnitTests = true;
+
+    //// When enabled, generates a OData service to use with WPF, 
+    //// Windows forms, and Silverlight clients
+    T4Config.GenerateOData = false;
+
+    var gen = new T4Gen();
+    gen.Run();
+	
+#>

@@ -1,0 +1,46 @@
+﻿If Migrations are messed up and you want to create a new "baseline":
+
+1. Delete any existing .cs files in the Migrations folder
+2. In SSMS, delete the __MigrationHistory system table.
+
+Creating the initial migration:
+
+1. In Package Manager Console:
+   Enable-Migrations -EnableAutomaticMigrations -ContextTypeName NamespaceOfContext.ContextA -ProjectName ProjectContextIsInIfNotMainOne -StartupProjectName NameOfMainProject  -ConnectionStringName ContextA
+
+2. In Solution Explorer: Rename Migrations.Configuration.cs to Migrations.ConfigurationA.cs
+   Edit ConfigurationA.cs: Change the namespace to NamespaceOfContext.Migrations.MigrationsA
+
+3. Enable-Migrations -EnableAutomaticMigrations -ContextTypeName NamespaceOfContext.ContextB -ProjectName ProjectContextIsInIfNotMainOne -StartupProjectName NameOfMainProject  -ConnectionStringName ContextB
+
+4. In Solution Explorer: Rename Migrations.Configuration.cs to Migrations.ConfigurationB.cs
+   Edit ConfigurationB.cs: Change the namespace to NamespaceOfContext.Migrations.MigrationsB
+
+5. add-migration InitialBSchema -IgnoreChanges -ConfigurationTypeName ConfigurationB -ProjectName ProjectContextIsInIfNotMainOne -StartupProjectName NameOfMainProject  -ConnectionStringName ContextB 
+
+6. Update-Database -ConfigurationTypeName ConfigurationB -ProjectName ProjectContextIsInIfNotMainOne -StartupProjectName NameOfMainProject -ConnectionStringName ContextB
+
+7. add-migration InitialSurveySchema -IgnoreChanges -ConfigurationTypeName ConfigurationA -ProjectName ProjectContextIsInIfNotMainOne -StartupProjectName NameOfMainProject  -ConnectionStringName ContextA 
+
+8. Update-Database -ConfigurationTypeName ConfigurationA -ProjectName ProjectContextIsInIfNotMainOne -StartupProjectName NameOfMainProject -ConnectionStringName ContextA
+
+Steps to create migration scripts in Package Manager Console:
+
+1. Run command
+
+   Add-Migration MYMIGRATION -ConfigurationTypeName ConfigurationA -ProjectName ProjectContextIsInIfNotMainOne -StartupProjectName NameOfMainProject -ConnectionStringName ContextA
+     - or -
+   Add-Migration MYMIGRATION -ConfigurationTypeName ConfigurationB -ProjectName ProjectContextIsInIfNotMainOne -StartupProjectName NameOfMainProject -ConnectionStringName ContextB
+
+   It is OK to re-run this command until changes are applied to the DB.
+2. Either run the scripts against the desired local database, or run Update-Database without -Script to apply locally:
+
+   Update-Database -ConfigurationTypeName ConfigurationA -ProjectName ProjectContextIsInIfNotMainOne -StartupProjectName NameOfMainProject -ConnectionStringName ContextA
+     - or -
+   Update-Database -ConfigurationTypeName ConfigurationB -ProjectName ProjectContextIsInIfNotMainOne -StartupProjectName NameOfMainProject -ConnectionStringName ContextB
+
+
+
+
+   //Updating the FTD
+   Update-Database -SourceMigration InitialCreateFTD -ConfigurationTypeName  Grep.Net.Data.FileTypeDefinitionsMigrations.Configuration

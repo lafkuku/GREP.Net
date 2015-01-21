@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Grep.Net.WPF.Client.Views.SelectItemsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:controls="clr-namespace:Grep.Net.WPF.Client.Controls"
+             xmlns:ext="clr-namespace:Grep.Net.WPF.Client.Extensions"
+             xmlns:local="clr-namespace:Grep.Net.WPF.Client.ViewModels.Entities"
+             xmlns:vms="clr-namespace:Grep.Net.WPF.Client.ViewModels"
+             xmlns:entityVMS="clr-namespace:Grep.Net.WPF.Client.ViewModels.Entities"
+             xmlns:converters="clr-namespace:Grep.Net.WPF.Client.Converters"
+             mc:Ignorable="d" d:DesignWidth="295">
+    <DockPanel MinHeight="300" Background="Transparent">
+        <TabControl DockPanel.Dock="Top" 
+                    VerticalContentAlignment="Stretch" 
+                    HorizontalContentAlignment="Stretch"
+                    Background="Transparent">
+
+            <TabItem Header="Directories">
+                <ContentControl cal:View.Model="{Binding DirectoryExplorer}" />
+            </TabItem>
+            <TabItem Header="Extensions">
+                <ContentControl cal:View.Model="{Binding FileTypeDefinitionTreeViewModel}" />
+            </TabItem>
+            <TabItem Header="Pattern Packages">
+                <ContentControl cal:View.Model="{Binding PatternPatckageTreeView}" />
+            </TabItem>
+            <TabItem Header="Search">
+                <ContentControl cal:View.Model="{Binding SearchViewModel}" />
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</UserControl>
