@@ -8,14 +8,13 @@
              xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <DockPanel>
-
-        <ContentControl Content="{Binding Editor}" DockPanel.Dock="Top">
+    <DockPanel Name="RootElement">
+        <ContentControl Content="{Binding Editor}" DockPanel.Dock="Top" Tag="{Binding DataContext, ElementName=RootElement}">
             <ContentControl.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="Copy" cal:Message.Attach="[Event Click] = [Action CopySelected()]" />
-                    <MenuItem Header="GTSearch" cal:Message.Attach="[Event Click] = [Action GTSearch()]" />
-                    <MenuItem Header="FilePathToClipboard" cal:Message.Attach="[Event Click] = [Action CopyFilePath()]" />
+                <ContextMenu DataContext="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
+                    <MenuItem Header="Copy" cal:Message.Attach="[Event Click] = [Action Copy()]" />
+                    <MenuItem Header="GTSearch" 
+                              cal:Message.Attach="[Event Click] = [Action Search()]" />
                 </ContextMenu>
             </ContentControl.ContextMenu>
         </ContentControl>

@@ -87,8 +87,10 @@
                                                 Header="Count" />
                                 <GridViewColumn DisplayMemberBinding="{Binding Entity.GrepContext.TimeStarted}" 
                                                 ext:GridViewSort.PropertyName="GrepResult.GrepContext.TimeStarted" 
-                                                Header="StartTime" />
-                               
+                                                Header="TimeStarted" />
+                                <GridViewColumn DisplayMemberBinding="{Binding Entity.GrepContext.TimeCompleted}" 
+                                                ext:GridViewSort.PropertyName="GrepResult.GrepContext.TimeCompleted" 
+                                                Header="TimeCompleted" />
                             </GridView>
                         </ListView.View>
                     </ListView>

@@ -94,17 +94,6 @@ namespace Grep.Net.WPF.Client.ViewModels
             this.Closeable = true;
             this.Editor = new AvalonEditControl();
 
-            //Adding a Ctrl+s to the editor for "GTSearching"
-            Command c = new Command((x) => true, (x) =>
-            {
-                  
-            });
-
-            KeyGesture OpenKeyGesture = new KeyGesture(Key.S,
-                ModifierKeys.Control);
-            KeyBinding OpenCmdKeybinding = new KeyBinding(c, OpenKeyGesture);
-
-            Editor.InputBindings.Add(OpenCmdKeybinding);
          
             SearchPanel = SearchPanel.Install(this.Editor.TextArea);
  
@@ -173,9 +162,20 @@ namespace Grep.Net.WPF.Client.ViewModels
             }
         }
 
-        public void CopySelected()
+        public void Search()
         {
-            Editor.Copy(); 
+            String selectedText = this.Editor.SelectedText;
+            if (!string.IsNullOrEmpty(selectedText))
+            {
+                //TODO: This should really be a utility command. 
+                RootViewModel.Instance.Search(selectedText);
+            }
         }
+
+        public void Copy()
+        {
+            this.Editor.Copy(); 
+        }
+       
     }
 }
