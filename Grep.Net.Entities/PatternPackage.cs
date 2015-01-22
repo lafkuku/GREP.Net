@@ -53,14 +53,14 @@ namespace Grep.Net.Entities
 
         [XmlArray]
         [DataMember]
-        public BindableCollection<Pattern> Patterns { get; set; }
+        public List<Pattern> Patterns { get; set; }
 
         public PatternPackage()
         {
             //Id = Guid.NewGuid(); 
             Name = "Unknown_" + Guid.NewGuid();
             Category = "Unknown"; 
-            Patterns = new BindableCollection<Pattern>();
+            Patterns = new List<Pattern>();
             Version = 0; 
         }
 

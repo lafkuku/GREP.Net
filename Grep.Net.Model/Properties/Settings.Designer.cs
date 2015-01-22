@@ -25,7 +25,7 @@ namespace Grep.Net.Model.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(".\\Data\\PatternPackages")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data\\PatternPackages")]
         public string PatternPackagesDir {
             get {
                 return ((string)(this["PatternPackagesDir"]));
@@ -37,7 +37,7 @@ namespace Grep.Net.Model.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(".\\Data\\FileTypeDefinitions")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data\\FileTypeDefinitions")]
         public string FileTypeDefinitionsDir {
             get {
                 return ((string)(this["FileTypeDefinitionsDir"]));
@@ -49,7 +49,7 @@ namespace Grep.Net.Model.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(".\\Data\\Templates")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data\\Templates")]
         public string TemplatesDir {
             get {
                 return ((string)(this["TemplatesDir"]));
@@ -61,7 +61,7 @@ namespace Grep.Net.Model.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(".\\Data\\Classifications")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data\\Classifications")]
         public string ClassificationsDir {
             get {
                 return ((string)(this["ClassificationsDir"]));

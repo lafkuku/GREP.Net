@@ -491,6 +491,10 @@
       <Project>{ae3bdfd9-912f-4434-a0ce-7a4c0323c3b5}</Project>
       <Name>Grep.Net.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Grep.Net.Powershell\Grep.Net.Powershell.csproj">
+      <Project>{405cf7b4-cbd3-466e-9e52-62cc7a44cc8e}</Project>
+      <Name>Grep.Net.Powershell</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

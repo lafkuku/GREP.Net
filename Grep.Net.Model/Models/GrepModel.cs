@@ -138,8 +138,114 @@ namespace Grep.Net.Model.Models
             return matchInfos;
         }
 
-        public async Task<GrepContext> Grep(GrepContext grepContext)
+        private List<String> GetDirectories(GrepContext gc)
         {
+            SearchOption so = Settings.Recurse ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
+
+            List<String> dirs = new List<string>();
+            try
+            {
+                
+                DirectoryInfo rootDi = new DirectoryInfo(gc.RootPath);
+
+                foreach (DirectoryInfo dir in rootDi.EnumerateDirectories("*", SearchOption.TopDirectoryOnly))
+                {
+                    try
+                    {
+                        dirs.Add(dir.FullName);
+
+                        if (Settings.Recurse)
+                        {
+                            foreach (DirectoryInfo subDir in dir.EnumerateDirectories("*", SearchOption.AllDirectories))
+                            {
+                                try
+                                {
+                                    dirs.Add(subDir.FullName);
+                                }
+                                catch (UnauthorizedAccessException uae)
+                                {
+                                    logger.Error(uae);
+                                    if (gc.OnError != null)
+                                    {
+                                        gc.OnError(gc, uae.Message);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch (UnauthorizedAccessException uae)
+                    {
+                        logger.Error(uae);
+                        if (gc.OnError != null)
+                        {
+                            gc.OnError(gc, uae.Message);
+                        }
+                    }
+                }
+            }catch (Exception e)
+            {
+                if (gc.OnError != null)
+                {
+                    gc.OnError(gc, e.Message);
+                }
+            }
+            if (!dirs.Contains(gc.RootPath))
+                dirs.Add(gc.RootPath);
+
+            return dirs;
+        }
+
+        private List<String> GetFiles(GrepContext gc, string directory, HashSet<String> extensions = null)
+        {
+         
+            List<String> files = new List<string>();
+
+            try
+            {
+                DirectoryInfo di = new DirectoryInfo(directory);
+
+                if (extensions == null)
+                {
+                    extensions = new HashSet<string>(gc.FileExtensions.Select(x => x.Extension).ToList());
+                }
+
+                foreach (var fi in di.EnumerateFiles("*.*", SearchOption.TopDirectoryOnly))
+                {
+                    try
+                    {
+                        if (extensions.Contains(fi.Extension))
+                        {
+                            files.Add(fi.FullName);
+                        }
+                    }
+                    catch (UnauthorizedAccessException uae)
+                    {
+                        logger.Error(uae);
+                        if (gc.OnError != null)
+                        {
+                            gc.OnError(gc, uae.Message);
+                        }
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                if (gc.OnError != null)
+                {
+                    logger.Error(e);
+                    gc.OnError(gc, e.Message);
+                }
+            }
+            return files;
+        }
+        public async Task<GrepResult> Grep(GrepContext grepContext)
+        {
+
+            if (grepContext == null)
+            {
+                throw new ArgumentException("Invalid GrepContext");
+            }
             if (String.IsNullOrWhiteSpace(grepContext.RootPath))
             {
                 throw new ArgumentException("Null or empty rootDir");
@@ -156,89 +262,102 @@ namespace Grep.Net.Model.Models
             }
             
             
-            GrepResult result = new GrepResult();
-            
-         
-            result.GrepContext = grepContext;
+           
             grepContext.TimeStarted = DateTime.Now;
 
             ConcurrentBag<MatchInfo> tmpResults = new ConcurrentBag<MatchInfo>();
-           
+            GrepResult result = new GrepResult();
+            result.GrepContext = grepContext;
             //First we need to build out the FileInfo for this grep. We use await here because we want to wait for all the dirs to complete, but want each directory search to run indepdendently. 
-            await Task.Factory.StartNew((param) =>
+            await Task.Factory.StartNew(async (pObj) =>
             {
-                string tmp = param as String;
-
-                SearchOption so = Settings.Recurse ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
-
-                //var fse = new FileSystemEnumerable(new DirectoryInfo(tmp), "*", so);
-
-                //var dirs = fse.OfType<DirectoryInfo>().Select(x=>x.FullName).ToList();
-
-                var dirs = new DirectoryInfo(tmp).EnumerateDirectories("*", so).Select(x => x.FullName).ToList();
-
-                if (!dirs.Contains(tmp))
-                    dirs.Add(tmp);
-
+                GrepContext _gc = pObj as GrepContext;
                 List<Task> tasks = new List<Task>();
 
-                foreach (string dir in dirs)
+                if (_gc == null)
                 {
-                    var files = grepContext.FileExtensions.ToList().SelectMany(x => Directory.GetFiles(dir, "*" + x.Extension, SearchOption.TopDirectoryOnly));
-                    if (files.Count() > 0)
+                    //PRoblem. 
+                    logger.Error("Failed to get the correct GrepContext from the task factory. the passed in param is null????");
+                   
+                    return;
+                }
+                try{
+
+                    List<String> dirs = GetDirectories(_gc);
+  
+                    //Create a lookup table, this will be faster than enumerating the two sets against each other. 
+                    HashSet<String> extensions = new HashSet<string>(_gc.FileExtensions.Select(x => x.Extension).ToList());
+
+                    foreach (string dir in dirs)
                     {
-                        tasks.Add(Task.Factory.StartNew(() =>
+                        var files = GetFiles(_gc, dir, extensions);
+                        if (files.Count() > 0)
                         {
-                            if (grepContext.OnDirectory != null)
+                            tasks.Add(Task.Factory.StartNew(() =>
                             {
-                                grepContext.OnDirectory(grepContext, dir);
-                            }
+                                try{
+                                if (_gc.OnDirectory != null)
+                                {
+                                    _gc.OnDirectory(grepContext, dir);
+                                }
 
-                            List<MatchInfo> matchInfos = ExecuteInternal(files.ToArray(),
-                                grepContext.PatternPackages.ToList().SelectMany(x => x.Patterns).ToArray(),
-                                grepContext.FileExtensions.Select(x => "*" + x.Extension).ToArray());
-                            //Set the GrepResult
-                            matchInfos.ForEach(x => x.GrepResultId = result.Id);
-
-                            //add to the thread safe collection.
-                            matchInfos.ForEach(x => tmpResults.Add(x));
-                        }, CancellationToken.None, TaskCreationOptions.None, Scheduler));
-                    }
-                }
-                if (tasks.Count() > 0)
-                {
-                    var tmpTask = Task.Factory.ContinueWhenAll(tasks.ToArray(), (x) =>
-                    {
-                        tmpResults.ForEach(y => result.MatchInfos.Add(y));
-                        grepContext.TimeCompleted = DateTime.Now;
-                        //Add back to the non thread safe collection. 
-                        grepContext.Completed = true;
-                        if (grepContext.OnCompleted != null)
-                        {
-                            grepContext.OnCompleted(grepContext, result);
+                                List<MatchInfo> matchInfos = ExecuteInternal(files.ToArray(),
+                                                                            _gc.PatternPackages.ToList().SelectMany(x => x.Patterns).ToArray(),
+                                                                            _gc.FileExtensions.Select(x => "*" + x.Extension).ToArray());
+                           
+                                 //Set the GrepResult
+                                //add to the thread safe collection.
+                                matchInfos.ForEach(x =>{
+                                    x.GrepResultId = result.Id;
+                                    tmpResults.Add(x);
+                                });
+                                }
+                                catch (Exception e)
+                                {
+                                    _gc.Status = e.Message;
+                                    logger.Error(e);
+                                    if (_gc.OnError != null)
+                                    {
+                                        _gc.OnError(_gc, e.Message);
+                                    }
+                                }
+                            }, CancellationToken.None, TaskCreationOptions.None, Scheduler));
                         }
-
-                       
-                     
-                    }, CancellationToken.None);
-                }
-                else
-                {
-                    grepContext.ErrorType = SearchErrorType.NoFiles;
-                    logger.Info("No directories to scan. hrm?");
-                    grepContext.TimeCompleted = DateTime.Now;
-                    //Add back to the non thread safe collection. 
-                    grepContext.Completed = true;
-                    if (grepContext.OnCompleted != null)
-                    {
-                        grepContext.OnCompleted(grepContext, result);
                     }
-            
+                    if (tasks.Count() > 0)
+                    {
+                        await Task.Factory.ContinueWhenAll(tasks.ToArray(), (x) =>
+                        {
+                            tmpResults.ForEach(y => result.MatchInfos.Add(y));
+                        }, CancellationToken.None);
+                    }
+                    else
+                    {
+                        string msg = "No directories to scan?.";
+                        _gc.Status = msg;
+                        logger.Info(msg);
+                    }
                 }
-               
-            }, grepContext.RootPath);
+                catch (Exception e)
+                {
+                    _gc.Status = e.Message;
+                    if (_gc.OnError != null)
+                    {
+                        _gc.OnError(_gc, e.Message);
+                    }
+                }
 
-            return grepContext;
+                 _gc.TimeCompleted = DateTime.Now;
+                //Add back to the non thread safe collection. 
+                _gc.Completed = true;
+                if (_gc.OnCompleted != null)
+                {
+                    _gc.OnCompleted(grepContext, result);
+                }
+            
+            }, grepContext);
+
+            return result;
         }
     }
 }

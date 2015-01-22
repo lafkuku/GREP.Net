@@ -230,7 +230,7 @@ namespace Grep.Net.WPF.Client.ViewModels
             }
         }
         
-        public async Task<bool> Search(String searchRegexText)
+        public async void Search(String searchRegexText)
         {
           
             PatternPackage pp = new PatternPackage();
@@ -245,7 +245,7 @@ namespace Grep.Net.WPF.Client.ViewModels
             if (selectedDirs.Count < 1)
             {
                 MessageBox.Show("Try Selecting a Directory First...");
-                return false;
+                return;
             }
             
             var fileTypes = DataService.FileTypeDefinitionService.GetAll().Select(x=>x.Entity).Where(x => x.IsEnabled).SelectMany(x => x.FileExtensions.Where(y => y.IsEnabled)).ToList();
@@ -272,8 +272,6 @@ namespace Grep.Net.WPF.Client.ViewModels
                     MessageBox.Show(e.Message);
                 }
             }
-            
-            return true;
         }
         
         public void ResetLayout()

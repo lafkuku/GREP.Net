@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using Caliburn.Micro;
+
 namespace Grep.Net.Entities
 {
     [Serializable]
@@ -28,7 +28,7 @@ namespace Grep.Net.Entities
 
         [XmlArray(ElementName = "FileExtensions")]
         [DataMember(Name = "FileExtensions")]
-        public BindableCollection<FileExtension> FileExtensions { get; set; }
+        public List<FileExtension> FileExtensions { get; set; }
 
         [XmlElement("IsEnabled")]
         [DataMember(Name = "IsEnabled")]
@@ -40,7 +40,7 @@ namespace Grep.Net.Entities
         {
             this.Name = "Unknown";
             //this.Id = Guid.NewGuid(); 
-            FileExtensions = new BindableCollection<FileExtension>();
+            FileExtensions = new  List<FileExtension>();
         }
 
         public override int GetHashCode()

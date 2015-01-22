@@ -35,13 +35,13 @@ namespace Grep.Net.WPF.Client.ViewModels.Entities
         }
 
 
-        public SearchErrorType ErrorType
+        public String Status
         {
-            get { return Entity.ErrorType; }
+            get { return Entity.Status; }
             set
             {
-                Entity.ErrorType = value;
-                NotifyOfPropertyChange(() => ErrorType);
+                Entity.Status = value;
+                NotifyOfPropertyChange(() => Status);
             }
         }
 

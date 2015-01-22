@@ -27,21 +27,10 @@ namespace Grep.Net.Entities
         [XmlElement]
         public string RootPath { get; set; }
 
-        [XmlIgnore]
-        public int eErrorType { get; internal set; }
+    
         [DataMember]
         [XmlElement]
-        public SearchErrorType ErrorType
-        {
-            get
-            {
-                return (SearchErrorType)eErrorType;
-            }
-            set
-            {
-                eErrorType = (int)value;
-            }
-        }
+        public String Status { get; set; }
 
         [DataMember]
         [XmlElement]
@@ -71,6 +60,11 @@ namespace Grep.Net.Entities
         [IgnoreDataMember]
         public NextDirectory OnDirectory;
 
+
+        public delegate void Error(GrepContext _this, String errorMessage);
+        [XmlIgnore]
+        [IgnoreDataMember]
+        public Error OnError;
 
 
         public GrepContext()

@@ -48,18 +48,19 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
         {
             DataService = dataService;
             MatchInfoEditorViewModel = new ViewModels.MatchInfoEditorViewModel();
-
-            Crumbs.Add(new GrepResultsCrumb(DataService)
+            GrepResultsCrumb grCrumb = new GrepResultsCrumb(DataService)
             {
                 Display = "Results"
-            });
+            };
+
+            Crumbs.Add(grCrumb);
 
             Navigate = new DelegateCommand((dataContext) =>
             {
                 if (dataContext is GrepResultViewModel)
                 {
                     GrepResultViewModel gr = dataContext as GrepResultViewModel;
-
+                   
                     //Set it to 60 if it's too long... 
                     //TODO add this to options at some point
                     String s = gr.Entity.GrepContext.RootPath;
@@ -68,13 +69,26 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
                         s = s.Substring(0, 60);
                     }
 
-                    //TODO:  Add a flow here that if there is only 1 result set (Search/1 package, etc) skip the PatternPackageCrumb and go straight to the MatchInfosCrumb
-                    //Grep Results
-                    Crumbs.Add(new PatternPackageCrumb(gr, DataService)
+                    var singlePackage = gr.MatchInfos.Cast<MatchInfo>().Select(x => x.Pattern.PatternPackageId).Distinct().Count() == 1;
+                    if (singlePackage)
                     {
-                        Owner = this,
-                        Display = s
-                    });
+                        //If it's only 1 package, we just skip to the matchInfos. (This is also a hack to avoid the PatternPackage for "Searching" since there is only ever 1 package ;). 
+                        Crumbs.Add(new MatchInfosCrumb(grCrumb, new BindableCollection<MatchInfo>(gr.MatchInfos.Cast<MatchInfo>()))
+                        {
+                            Owner = this
+                        });
+                    }
+                    else
+                    {
+                        //TODO:  Add a flow here that if there is only 1 result set (Search/1 package, etc) skip the PatternPackageCrumb and go straight to the MatchInfosCrumb
+                        //Grep Results
+                        Crumbs.Add(new PatternPackageCrumb(gr, DataService)
+                        {
+                            Owner = this,
+                            Display = s
+                        });
+                    }
+                   
                 }
                 else if (dataContext is PatternPackageViewModel)
                 {
@@ -428,10 +442,10 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
     {
         //public SyncedBindableCollection<MatchInfo, MatchInfoViewModel> _matchInfos { get; set; }
 
-        private SyncedBindableCollection<MatchInfo, MatchInfoViewModel> _matchInfos; 
+        private SyncedBindableCollection<MatchInfo, MatchInfoViewModel> _matchInfos;
 
 
-        public PatternPackageCrumb Parent { get; set; }
+        public CrumbListViewModel Parent { get; set; }
 
 
         private String _filterStr;
@@ -449,9 +463,10 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
             }
         }
 
-        public MatchInfosCrumb(PatternPackageCrumb parent, BindableCollection<MatchInfo> matchInfos){
+        public MatchInfosCrumb(CrumbListViewModel parent, BindableCollection<MatchInfo> matchInfos)
+        {
 
-
+            Display = "";
             _matchInfos = new SyncedBindableCollection<MatchInfo, MatchInfoViewModel>(matchInfos,
                                                                                       (x) => new MatchInfoViewModel() { Entity = x },
                                                                                       (m, vm) => vm.Entity == m);

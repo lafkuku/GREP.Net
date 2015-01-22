@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Id>2b6712c2-39e7-41e3-8c1f-73575482ff2a</Id>
-  <Name>AspNET</Name>
+  <Name>Asp.Net</Name>
   <Version>0</Version>
   <Category>.Net</Category>
   <IsEnabled>true</IsEnabled>

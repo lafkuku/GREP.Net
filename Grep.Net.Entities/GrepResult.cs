@@ -19,14 +19,14 @@ namespace Grep.Net.Entities
         public GrepContext GrepContext { get; set; }
           [DataMember]
         [XmlArray(ElementName = "MatchInfos")]
-        public virtual BindableCollection<MatchInfo> MatchInfos { get; set; }
+        public virtual List<MatchInfo> MatchInfos { get; set; }
           [DataMember]
           [XmlElement]
         public String Status { get; set; }
 
         public GrepResult() : base()
         {
-            MatchInfos = new BindableCollection<MatchInfo>();
+            MatchInfos = new List<MatchInfo>();
         }
 
         public override string ToString()

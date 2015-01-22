@@ -81,15 +81,15 @@ namespace Grep.Net.WPF.Client.ViewModels
             {
                 try
                 {
-                    if (RootViewModel.Instance.Search(this.SearchText).Result)
+                    RootViewModel.Instance.Search(this.SearchText);
+                    
+                    if (!this.RecentSearches.Contains(SearchText))
                     {
-                        if (!this.RecentSearches.Contains(SearchText))
-                        {
-                            RecentSearches.AddNewItem(SearchText);
-                            RecentSearches.CommitNew();
-                        }
-                        this.SearchText = "";
+                        RecentSearches.AddNewItem(SearchText);
+                        RecentSearches.CommitNew();
                     }
+                    this.SearchText = "";
+                    
                 }
                 catch (Exception e)
                 {

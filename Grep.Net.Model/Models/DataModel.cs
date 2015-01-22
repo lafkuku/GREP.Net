@@ -49,12 +49,21 @@ namespace Grep.Net.Model.Models
           
             //Load value from the Repositories
             //LoadDatabaseValues();
-            PatternPackageRepository = new XmlDirRepository<PatternPackage>(App.Settings.PatternPackagesDir);
-            FileTypeDefinitionRepository = new XmlDirRepository<FileTypeDefinition>(App.Settings.FileTypeDefinitionsDir);
+            PatternPackageRepository = GetXmlRepositoryFromPath<PatternPackage>(App.Settings.PatternPackagesDir);
+            FileTypeDefinitionRepository = GetXmlRepositoryFromPath<FileTypeDefinition>(App.Settings.FileTypeDefinitionsDir);
             TemplateRepository = new XmlDirRepository<Template>(App.Settings.TemplatesDir);
             GrepResultRepository = new InMemoryRepository<GrepResult>();
             GrepContextRepository = new InMemoryRepository<GrepContext>(); 
             FixRelations();
+        }
+
+        public XmlDirRepository<T> GetXmlRepositoryFromPath<T>(String path) where T :  class, IEntity
+        {
+            string root = System.IO.Path.GetDirectoryName(typeof(XmlDirRepository<>).Assembly.Location);
+            if(System.IO.Path.IsPathRooted(path))
+                return new XmlDirRepository<T>(path);
+            else
+                return new XmlDirRepository<T>(root + "\\" + path);
         }
 
         public void FixRelations()
