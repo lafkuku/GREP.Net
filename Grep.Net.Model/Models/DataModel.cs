@@ -82,7 +82,7 @@ namespace Grep.Net.Model.Models
             FileTypeDefinitionRepository.Commit(); 
         }
 
-
+        #region Dead
 
         private string GetBaseDirectoryForType(Type t)
         {
@@ -138,5 +138,6 @@ namespace Grep.Net.Model.Models
             }
             return null;
         }
+        #endregion
     }
 }
