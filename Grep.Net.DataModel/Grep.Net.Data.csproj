@@ -96,6 +96,7 @@
     </Content>
     <Content Include="Data\FileTypeDefinitions\Configuration.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Data\FileTypeDefinitions\JavaScript.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

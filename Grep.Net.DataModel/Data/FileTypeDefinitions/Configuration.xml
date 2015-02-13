@@ -15,6 +15,22 @@
       <Extension>.cfg</Extension>
       <IsEnabled>true</IsEnabled>
     </FileExtension>
+    <FileExtension>
+      <Extension>.cfgdef</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+    <FileExtension>
+      <Extension>.cfginc</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+   <FileExtension>
+      <Extension>.targets</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
+ <FileExtension>
+      <Extension>.settings</Extension>
+      <IsEnabled>true</IsEnabled>
+    </FileExtension>
   </FileExtensions>
   <IsEnabled>false</IsEnabled>
   <Version>0</Version>
