@@ -41,6 +41,12 @@ namespace Grep.Net.Powershell
         [Parameter(Mandatory=false)]
         public SwitchParameter Recurse { get; set;}
 
+
+        [Alias("n")]
+        [Parameter(Mandatory = false)]
+        public SwitchParameter Noisy { get; set; }
+
+
         private GTApplication App { get; set; }
 
         private ConcurrentQueue<ProgressRecord> ProgressQueue { get; set; }
@@ -49,6 +55,7 @@ namespace Grep.Net.Powershell
 
         public Grep(){ 
             Recurse = true;
+            Noisy = false;
             ProgressQueue = new ConcurrentQueue<ProgressRecord>();
             ErrorQueue = new ConcurrentQueue<ErrorRecord>();
             OutFile = "";
@@ -186,7 +193,7 @@ namespace Grep.Net.Powershell
                 ErrorQueue.Enqueue(er);
             });
 
-            //WriteObject("Starting Grep");
+            WriteObject("Starting..");
             Task<GrepResult> task = null;
             try
             {
@@ -196,7 +203,7 @@ namespace Grep.Net.Powershell
             {
                 done = true;
             }
-       
+            WriteObject("Working..");
             while ( !done)
             {
                 ProgressRecord pr = null;
@@ -226,11 +233,19 @@ namespace Grep.Net.Powershell
                 ec.Add(gr);
                 SerializationHelper.SerializeIntoXmlFile<EntityContainer>(OutFile,  ec);
             }
-            WriteProgress(new ProgressRecord(1, "Working...", "Completed"));
+            
+            WriteObject("Done!...");
 
             if (gr.MatchInfos.Count > 0)
             {
-                WriteObject(gr.MatchInfos);
+                if (Noisy)
+                {
+                    WriteObject(gr.MatchInfos);
+                }
+                else
+                {
+                    WriteObject("Output surpressed, -Noisy true to see results or -OutFile to write the results to an xml file for import to the GUI.");
+                }
             }
             else
             {
