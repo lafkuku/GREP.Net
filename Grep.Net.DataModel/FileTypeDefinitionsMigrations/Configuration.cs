@@ -36,13 +36,6 @@ namespace Grep.Net.Data.FileTypeDefinitionsMigrations
 
                 context.FileTypeDefinitions.AddOrUpdate(x);
                 context.SaveChanges();
-                /*
-                foreach (FileExtension fe in x.FileExtensions)
-                {
-                    context.Entry(fe).State = System.Data.Entity.EntityState.Unchanged;
-                }*/
-
-
             });
         }
     }
