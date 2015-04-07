@@ -26,7 +26,7 @@ namespace Grep.Net.Powershell.Test
             runspace.Open();
 
             RunspaceInvoke invoker = new RunspaceInvoke(runspace);
-            Collection<PSObject> results = invoker.Invoke(@"Invoke-Grep 'C:\Users\Kuku\Documents' Secrets Config");
+            Collection<PSObject> results = invoker.Invoke(@"Invoke-Grep 'C:\tmp' -c Secrets -ft Config");
 
         }
     }
