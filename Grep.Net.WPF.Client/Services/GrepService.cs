@@ -36,7 +36,15 @@ namespace Grep.Net.WPF.Client.Services
             {
                 DataService.GrepResultService.Add(y);
             });
-           
+
+            gc.CancelToken.Token.Register(new Action(() =>
+            {
+                if (gc.OnDirectory != null)
+                {
+                    gc.OnDirectory(gc, "Cancelled");
+                }
+
+            }));
 
             var vm = DataService.GrepContextService.Add(gc);
             await Model.Grep(gc);

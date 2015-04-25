@@ -14,11 +14,13 @@ using Grep.Net.WPF.Client.Interfaces;
 using Grep.Net.WPF.Client.Services;
 using Grep.Net.Data;
 using System.Threading.Tasks;
+using System.ComponentModel.Composition;
 
 
 namespace Grep.Net.WPF.Client.ViewModels
 {
-    public class RootViewModel : Screen
+        [Export(typeof(IRoot))]
+    public class RootViewModel : Screen, IRoot
     {
         #region Singleton
         

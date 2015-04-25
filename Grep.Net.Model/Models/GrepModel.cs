@@ -267,8 +267,7 @@ namespace Grep.Net.Model.Models
             {
                 throw new ArgumentException("Extensions paramter is null");
             }
-            
-            
+
            
             grepContext.TimeStarted = DateTime.Now;
 
@@ -291,12 +290,16 @@ namespace Grep.Net.Model.Models
                 try{
                     grepContext.OnDirectory(grepContext, "Identifying Directories");
                     List<String> dirs = GetDirectories(_gc);
-  
+                    
+                    grepContext.CancelToken.Token.ThrowIfCancellationRequested(); 
+
                     //Create a lookup table, this will be faster than enumerating the two sets against each other. 
                     HashSet<String> extensions = new HashSet<string>(_gc.FileExtensions.Select(x => x.Extension).ToList());
                     grepContext.OnDirectory(grepContext, "Building Grep Requests");
                     foreach (string dir in dirs)
                     {
+                        grepContext.CancelToken.Token.ThrowIfCancellationRequested(); 
+
                         var files = GetFiles(_gc, dir, extensions);
 
                         if (files.Count() > 0)
@@ -315,7 +318,7 @@ namespace Grep.Net.Model.Models
 
                             tasks.Add(Task.Factory.StartNew(() =>
                             {
-                              
+                                grepContext.CancelToken.Token.ThrowIfCancellationRequested(); 
                                 try{
                                 if (_gc.OnDirectory != null)
                                 {
@@ -325,7 +328,7 @@ namespace Grep.Net.Model.Models
                                 List<MatchInfo> matchInfos = ExecuteInternal(files.ToArray(),
                                                                             _gc.PatternPackages.ToList().SelectMany(x => x.Patterns).ToArray(),
                                                                             _gc.FileExtensions.Select(x => "*" + x.Extension).ToArray());
-                           
+                                grepContext.CancelToken.Token.ThrowIfCancellationRequested(); 
                                  //Set the GrepResult
                                 //add to the thread safe collection.
                                 matchInfos.ForEach(x =>{
@@ -342,7 +345,7 @@ namespace Grep.Net.Model.Models
                                         _gc.OnError(_gc, e.Message);
                                     }
                                 }
-                            }, CancellationToken.None, TaskCreationOptions.None, Scheduler));
+                            }, grepContext.CancelToken.Token, TaskCreationOptions.None, Scheduler));
                         }
                     }
                     if (tasks.Count() > 0)
@@ -350,7 +353,7 @@ namespace Grep.Net.Model.Models
                         await Task.Factory.ContinueWhenAll(tasks.ToArray(), (x) =>
                         {
                             tmpResults.ForEach(y => result.MatchInfos.Add(y));
-                        }, CancellationToken.None);
+                        }, grepContext.CancelToken.Token);
                     }
                     else
                     {

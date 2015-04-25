@@ -38,10 +38,10 @@
             
         </DockPanel.Resources>
         <DockPanel DockPanel.Dock="Top" Background="LightGray">
-            <StatusBar DockPanel.Dock="Left" ItemsSource="{Binding Crumbs}" >
+            <StatusBar DockPanel.Dock="Left" ItemsSource="{Binding Crumbs}" Background="Transparent" >
                 <StatusBar.ItemTemplate>
                     <DataTemplate>
-                        <control:ClickableLabel Text="{Binding Display}" cal:Message.Attach="[Event Click]=[Action GoBack($dataContext)]"  />
+                        <control:ClickableLabel Text="{Binding Display}" cal:Message.Attach="[Event Click]=[Action GoBack($dataContext)]" Background="Transparent"  />
                     </DataTemplate>
                 </StatusBar.ItemTemplate>
             </StatusBar>
