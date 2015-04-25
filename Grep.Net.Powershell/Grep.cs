@@ -18,24 +18,34 @@ namespace Grep.Net.Powershell
     public class Grep : PSCmdlet
     {
         [Parameter(Position=0, Mandatory=true)]
+       
         public String RootDirectory { get; set; }
 
-        
-        [Parameter(Position = 1, Mandatory = true)]
-        [Alias("Category", "p", "c")]
-        public String Package { get; set; }
+        [Parameter(Mandatory = false, ParameterSetName="ByCategory")]
+        [Alias("c")]
+        public String[] Categories { get; set; }
 
-        [Alias("FileType", "ft")]
+        [Parameter(Mandatory = false, ParameterSetName = "ByPackages")]
+        [Alias( "p")]
+        public String[] Packages { get; set; }
+
+        [Alias("ft")]
         [Parameter(Position=2, Mandatory=false)]
-        public String FileTypes { get; set; }
+        public String[] FileTypes { get; set; }
 
-        [Alias("o", "out")]
+        [Alias("o")]
         [Parameter(Position=3, Mandatory=false)]
         public String OutFile { get; set; }
         
         [Alias("r")]
         [Parameter(Mandatory=false)]
         public SwitchParameter Recurse { get; set;}
+
+
+        [Alias("n")]
+        [Parameter(Mandatory = false)]
+        public SwitchParameter Noisy { get; set; }
+
 
         private GTApplication App { get; set; }
 
@@ -45,6 +55,7 @@ namespace Grep.Net.Powershell
 
         public Grep(){ 
             Recurse = true;
+            Noisy = false;
             ProgressQueue = new ConcurrentQueue<ProgressRecord>();
             ErrorQueue = new ConcurrentQueue<ErrorRecord>();
             OutFile = "";
@@ -62,8 +73,6 @@ namespace Grep.Net.Powershell
             {
                 WriteObject(e.Message);
             }
-       
-
         }
         protected override void ProcessRecord()
         {
@@ -79,35 +88,47 @@ namespace Grep.Net.Powershell
                 WriteObject("The supplied RootDirectory does not exist");
                 return;
             }
-            if (String.IsNullOrEmpty(Package))
-            {
-                WriteObject("Package parameter is null or empty. ");
-                return;
-            }
 
-
-            List<PatternPackage> packages = new List<PatternPackage>(); 
-
-            PatternPackage pp = App.DataModel.PatternPackageRepository.GetAll().FirstOrDefault(x => x.Name.Equals(Package, StringComparison.InvariantCultureIgnoreCase));
-            if (pp != null)
+            List<PatternPackage> packages = null;
+          
+            switch (ParameterSetName)
             {
-                packages.Add(pp);
-            }
-            else
-            {
-                var catPackages = App.DataModel.PatternPackageRepository.GetAll().Where(x => x.Category.Equals(this.Package, StringComparison.InvariantCultureIgnoreCase));
-                packages.AddRange(catPackages);
-            }
+                case "ByCategory":
+                     if(Categories.Count() < 1){
+                         throw new ArgumentException("Categories selected, but no categories were passed in.");
+                     }
+                     else
+                     {
+                         HashSet<String> categoryNames = new HashSet<string>(Categories.ToList());
+                         packages = App.DataModel.PatternPackageRepository.GetAll().Where(x => categoryNames.Contains(x.Category)).ToList();
+                     }
+                     break;
+
+                case "ByPackages":
+                     if(Packages.Count() < 1){
+                         throw new ArgumentException("Packages selected, but no packages were actually passed in.");
+                     }
+                     else
+                     {
+                         HashSet<String> packageNames = new HashSet<string>(Packages.ToList());
+                         packages = App.DataModel.PatternPackageRepository.GetAll().Where(x => packageNames.Contains(x.Name)).ToList();
+                     }
+                     break;
+
+                default:
+                     throw new ArgumentException("Bad ParameterSet, must include Categories or PatternPackages.");
+            } // switch (ParameterSetName...
 
             if (packages.Count < 1)
             {
-                WriteObject("Error: No Packages selected!");
-                return;
+                throw new ArgumentException("Failed to find packages or categories with the names passed in.");
             }
+           
+            HashSet<String> fileTypeNames = new HashSet<string>(FileTypes.ToList());
+            List<FileTypeDefinition> fileTypes = App.DataModel.FileTypeDefinitionRepository.GetAll().Where(x => fileTypeNames.Contains(x.Name)).ToList();
+           
 
-            List<FileTypeDefinition> fileTypes = new List<FileTypeDefinition>();
-
-            if (String.IsNullOrEmpty(FileTypes))
+            if (fileTypes.Count < 1)
             {
                 var ftd = App.DataModel.FileTypeDefinitionRepository.GetAll().FirstOrDefault(x => x.Name.Equals("all"));
                 if (ftd == null)
@@ -118,16 +139,7 @@ namespace Grep.Net.Powershell
                     newDef.FileExtensions.Add(new FileExtension() { Extension = "*.*" });
                 }
             }
-            else {
-                var ftds = App.DataModel.FileTypeDefinitionRepository.GetAll().Where(x => x.Name.Equals(FileTypes, StringComparison.InvariantCultureIgnoreCase));
-                if (ftds == null || ftds.Count() < 1)
-                {
-                    WriteObject("Failed to resolve any FileTypeDefinitions with the Name: " + FileTypes);
-                    return;
-                }
-
-                fileTypes.AddRange(ftds);
-            }
+            
             var extensions = fileTypes.SelectMany(x => x.FileExtensions);
 
             if (extensions == null || extensions.Count() < 1)
@@ -135,6 +147,24 @@ namespace Grep.Net.Powershell
                 WriteObject("The FileTypeDefinitions with the Name: " + FileTypes + " does not contain any file extensions?");
                 return;
             }
+
+            WriteObject("Starting to Grep Directory: " + RootDirectory);
+            WriteObject("Recurse?: " + Recurse);
+            WriteObject("Packages: ");
+            foreach (PatternPackage package in packages)
+            {
+                WriteObject("\t" + package.Name);
+            }
+            foreach (FileTypeDefinition ftd in fileTypes)
+            {
+                WriteObject("FileTypeDefinition: " + ftd.Name);
+                foreach (FileExtension extension in ftd.FileExtensions)
+                {
+                    WriteObject("\t" + extension.Extension);
+                }
+
+            }
+           
 
             GrepContext gc = new GrepContext()
             {
@@ -163,7 +193,7 @@ namespace Grep.Net.Powershell
                 ErrorQueue.Enqueue(er);
             });
 
-            //WriteObject("Starting Grep");
+            WriteObject("Starting..");
             Task<GrepResult> task = null;
             try
             {
@@ -173,7 +203,7 @@ namespace Grep.Net.Powershell
             {
                 done = true;
             }
-       
+            WriteObject("Working..");
             while ( !done)
             {
                 ProgressRecord pr = null;
@@ -203,11 +233,19 @@ namespace Grep.Net.Powershell
                 ec.Add(gr);
                 SerializationHelper.SerializeIntoXmlFile<EntityContainer>(OutFile,  ec);
             }
-            WriteProgress(new ProgressRecord(1, "Working...", "Completed"));
+            
+            WriteObject("Done!...");
 
             if (gr.MatchInfos.Count > 0)
             {
-                WriteObject(gr.MatchInfos);
+                if (Noisy)
+                {
+                    WriteObject(gr.MatchInfos);
+                }
+                else
+                {
+                    WriteObject("Output surpressed, -Noisy true to see results or -OutFile to write the results to an xml file for import to the GUI.");
+                }
             }
             else
             {

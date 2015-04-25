@@ -173,6 +173,7 @@
     </None>
     <None Include="Data\PatternPackages\Net\Net_ConfigFiles.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Data\PatternPackages\Net\Net_Reflection.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -204,12 +205,14 @@
     </None>
     <None Include="Data\PatternPackages\Secrets\Credential.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Data\PatternPackages\Secrets\Misc.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Data\PatternPackages\Secrets\Passwords.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Data\PatternPackages\SQLI\SQL.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
