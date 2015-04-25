@@ -11,7 +11,6 @@ namespace Grep.Net.Data
 {
     public static class SerializationHelper
     {
-
         private static Type[] knownTypes =
         {
             typeof(Pattern),

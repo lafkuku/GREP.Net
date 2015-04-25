@@ -54,10 +54,10 @@
       <Value Profile="(Default)">25</Value>
     </Setting>
     <Setting Name="PoolRunspaceMin" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="PoolRunspaceMax" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">25</Value>
+      <Value Profile="(Default)">15</Value>
     </Setting>
     <Setting Name="Recurse" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -65,6 +65,9 @@
     <Setting Name="RecentSearches" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
+    </Setting>
+    <Setting Name="LogFilesBeforeGrepping" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

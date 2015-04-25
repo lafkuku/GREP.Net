@@ -22,6 +22,16 @@ using Grep.Net.WPF.Client.Interfaces;
 
 namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
 {
+    public class PatternPackResultViewModel
+    {
+        public PatternPackageViewModel PatternPackage { get; set; }
+
+        public GrepResultViewModel Result { get; set; }
+
+        public int Count { get { return Result.MatchInfos.Cast<MatchInfo>().Where(x => x.Pattern.PatternPackageId == PatternPackage.Entity.Id).Count(); } }
+
+    }
+
     public class GrepResultCrumbListViewViewModel : CrumbNavigationListViewBaseViewModel
     {
         private IEnumerable<MatchInfoViewModel> _selectedMatchInfos;
@@ -90,18 +100,18 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
                     }
                    
                 }
-                else if (dataContext is PatternPackageViewModel)
+                else if (dataContext is PatternPackResultViewModel)
                 {
                     //Match Info "PatternPackage" title
                     //We know the GrepResult is on the top of the stack. 
                     PatternPackageCrumb crumb = CurrentCrumb as PatternPackageCrumb;
-                    PatternPackageViewModel pp = dataContext as PatternPackageViewModel;
+                    PatternPackResultViewModel pp = dataContext as PatternPackResultViewModel;
                     if (crumb != null)
                     {
-                        Crumbs.Add(new MatchInfosCrumb(crumb, new BindableCollection<MatchInfo>(crumb.GrepResult.MatchInfos.Cast<MatchInfo>().Where(x => x.Pattern.PatternPackageId == pp.Entity.Id)))
+                        Crumbs.Add(new MatchInfosCrumb(crumb, new BindableCollection<MatchInfo>(crumb.GrepResult.MatchInfos.Cast<MatchInfo>().Where(x => x.Pattern.PatternPackageId == pp.PatternPackage.Entity.Id)))
                         {
                             Owner = this,
-                            Display = pp.Name,
+                            Display = pp.PatternPackage.Name,
                             Parent = crumb
                         });
                     }
@@ -413,24 +423,31 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
     }
     public class PatternPackageCrumb : CrumbListViewModel
     {
-   
-        internal GrepResultViewModel GrepResult;
-        internal IDataService DataService { get; set; }
 
-        internal BindableCollection<PatternPackageViewModel> PatternPackages { get; set; }
+      
+
+        public GrepResultViewModel GrepResult;
+        public IDataService DataService { get; set; }
+
+        public BindableCollection<PatternPackResultViewModel> PatternPackages { get; set; }
+
+        public int Count { get { return PatternPackages.Count; } }
 
         public PatternPackageCrumb(GrepResultViewModel gr, IDataService dataService)
         {
             DataService = dataService;
             GrepResult = gr;
-            PatternPackages = new BindableCollection<PatternPackageViewModel>();
+            PatternPackages = new BindableCollection<PatternPackResultViewModel>();
 
             var matches = GrepResult.MatchInfos.Cast<MatchInfo>();
              var patternPackageIds = matches.Where(x=>x.Pattern.PatternPackageId != Guid.Empty).Select(x => x.Pattern.PatternPackageId);
              var patternPackages = patternPackageIds.Select(x => DataService.PatternPackageService.Get(x)).Distinct().ToList();
              foreach (var patternPackage in patternPackages)
              {
-                 PatternPackages.Add(patternPackage);
+                 PatternPackResultViewModel pprv = new PatternPackResultViewModel();
+                 pprv.PatternPackage = patternPackage;
+                 pprv.Result = gr;
+                 PatternPackages.Add(pprv);
              }
 
              ItemsSource = new ListCollectionView(PatternPackages as System.Collections.IList);

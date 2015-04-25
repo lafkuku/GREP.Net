@@ -43,7 +43,7 @@ namespace Grep.Net.Entities
             this.LinesBefore = 2;
             this.MaxContextSize = 1000;
             this.MaxLineSize = 1000;
-            this.MaxThreads = 25; 
+            this.MaxThreads = 15; 
         }
     }
 }

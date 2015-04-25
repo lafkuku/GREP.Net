@@ -103,9 +103,12 @@
                         <ListView.View>
                             <GridView>
                                 <!-- We bind to the "Entity" property because that will be the ViewModel type, GrepResult -->
-                                <GridViewColumn DisplayMemberBinding="{Binding Name}"
-                                                ext:GridViewSort.PropertyName="Name" 
+                                <GridViewColumn DisplayMemberBinding="{Binding PatternPackage.Name}"
+                                                ext:GridViewSort.PropertyName="PatternPackage.Name" 
                                                 Header="Package" />
+                                <GridViewColumn DisplayMemberBinding="{Binding Count}"
+                                                ext:GridViewSort.PropertyName="Count" 
+                                                Header="Count" />
                             </GridView>
                         </ListView.View>
                         <ListView.ItemContainerStyle>
