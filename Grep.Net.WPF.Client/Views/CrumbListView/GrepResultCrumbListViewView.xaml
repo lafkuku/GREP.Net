@@ -138,7 +138,7 @@
                                 <Style TargetType="{x:Type ListViewItem}">
                                     <Setter Property="cal:Message.Attach" Value="[Event MouseDoubleClick] = [Action ShowResultInWin]" />
                                     <Setter Property="cal:Action.TargetWithoutContext" Value="{Binding Tag, RelativeSource={RelativeSource AncestorType=ListView}}" />
-                                    <Setter Property="ToolTip" Value="{Binding MatchInfo.FileInfo.FullName}" />
+                                    <Setter Property="ToolTip" Value="{Binding Entity.FileInfo.FullName}" />
                                 </Style>
                             </ListView.ItemContainerStyle>
                             

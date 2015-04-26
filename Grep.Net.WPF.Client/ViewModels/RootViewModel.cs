@@ -377,11 +377,19 @@ namespace Grep.Net.WPF.Client.ViewModels
         
         public override System.Windows.Style SelectStyle(object item, System.Windows.DependencyObject container)
         {
+            if (item is MatchInfoEditorViewModel ||
+                item is DetailsViewModel ||
+                item is NLogViewModel ||
+                item is GrepContextStatusViewModel)
+                return StaticDocumentStyle;
+
             if (container is Xceed.Wpf.AvalonDock.Controls.LayoutAnchorableItem)
                 return AnchorableStyle;
             
             if (container is Xceed.Wpf.AvalonDock.Controls.LayoutDocumentItem)
                 return DocumentStyle;
+
+           
             
             return DocumentStyle;
         }

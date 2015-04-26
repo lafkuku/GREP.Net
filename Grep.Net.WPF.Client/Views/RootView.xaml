@@ -42,146 +42,7 @@
                 </ResourceDictionary.MergedDictionaries>
                 
                 <converters:BoolToVisabilityConverter x:Key="_boolToVis" />
-             <!--
-
-                <Style x:Key="DocumentPaneControlStyle" TargetType="{x:Type avalonDock:LayoutDocumentPaneControl}" BasedOn="{StaticResource MetroTabControl}">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type TabControl}">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition x:Name="ColumnDefinition0" />
-                                        <ColumnDefinition x:Name="ColumnDefinition1" Width="0" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition x:Name="RowDefinition0" Height="Auto" />
-                                        <RowDefinition x:Name="RowDefinition1" Height="*" />
-                                    </Grid.RowDefinitions>
-                                    <TabPanel x:Name="HeaderPanel"
-                                          Grid.Column="0"
-                                          IsItemsHost="true"
-                                          Grid.Row="0"
-                                          KeyboardNavigation.TabIndex="1"
-                                          Panel.ZIndex="1" >
-                                        
-                                    </TabPanel>
-                                    <Border x:Name="ContentPanel"
-                                            BorderBrush="{TemplateBinding BorderBrush}"
-                                            BorderThickness="{TemplateBinding BorderThickness}"
-                                            Background="{TemplateBinding Background}"
-                                            Grid.Column="0"
-                                            KeyboardNavigation.DirectionalNavigation="Contained"
-                                            Grid.Row="1"
-                                            KeyboardNavigation.TabIndex="2"
-                                            KeyboardNavigation.TabNavigation="Local">
-                                        <ContentPresenter x:Name="PART_SelectedContentHost"
-                                              ContentSource="SelectedContent"
-                                              Margin="{TemplateBinding Padding}"
-                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                                    </Border>
-                                </Grid>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="TabStripPlacement"
-                                 Value="Bottom">
-                                        <Setter Property="Grid.Row"
-                                    TargetName="HeaderPanel"
-                                    Value="1" />
-                                        <Setter Property="Grid.Row"
-                                    TargetName="ContentPanel"
-                                    Value="0" />
-                                        <Setter Property="Height"
-                                    TargetName="RowDefinition0"
-                                    Value="*" />
-                                        <Setter Property="Height"
-                                    TargetName="RowDefinition1"
-                                    Value="Auto" />
-                                        <Setter Property="Margin"
-                                    TargetName="HeaderPanel"
-                                    Value="2,0,2,2" />
-                                    </Trigger>
-                                    <Trigger Property="TabStripPlacement"
-                                 Value="Left">
-                                        <Setter Property="Grid.Row"
-                                    TargetName="HeaderPanel"
-                                    Value="0" />
-                                        <Setter Property="Grid.Row"
-                                    TargetName="ContentPanel"
-                                    Value="0" />
-                                        <Setter Property="Grid.Column"
-                                    TargetName="HeaderPanel"
-                                    Value="0" />
-                                        <Setter Property="Grid.Column"
-                                    TargetName="ContentPanel"
-                                    Value="1" />
-                                        <Setter Property="Width"
-                                    TargetName="ColumnDefinition0"
-                                    Value="Auto" />
-                                        <Setter Property="Width"
-                                    TargetName="ColumnDefinition1"
-                                    Value="*" />
-                                        <Setter Property="Height"
-                                    TargetName="RowDefinition0"
-                                    Value="*" />
-                                        <Setter Property="Height"
-                                    TargetName="RowDefinition1"
-                                    Value="0" />
-                                        <Setter Property="Margin"
-                                    TargetName="HeaderPanel"
-                                    Value="2,2,0,2" />
-                                    </Trigger>
-                                    <Trigger Property="TabStripPlacement"
-                                 Value="Right">
-                                        <Setter Property="Grid.Row"
-                                    TargetName="HeaderPanel"
-                                    Value="0" />
-                                        <Setter Property="Grid.Row"
-                                    TargetName="ContentPanel"
-                                    Value="0" />
-                                        <Setter Property="Grid.Column"
-                                    TargetName="HeaderPanel"
-                                    Value="1" />
-                                        <Setter Property="Grid.Column"
-                                    TargetName="ContentPanel"
-                                    Value="0" />
-                                        <Setter Property="Width"
-                                    TargetName="ColumnDefinition0"
-                                    Value="*" />
-                                        <Setter Property="Width"
-                                    TargetName="ColumnDefinition1"
-                                    Value="Auto" />
-                                        <Setter Property="Height"
-                                    TargetName="RowDefinition0"
-                                    Value="*" />
-                                        <Setter Property="Height"
-                                    TargetName="RowDefinition1"
-                                    Value="0" />
-                                        <Setter Property="Margin"
-                                    TargetName="HeaderPanel"
-                                    Value="0,2,2,2" />
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    
-                    
-                    <Setter Property="ItemTemplate">
-                        <Setter.Value>
-                            <DataTemplate>
-                                <avalonDock:LayoutDocumentTabItem Model="{Binding}"/>
-                            </DataTemplate>
-                        </Setter.Value>
-                    </Setter>
-
-                    <Setter Property="ContentTemplate">
-                        <Setter.Value>
-                            <DataTemplate>
-                                <avalonDock:LayoutDocumentControl Model="{Binding}"/>
-                            </DataTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
--->
+        
                 <!--DocumentPaneControlStyle-->
                 <Style x:Key="DocumentPaneControlStyle" TargetType="{x:Type avalonDock:LayoutDocumentPaneControl}">
                     <Setter Property="Template">
@@ -200,30 +61,29 @@
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
                                         <avalonDock:DocumentPaneTabPanel x:Name="HeaderPanel" Grid.Column="0" IsItemsHost="true" Margin="2,2,2,0" Grid.Row="0" KeyboardNavigation.TabIndex="1"/>
-                                        <avalonDock:DropDownButton
-                                x:Name="MenuDropDownButton"
-                                Style="{StaticResource {x:Static ToolBar.ToggleButtonStyleKey}}"
-                                Focusable="False"
-                                Grid.Column="1">
+                                        <avalonDock:DropDownButton  x:Name="MenuDropDownButton"
+                                                                    Style="{StaticResource {x:Static ToolBar.ToggleButtonStyleKey}}"
+                                                                    Focusable="False"
+                                                                    Grid.Column="1">
                                            
                                             <Image Source="/Xceed.Wpf.AvalonDock;component/Themes/Generic/Images/PinDocMenu.png"/>
                                         </avalonDock:DropDownButton>
                                     </Grid>
                                     <Border x:Name="ContentPanel" 
-                                VerticalAlignment="Stretch" 
-                                HorizontalAlignment="Stretch"  
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="{TemplateBinding Background}" 
-                                Grid.Column="0" 
-                                KeyboardNavigation.DirectionalNavigation="Contained" 
-                                Grid.Row="1"
-                                KeyboardNavigation.TabIndex="2" 
-                                KeyboardNavigation.TabNavigation="Cycle">
+                                            VerticalAlignment="Stretch" 
+                                            HorizontalAlignment="Stretch"  
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            Background="{TemplateBinding Background}" 
+                                            Grid.Column="0" 
+                                            KeyboardNavigation.DirectionalNavigation="Contained" 
+                                            Grid.Row="1"
+                                            KeyboardNavigation.TabIndex="2" 
+                                            KeyboardNavigation.TabNavigation="Cycle">       
                                         <ContentPresenter x:Name="PART_SelectedContentHost" 
-                                              ContentSource="SelectedContent" 
-                                              Margin="{TemplateBinding Padding}"
-                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                          ContentSource="SelectedContent" 
+                                                          Margin="{TemplateBinding Padding}"
+                                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                                     </Border>
                                 </Grid>
                                 <ControlTemplate.Triggers>
@@ -237,7 +97,15 @@
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
-                    
+                    <Setter Property="ItemContainerStyle">
+                        <Setter.Value>
+                            <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource {x:Type TabItem}}">
+                                <Setter Property="Visibility" Value="{Binding IsVisible, Converter={StaticResource _boolToVis}}"/>
+                                <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}"/>
+                                <Setter Property="ToolTip" Value="{Binding ToolTip}"/>
+                            </Style>
+                        </Setter.Value>
+                    </Setter>
                     <Setter Property="ItemTemplate">
                         <Setter.Value>
                             <DataTemplate>
@@ -394,8 +262,6 @@
                         <avalonDock:LayoutAnchorablePane Name="Results">
                             <avalonDock:LayoutAnchorable CanClose="False" CanFloat="False" CanHide="False">
                                 <DockPanel>
-                                    <!--  <ContentControl cal:View.Model="{Binding GrepResultsTreeView}" /> -->
-                                    <!-- <ContentControl cal:View.Model="{Binding ResultsViewModel}" /> -->
                                     <ContentControl cal:View.Model="{Binding GrepResultCrumbListViewViewModel}" />
                                 </DockPanel>
                             </avalonDock:LayoutAnchorable>
@@ -434,7 +300,7 @@
                     <vms:LayoutItemStyleSelector.DocumentStyle>
                         <Style TargetType="{x:Type avalonDock:LayoutItem}">
                             <Setter Property="Title" Value="{Binding Model.Name}"/>
-                            <Setter Property="CanClose" Value="False"/>
+                            <Setter Property="CanClose" Value="True"/>
                             <Setter Property="CanFloat" Value="False" />
                         </Style>
                     </vms:LayoutItemStyleSelector.DocumentStyle>

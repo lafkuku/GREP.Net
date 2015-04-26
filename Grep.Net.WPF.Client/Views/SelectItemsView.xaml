@@ -299,16 +299,16 @@
                 </ResourceDictionary>
             </TabControl.Resources>
             <TabItem Header="Directories" Controls:ControlsHelper.HeaderFontSize="14">
-                <ContentControl cal:View.Model="{Binding DirectoryExplorer}" />
+                <ContentControl cal:View.Model="{Binding DirectoryExplorer}" Margin="0,10,0,0" />
             </TabItem>
             <TabItem Header="Extensions"  Controls:ControlsHelper.HeaderFontSize="14">
-                <ContentControl cal:View.Model="{Binding FileTypeDefinitionTreeViewModel}" />
+                <ContentControl cal:View.Model="{Binding FileTypeDefinitionTreeViewModel}"  Margin="0,10,0,0" />
             </TabItem>
             <TabItem Header="Pattern Packages"  Controls:ControlsHelper.HeaderFontSize="14">
-                <ContentControl cal:View.Model="{Binding PatternPatckageTreeView}" />
+                <ContentControl cal:View.Model="{Binding PatternPatckageTreeView}" Margin="0,10,0,0"  />
             </TabItem>
             <TabItem Header="Search"  Controls:ControlsHelper.HeaderFontSize="14">
-                <ContentControl cal:View.Model="{Binding SearchViewModel}" />
+                <ContentControl cal:View.Model="{Binding SearchViewModel}"  Margin="0,10,0,0" />
             </TabItem>
         </TabControl>
     </DockPanel>

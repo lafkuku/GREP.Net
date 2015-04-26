@@ -11,7 +11,7 @@
         <ListView ItemsSource="{Binding Contexts}">
             <ListView.Resources>
                 <convert:ListViewStarWidthConverter x:Key="_starConvert" />
-                <Style x:Key="GridViewExtraStyle" TargetType="{x:Type GridViewColumnHeader}">
+                <Style x:Key="GridViewExtraStyle" TargetType="{x:Type GridViewColumnHeader}" BasedOn="{StaticResource {x:Type GridViewColumnHeader}}" >
                     <Setter Property="HorizontalContentAlignment" Value="Left"/>
                   
                 </Style>
