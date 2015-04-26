@@ -197,7 +197,7 @@ namespace Grep.Net.Powershell
             Task<GrepResult> task = null;
             try
             {
-                task = App.GrepModel.Grep(gc);
+                task = App.GrepService.Grep(gc);
             }
             catch (Exception e)
             {

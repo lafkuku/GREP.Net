@@ -103,7 +103,7 @@ namespace Grep.Net.WPF.Client.ViewModels
 
             DataService = new DataService();
 
-            GrepService = new GrepService(GTApplication.Instance.GrepModel, DataService);
+            GrepService = new GrepService(GTApplication.Instance.GrepService, DataService);
 
             SettingsViewModel = new Entities.SettingsViewModel(GTApplication.Instance.Settings);
 

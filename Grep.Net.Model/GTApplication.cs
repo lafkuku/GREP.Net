@@ -33,7 +33,7 @@ namespace Grep.Net.Model
         #endregion
         
         //Dealing with the core model logic for Greping. 
-        public GrepModel GrepModel { get; set; }
+        public GreppingService GrepService { get; set; }
         
         public ObservableCollection<String> DirectoryFilters { get; set; }
         
@@ -50,12 +50,12 @@ namespace Grep.Net.Model
         
         internal virtual void BootStrap()
         {
-            this.GrepModel = new GrepModel();
+            this.GrepService = new GreppingService();
             
             DirectoryFilters = new BindableCollection<string>();
             
             this.DataModel = new DataModel(this);
-            this.GrepModel.DataModel = this.DataModel;
+            this.GrepService.DataModel = this.DataModel;
         }
         
         public void SaveDataToDB()
@@ -65,8 +65,8 @@ namespace Grep.Net.Model
         
         public void Shutdown()
         {
-            GrepModel.Scheduler.Stop();
-            GrepModel.RunspacePool.Close();
+            GrepService.Scheduler.Stop();
+            GrepService.RunspacePool.Close();
             if (Settings.AutoSave)
             {
                 Settings.Save();

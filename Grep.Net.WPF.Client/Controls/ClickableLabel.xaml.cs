@@ -59,18 +59,9 @@ namespace Grep.Net.WPF.Client.Controls
 
         private void SetText(string text)
         {
-            TextDecoration td = new TextDecoration();
-            Pen myPen = new Pen(Brushes.Blue, 0);
 
-            td.Pen = myPen;
-            TextDecorationCollection tdc = new TextDecorationCollection();
-            tdc.Add(td);
-
-            TextBlock textBlock = new TextBlock();
-            textBlock.TextDecorations = tdc;
-            textBlock.Text = text;
-            textBlock.Foreground = Brushes.Blue;
-            this.Content = textBlock;
+            this.Content = text;
+            
         }
 
         public event RoutedEventHandler Click

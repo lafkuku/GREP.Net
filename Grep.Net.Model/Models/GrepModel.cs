@@ -15,7 +15,7 @@ using NLog;
 
 namespace Grep.Net.Model.Models
 {
-    public class GrepModel
+    public class GreppingService
     {
        
         public static int SearchID = 1; 
@@ -36,7 +36,7 @@ namespace Grep.Net.Model.Models
             }
         }
 
-        public GrepModel()
+        public GreppingService()
         {
             Scheduler = new ActionScheduler(Settings.GrepThreadsMax);
 

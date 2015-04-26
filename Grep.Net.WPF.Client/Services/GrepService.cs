@@ -15,8 +15,8 @@ namespace Grep.Net.WPF.Client.Services
     {
 
         IDataService DataService { get; set; }
-        GrepModel Model { get; set; }
-        public GrepService(GrepModel model, IDataService dataService)
+        GreppingService Model { get; set; }
+        public GrepService(GreppingService model, IDataService dataService)
         {
             Model = model;
             DataService = dataService;
