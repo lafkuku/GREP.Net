@@ -137,8 +137,7 @@ namespace Grep.Net.Model.Models
             {
 
                 _logger.Error(e.Message);
-                throw new ArgumentException(e.Message);
-
+                
             }
 
             return matchInfos;
@@ -352,6 +351,7 @@ namespace Grep.Net.Model.Models
                     {
                         await Task.Factory.ContinueWhenAll(tasks.ToArray(), (x) =>
                         {
+                            grepContext.OnDirectory(grepContext, "Compiling Results..");
                             tmpResults.ForEach(y => result.MatchInfos.Add(y));
                         }, grepContext.CancelToken.Token);
                     }

@@ -46,6 +46,9 @@
                     <MenuItem Header="Add Shortcut" 
                               Command="{Binding AddShortCutCommand}"
                               />
+                    <MenuItem Header="Add Shortcuts From File" 
+                              Command="{Binding AddShortCutsCommand}"
+                              />
                     <MenuItem Header="Remove Shortcut" 
                               Command="{Binding RemoveShortCutCommand}"
                               CommandParameter="{Binding Parent.PlacementTarget.SelectedItem.Path, RelativeSource={RelativeSource Self}}"

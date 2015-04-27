@@ -256,9 +256,6 @@
     <Compile Include="ViewModels\StatusWindowViewModel.cs" />
     <Compile Include="ViewModels\TreeViewModels\TreeViewItemViewModel.cs" />
     <Compile Include="ViewModels\UniquifyViewModel.cs" />
-    <Compile Include="Views\GrepContextStatusView.xaml.cs">
-      <DependentUpon>GrepContextStatusView.xaml</DependentUpon>
-    </Compile>
     <Page Include="Controls\ClickableLabel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

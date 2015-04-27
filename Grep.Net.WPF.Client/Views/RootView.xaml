@@ -242,6 +242,9 @@
                                     </Grid.Resources>
 
                                     <ContentControl Grid.Row="0" cal:View.Model="{Binding SelectItemsViewModel}" />
+                                    <Grid>
+                                        
+                                    </Grid>
                                     <StackPanel Grid.Row="1" HorizontalAlignment="Stretch">
                                         <Button cal:Message.Attach="[Event Click] = [Action Start()]"  >
                                             <Button.Content>
