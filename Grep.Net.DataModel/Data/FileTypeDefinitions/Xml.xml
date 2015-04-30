@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FileTypeDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<FileTypeDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Id>3aeedac6-6a29-4a71-b954-61bb9341dc03</Id>
   <Name>XML</Name>
   <FileExtensions>

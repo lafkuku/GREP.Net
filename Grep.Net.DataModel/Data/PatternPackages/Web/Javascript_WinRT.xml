@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<PatternPackage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Id>b9a0d27c-078f-43f5-803a-70784f49e445</Id>
   <Name>WinRT</Name>
   <Version>0</Version>

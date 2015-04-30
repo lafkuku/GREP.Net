@@ -20,6 +20,10 @@
     
     <metro:MetroWindow.RightWindowCommands>
         <metro:WindowCommands>
+            <Button  Content="Import"
+                       ToolTip="Import result set."
+                       cal:Message.Attach="[Event Click] = [Action ImportResult]">
+            </Button>
             <Button  Content="Options"
                        cal:Message.Attach="[Event Click] = [Action ShowOptions]">
             </Button>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FileTypeDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<FileTypeDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Id>4d583d0b-0426-44f2-b207-47f21fb6bf0b</Id>
   <Name>SQL</Name>
   <FileExtensions>

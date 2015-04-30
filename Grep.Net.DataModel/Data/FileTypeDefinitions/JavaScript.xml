@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FileTypeDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<FileTypeDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Id>65c45468-4d1d-4cb6-b27d-d7ee341a1c11</Id>
   <Name>JavaScript</Name>
   <FileExtensions>

@@ -218,12 +218,8 @@ namespace Grep.Net.WPF.Client.ViewModels
             {
                 try
                 {
-                    EntityContainer ec = SerializationHelper.DeserializeXmlFromFile<EntityContainer>(ofd.FileName);
-
-                    foreach(GrepResult gr in ec.ToArray().Where(x=>x is GrepResult)){
-                        DataService.GrepResultService.Add(gr);
-                    }
-                   
+                    EntityContainer gr = SerializationHelper.DeserializeXmlFromFile<EntityContainer>(ofd.FileName);
+                    DataService.GrepResultService.Add(gr[0] as GrepResult);
                 }
                 catch (Exception e)
                 {

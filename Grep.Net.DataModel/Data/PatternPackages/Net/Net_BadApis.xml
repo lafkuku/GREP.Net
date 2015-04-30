@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<PatternPackage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Id>c9c7216b-cc54-46d9-ba0d-2ff270710681</Id>
   <Name>Bad APIs</Name>
   <Version>0</Version>

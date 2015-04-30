@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<PatternPackage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Id>f7e5b3ef-3ecb-4bc6-b0f2-95aeffe2251b</Id>
   <Name>ConfigFiles</Name>
   <Version>0</Version>

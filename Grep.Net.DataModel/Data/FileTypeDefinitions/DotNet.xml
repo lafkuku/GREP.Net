@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FileTypeDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<FileTypeDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Id>75455b9c-37e9-4434-b241-438137253311</Id>
   <Name>.Net</Name>
   <FileExtensions>

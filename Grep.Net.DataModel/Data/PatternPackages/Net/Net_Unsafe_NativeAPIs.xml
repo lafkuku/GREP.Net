@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<PatternPackage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Id>b6d3dcc9-cc2c-41d6-91c7-ada80168a689</Id>
   <Name>Unsafe or Native APIs</Name>
   <Version>0</Version>

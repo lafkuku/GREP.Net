@@ -1,5 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<PatternPackage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="utf-8"?>
+<PatternPackage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>f896bd78-a011-4f3c-bf86-1e49074f7c04</Id>
   <Name>Comments</Name>
   <Version>0</Version>
   <Category>Misc</Category>
@@ -11,20 +12,7 @@
       <PatternInfo />
       <ReferenceUrl />
       <Recommendation />
+      <PatternPackageId>f896bd78-a011-4f3c-bf86-1e49074f7c04</PatternPackageId>
     </Pattern>
   </Patterns>
-  <Pattern>
-    <PatternStr>bugbug</PatternStr>
-    <IsEnabled>true</IsEnabled>
-    <PatternInfo />
-    <ReferenceUrl />
-    <Recommendation />
-  </Pattern>
-  <Pattern>
-    <PatternStr>TOFIX</PatternStr>
-    <IsEnabled>true</IsEnabled>
-    <PatternInfo />
-    <ReferenceUrl />
-    <Recommendation />
-  </Pattern>
 </PatternPackage>

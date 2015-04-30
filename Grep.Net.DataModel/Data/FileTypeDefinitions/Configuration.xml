@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FileTypeDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<FileTypeDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Id>290429e0-c54a-4afd-a180-4b11cd43caa5</Id>
   <Name>Config</Name>
   <FileExtensions>
@@ -23,11 +23,11 @@
       <Extension>.cfginc</Extension>
       <IsEnabled>true</IsEnabled>
     </FileExtension>
-   <FileExtension>
+    <FileExtension>
       <Extension>.targets</Extension>
       <IsEnabled>true</IsEnabled>
     </FileExtension>
- <FileExtension>
+    <FileExtension>
       <Extension>.settings</Extension>
       <IsEnabled>true</IsEnabled>
     </FileExtension>

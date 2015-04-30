@@ -7,7 +7,6 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
-
 using Caliburn.Micro;
 using Grep.Net.Data;
 using Grep.Net.Entities;
@@ -28,7 +27,7 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
 
         public GrepResultViewModel Result { get; set; }
 
-        public int Count { get { return Result.MatchInfos.Cast<MatchInfo>().Where(x => x.Pattern.PatternPackageId == PatternPackage.Entity.Id).Count(); } }
+        public int Count { get { return Result.MatchInfos.Cast<MatchInfo>().Where(x =>  (x.Pattern != null) && x.Pattern.PatternPackageId == PatternPackage.Entity.Id).Count(); } }
 
     }
 
