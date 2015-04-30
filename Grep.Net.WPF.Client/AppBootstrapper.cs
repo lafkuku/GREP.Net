@@ -36,7 +36,7 @@
 
             batch.AddExportedValue<IWindowManager>(new WindowManager());
             batch.AddExportedValue<IEventAggregator>(new EventAggregator());
-           
+     
             batch.AddExportedValue(container);
             batch.AddExportedValue(catalog);
 
@@ -148,8 +148,8 @@
         protected override void OnExit(object sender, EventArgs e)
         {
             base.OnExit(sender, e);
-            //Shut down visuals (So we have time to save the layout.)
-            RootViewModel rvm = RootViewModel.Instance;
+            //Shut down visuals (So we have time to save the layout
+            RootViewModel rvm = (RootViewModel)this.container.GetExport<IRoot>().Value;
             if (rvm != null &&
                 Properties.Settings.Default.SaveLayout == true)
             {

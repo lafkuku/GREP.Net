@@ -31,13 +31,13 @@ namespace Grep.Net.WPF.Client.ViewModels
             }
         }
         
-        public SelectItemsViewModel(Interfaces.ISettingsManager settingsManager, IDataService dataService)
+        public SelectItemsViewModel(RootViewModel rvm, Interfaces.ISettingsManager settingsManager, IDataService dataService)
         {
             this.DataService = dataService;
             this.DirectoryExplorer = new DirectoryExplorerViewModel(settingsManager);
             this.PatternPatckageTreeView = new PatternPackageTreeViewModel(dataService);
             this.FileTypeDefinitionTreeViewModel = new FileTypeDefinitionTreeViewModel(dataService);
-            this.SearchViewModel = new SearchViewModel();
+            this.SearchViewModel = new SearchViewModel(rvm);
 
             this.PatternPatckageTreeView.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(PropertyChangedEventHandler);
             this.FileTypeDefinitionTreeViewModel.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(PropertyChangedEventHandler);

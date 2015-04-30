@@ -89,8 +89,11 @@ namespace Grep.Net.WPF.Client.ViewModels
             }
         }
 
-        public MatchInfoEditorViewModel()
+        RootViewModel RootViewMdoel { get; set;  }
+
+        public MatchInfoEditorViewModel(RootViewModel rvm)
         {
+            this.RootViewMdoel = rvm;
             this.Closeable = true;
             this.Editor = new AvalonEditControl();
             
@@ -167,7 +170,7 @@ namespace Grep.Net.WPF.Client.ViewModels
             if (!string.IsNullOrEmpty(selectedText))
             {
                 //TODO: This should really be a utility command. 
-                RootViewModel.Instance.Search(selectedText);
+                this.RootViewMdoel.Search(selectedText);
             }
         }
 

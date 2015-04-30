@@ -22,29 +22,7 @@ namespace Grep.Net.WPF.Client.ViewModels
         [Export(typeof(IRoot))]
     public class RootViewModel : Screen, IRoot
     {
-        #region Singleton
-        
-        private static RootViewModel _instance;
-        
-        public static RootViewModel Instance
-        {
-            get
-            {
-                lock (_lok)
-                {
-                    if (_instance == null)
-                    {
-                        _instance = new RootViewModel();
-                    }
-                }
-                return _instance;
-            }
-        }
-        
-        private static object _lok = new object();
-        
-        #endregion
-        
+      
         public object _activeViewModel;
         
         public object ActiveViewModel
@@ -79,7 +57,7 @@ namespace Grep.Net.WPF.Client.ViewModels
         public GrepService GrepService { get; set; }
 
         public GrepContextStatusViewModel GrepContextStatusViewModel { get; set; }
-        private RootViewModel()
+        public RootViewModel()
         {
 
             Documents = new ObservableCollection<PropertyChangedBase>();
@@ -108,11 +86,11 @@ namespace Grep.Net.WPF.Client.ViewModels
             SettingsViewModel = new Entities.SettingsViewModel(GTApplication.Instance.Settings);
 
             //Add the main control panel. 
-            SelectItemsViewModel = new SelectItemsViewModel(this.SettingsViewModel, DataService);
+            SelectItemsViewModel = new SelectItemsViewModel(this,this.SettingsViewModel, DataService);
 
             GrepContextStatusViewModel = new ViewModels.GrepContextStatusViewModel(DataService);
           
-            GrepResultCrumbListViewViewModel = new GrepResultCrumbListViewViewModel(DataService);
+            GrepResultCrumbListViewViewModel = new GrepResultCrumbListViewViewModel(this,DataService);
             GrepResultCrumbListViewViewModel.MatchInfoEditorViewModel.Closeable = false;
             GrepResultCrumbListViewViewModel.MatchInfoEditorViewModel.Name = "Editor";
             GrepResultCrumbListViewViewModel.MatchInfoEditorViewModel.Editor.MaxFileSize = SettingsViewModel.Settings.DisplayMaxFileSize;
@@ -147,13 +125,7 @@ namespace Grep.Net.WPF.Client.ViewModels
             Documents.Add(NLogViewModel);
             Documents.Add(GrepContextStatusViewModel);
         }
-        
-        public void SelectCategories()
-        {
-            SelectItemsViewModel sivm = new SelectItemsViewModel(this.SettingsViewModel, DataService);
-            GTWindowManager.Instance.ShowWindow(sivm, 300, 300); 
-            // winMgr.ShowWindow(sivm); 
-        }
+  
         
         public void SaveAll()
         {

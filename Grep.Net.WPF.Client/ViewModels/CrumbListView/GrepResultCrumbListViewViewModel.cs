@@ -53,10 +53,13 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
         public MatchInfoEditorViewModel MatchInfoEditorViewModel { get; set; }
 
         IDataService DataService { get; set; }
-        public GrepResultCrumbListViewViewModel(IDataService dataService) : base()
+
+        RootViewModel RootViewModel { get; set; }
+        public GrepResultCrumbListViewViewModel(RootViewModel rvm, IDataService dataService) : base()
         {
             DataService = dataService;
-            MatchInfoEditorViewModel = new ViewModels.MatchInfoEditorViewModel();
+            RootViewModel = rvm;
+            MatchInfoEditorViewModel = new ViewModels.MatchInfoEditorViewModel(rvm);
             GrepResultsCrumb grCrumb = new GrepResultsCrumb(DataService)
             {
                 Display = "Results"
@@ -398,9 +401,9 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
         {
             if (this.SelectedMatchInfos != null && this.SelectedMatchInfos.Count() > 0)
             {
-                MatchInfoEditorViewModel mievm = new MatchInfoEditorViewModel() { MatchInfo = this.SelectedMatchInfos.ToList()[0].Entity };
+                MatchInfoEditorViewModel mievm = new MatchInfoEditorViewModel(RootViewModel) { MatchInfo = this.SelectedMatchInfos.ToList()[0].Entity };
 
-                RootViewModel.Instance.Documents.Add(mievm);
+                RootViewModel.Documents.Add(mievm);
             }
         }
         #endregion

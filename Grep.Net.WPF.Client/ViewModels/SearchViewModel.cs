@@ -36,10 +36,12 @@ namespace Grep.Net.WPF.Client.ViewModels
 
         public ICommand RemoveSearch { get; set; }
 
-        static Logger logger = NLog.LogManager.GetCurrentClassLogger(); 
-        
-        public SearchViewModel()
+        static Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
+        private RootViewModel RootViewModel { get; set; }
+        public SearchViewModel(RootViewModel rvm)
         {
+            RootViewModel = rvm;
             RecentSearches = new ListCollectionView(GTApplication.Instance.Settings.RecentSearches);
             SearchCommand = new DelegateCommand(this.Search);
             RemoveAllSearches = new DelegateCommand((x) =>
@@ -81,7 +83,7 @@ namespace Grep.Net.WPF.Client.ViewModels
             {
                 try
                 {
-                    RootViewModel.Instance.Search(this.SearchText);
+                    RootViewModel.Search(this.SearchText);
                     
                     if (!this.RecentSearches.Contains(SearchText))
                     {

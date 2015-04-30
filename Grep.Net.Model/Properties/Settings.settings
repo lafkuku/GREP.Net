@@ -69,5 +69,8 @@
     <Setting Name="LogFilesBeforeGrepping" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="DisplayMaxFileSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">104857600</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
