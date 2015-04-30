@@ -15,8 +15,8 @@ namespace Grep.Net.WPF.Client.Services
     {
 
         IDataService DataService { get; set; }
-        GrepModel Model { get; set; }
-        public GrepService(GrepModel model, IDataService dataService)
+        GreppingService Model { get; set; }
+        public GrepService(GreppingService model, IDataService dataService)
         {
             Model = model;
             DataService = dataService;
@@ -36,7 +36,15 @@ namespace Grep.Net.WPF.Client.Services
             {
                 DataService.GrepResultService.Add(y);
             });
-           
+
+            gc.CancelToken.Token.Register(new Action(() =>
+            {
+                if (gc.OnDirectory != null)
+                {
+                    gc.OnDirectory(gc, "Cancelled");
+                }
+
+            }));
 
             var vm = DataService.GrepContextService.Add(gc);
             await Model.Grep(gc);

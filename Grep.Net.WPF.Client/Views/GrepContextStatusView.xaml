@@ -4,17 +4,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:convert="clr-namespace:Grep.Net.WPF.Client.Converters"
+             xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <ListView ItemsSource="{Binding Contexts}">
             <ListView.Resources>
                 <convert:ListViewStarWidthConverter x:Key="_starConvert" />
-                <Style x:Key="GridViewExtraStyle" TargetType="{x:Type GridViewColumnHeader}">
+                <Style x:Key="GridViewExtraStyle" TargetType="{x:Type GridViewColumnHeader}" BasedOn="{StaticResource {x:Type GridViewColumnHeader}}" >
                     <Setter Property="HorizontalContentAlignment" Value="Left"/>
                   
                 </Style>
             </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="ContextMenu">
+                        <Setter.Value>
+                            <ContextMenu>
+                                <MenuItem Header="Cancel"  cal:Message.Attach="[Event Click] = [Action Cancel]" />
+                            </ContextMenu>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Path" 

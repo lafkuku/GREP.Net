@@ -41,7 +41,7 @@
             <StatusBar DockPanel.Dock="Left" ItemsSource="{Binding Crumbs}" >
                 <StatusBar.ItemTemplate>
                     <DataTemplate>
-                        <control:ClickableLabel Text="{Binding Display}" cal:Message.Attach="[Event Click]=[Action GoBack($dataContext)]"  />
+                        <control:ClickableLabel Text="{Binding Display}" Foreground="White" cal:Message.Attach="[Event Click]=[Action GoBack($dataContext)]" Background="Transparent"  />
                     </DataTemplate>
                 </StatusBar.ItemTemplate>
             </StatusBar>
@@ -103,9 +103,12 @@
                         <ListView.View>
                             <GridView>
                                 <!-- We bind to the "Entity" property because that will be the ViewModel type, GrepResult -->
-                                <GridViewColumn DisplayMemberBinding="{Binding Name}"
-                                                ext:GridViewSort.PropertyName="Name" 
+                                <GridViewColumn DisplayMemberBinding="{Binding PatternPackage.Name}"
+                                                ext:GridViewSort.PropertyName="PatternPackage.Name" 
                                                 Header="Package" />
+                                <GridViewColumn DisplayMemberBinding="{Binding Count}"
+                                                ext:GridViewSort.PropertyName="Count" 
+                                                Header="Count" />
                             </GridView>
                         </ListView.View>
                         <ListView.ItemContainerStyle>
@@ -135,7 +138,7 @@
                                 <Style TargetType="{x:Type ListViewItem}">
                                     <Setter Property="cal:Message.Attach" Value="[Event MouseDoubleClick] = [Action ShowResultInWin]" />
                                     <Setter Property="cal:Action.TargetWithoutContext" Value="{Binding Tag, RelativeSource={RelativeSource AncestorType=ListView}}" />
-                                    <Setter Property="ToolTip" Value="{Binding MatchInfo.FileInfo.FullName}" />
+                                    <Setter Property="ToolTip" Value="{Binding Entity.FileInfo.FullName}" />
                                 </Style>
                             </ListView.ItemContainerStyle>
                             

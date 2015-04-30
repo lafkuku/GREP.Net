@@ -55,7 +55,6 @@ namespace Grep.Net.Data.Repositories
                         EntityIdToPath.Add(entity.Id, filePath);
                     }
                 }
-              
             }
         }
 

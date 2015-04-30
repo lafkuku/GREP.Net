@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 using Grep.Net.Entities;
 using Grep.Net.Model.Extensions;
 using Grep.Net.Model.Types;
+using NLog;
 
 namespace Grep.Net.Model.Models
 {
-    public class GrepModel
+    public class GreppingService
     {
-        public static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger(); 
-        
+       
         public static int SearchID = 1; 
 
         public DataModel DataModel { get; set; }
@@ -25,6 +25,8 @@ namespace Grep.Net.Model.Models
         internal ActionScheduler Scheduler { get; set; }
 
         public RunspacePool RunspacePool { get; set; }
+
+        public static Logger _logger = NLog.LogManager.GetCurrentClassLogger(); 
 
         public Properties.Settings Settings
         {
@@ -34,7 +36,7 @@ namespace Grep.Net.Model.Models
             }
         }
 
-        public GrepModel()
+        public GreppingService()
         {
             Scheduler = new ActionScheduler(Settings.GrepThreadsMax);
 
@@ -121,8 +123,9 @@ namespace Grep.Net.Model.Models
 
                     if (p == null)
                     {
-                        //TODO: Log? Error?
-                        throw new ArgumentException("Null Pattern?!?! You should not see this");
+                        String message = "Null Pattern?!?! You should not see this";
+                        _logger.Error(message);
+                        throw new ArgumentException(message);
                     }
 
                     mi.Pattern = p;
@@ -132,7 +135,9 @@ namespace Grep.Net.Model.Models
             }
             catch (Exception e)
             {
-                logger.Error(e);
+
+                _logger.Error(e.Message);
+                
             }
 
             return matchInfos;
@@ -153,7 +158,7 @@ namespace Grep.Net.Model.Models
                     try
                     {
                         dirs.Add(dir.FullName);
-
+                       
                         if (Settings.Recurse)
                         {
                             foreach (DirectoryInfo subDir in dir.EnumerateDirectories("*", SearchOption.AllDirectories))
@@ -164,7 +169,7 @@ namespace Grep.Net.Model.Models
                                 }
                                 catch (UnauthorizedAccessException uae)
                                 {
-                                    logger.Error(uae);
+                                    _logger.Error(uae.Message);
                                     if (gc.OnError != null)
                                     {
                                         gc.OnError(gc, uae.Message);
@@ -175,7 +180,7 @@ namespace Grep.Net.Model.Models
                     }
                     catch (UnauthorizedAccessException uae)
                     {
-                        logger.Error(uae);
+                        _logger.Error(uae);
                         if (gc.OnError != null)
                         {
                             gc.OnError(gc, uae.Message);
@@ -184,6 +189,7 @@ namespace Grep.Net.Model.Models
                 }
             }catch (Exception e)
             {
+                _logger.Error(e.Message);
                 if (gc.OnError != null)
                 {
                     gc.OnError(gc, e.Message);
@@ -213,14 +219,14 @@ namespace Grep.Net.Model.Models
                 {
                     try
                     {
-                        if (extensions.Contains(fi.Extension))
+                        if (extensions.Contains(fi.Extension) || extensions.Contains("*.*"))
                         {
                             files.Add(fi.FullName);
                         }
                     }
                     catch (UnauthorizedAccessException uae)
                     {
-                        logger.Error(uae);
+                        _logger.Error(uae);
                         if (gc.OnError != null)
                         {
                             gc.OnError(gc, uae.Message);
@@ -233,7 +239,7 @@ namespace Grep.Net.Model.Models
             {
                 if (gc.OnError != null)
                 {
-                    logger.Error(e);
+                    _logger.Error(e);
                     gc.OnError(gc, e.Message);
                 }
             }
@@ -260,8 +266,7 @@ namespace Grep.Net.Model.Models
             {
                 throw new ArgumentException("Extensions paramter is null");
             }
-            
-            
+
            
             grepContext.TimeStarted = DateTime.Now;
 
@@ -277,24 +282,42 @@ namespace Grep.Net.Model.Models
                 if (_gc == null)
                 {
                     //PRoblem. 
-                    logger.Error("Failed to get the correct GrepContext from the task factory. the passed in param is null????");
+                    _logger.Error("Failed to get the correct GrepContext from the task factory. the passed in param is null????");
                    
                     return;
                 }
                 try{
-
+                    grepContext.OnDirectory(grepContext, "Identifying Directories");
                     List<String> dirs = GetDirectories(_gc);
-  
+                    
+                    grepContext.CancelToken.Token.ThrowIfCancellationRequested(); 
+
                     //Create a lookup table, this will be faster than enumerating the two sets against each other. 
                     HashSet<String> extensions = new HashSet<string>(_gc.FileExtensions.Select(x => x.Extension).ToList());
-
+                    grepContext.OnDirectory(grepContext, "Building Grep Requests");
                     foreach (string dir in dirs)
                     {
+                        grepContext.CancelToken.Token.ThrowIfCancellationRequested(); 
+
                         var files = GetFiles(_gc, dir, extensions);
+
                         if (files.Count() > 0)
                         {
+                            StringBuilder sb = new StringBuilder();
+                            sb.AppendLine("\rStarting to grep directory: " + dir);
+
+                            if (Settings.LogFilesBeforeGrepping)
+                            {
+                                foreach (var file in files)
+                                {
+                                    sb.AppendLine("\tFile: " + file);
+                                }
+                            }
+                            _logger.Info(sb.ToString());
+
                             tasks.Add(Task.Factory.StartNew(() =>
                             {
+                                grepContext.CancelToken.Token.ThrowIfCancellationRequested(); 
                                 try{
                                 if (_gc.OnDirectory != null)
                                 {
@@ -304,7 +327,7 @@ namespace Grep.Net.Model.Models
                                 List<MatchInfo> matchInfos = ExecuteInternal(files.ToArray(),
                                                                             _gc.PatternPackages.ToList().SelectMany(x => x.Patterns).ToArray(),
                                                                             _gc.FileExtensions.Select(x => "*" + x.Extension).ToArray());
-                           
+                                grepContext.CancelToken.Token.ThrowIfCancellationRequested(); 
                                  //Set the GrepResult
                                 //add to the thread safe collection.
                                 matchInfos.ForEach(x =>{
@@ -315,31 +338,33 @@ namespace Grep.Net.Model.Models
                                 catch (Exception e)
                                 {
                                     _gc.Status = e.Message;
-                                    logger.Error(e);
+                                    _logger.Error(e);
                                     if (_gc.OnError != null)
                                     {
                                         _gc.OnError(_gc, e.Message);
                                     }
                                 }
-                            }, CancellationToken.None, TaskCreationOptions.None, Scheduler));
+                            }, grepContext.CancelToken.Token, TaskCreationOptions.None, Scheduler));
                         }
                     }
                     if (tasks.Count() > 0)
                     {
                         await Task.Factory.ContinueWhenAll(tasks.ToArray(), (x) =>
                         {
+                            grepContext.OnDirectory(grepContext, "Compiling Results..");
                             tmpResults.ForEach(y => result.MatchInfos.Add(y));
-                        }, CancellationToken.None);
+                        }, grepContext.CancelToken.Token);
                     }
                     else
                     {
                         string msg = "No directories to scan?.";
                         _gc.Status = msg;
-                        logger.Info(msg);
+                        _logger.Info(msg);
                     }
                 }
                 catch (Exception e)
                 {
+                    _logger.Error(e.Message);
                     _gc.Status = e.Message;
                     if (_gc.OnError != null)
                     {
@@ -350,6 +375,7 @@ namespace Grep.Net.Model.Models
                  _gc.TimeCompleted = DateTime.Now;
                 //Add back to the non thread safe collection. 
                 _gc.Completed = true;
+                _logger.Info("Completed GrepContext" + grepContext.Id);
                 if (_gc.OnCompleted != null)
                 {
                     _gc.OnCompleted(grepContext, result);

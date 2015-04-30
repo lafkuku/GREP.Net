@@ -24,6 +24,9 @@ namespace Grep.Net.WPF.Client.ViewModels
 
         public ICommand AddShortCutCommand { get; set; }
 
+
+        public ICommand AddShortCutsCommand { get; set; }
+
         public ICommand RemoveShortCutCommand { get; set; }
 
         private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
@@ -40,6 +43,28 @@ namespace Grep.Net.WPF.Client.ViewModels
             Init();
 
             #region Commands
+
+            AddShortCutsCommand = new DelegateCommand((x) =>
+            {
+                var dialog = new CommonOpenFileDialog();
+          
+
+                if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+                {
+                    var file = dialog.FileName;
+                    if (File.Exists(file))
+                    {
+                        var contents = File.ReadAllLines(file);
+                        foreach (var dir in file)
+                        {
+                            this.SettingsManager.PathShortCuts.Add(Path);
+                        }
+                    }
+                    settingsManager.Save();
+                    //AddFolderToRoot(path);
+                }
+            });
+
             AddShortCutCommand = new DelegateCommand((x) =>
             {
                 var dialog = new CommonOpenFileDialog();

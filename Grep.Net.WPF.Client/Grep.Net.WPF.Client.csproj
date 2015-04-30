@@ -32,6 +32,7 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <ExpressionBlendVersion>12.0.50716.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -107,6 +108,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\AvalonEdit.5.0.2\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\packages\MahApps.Metro.1.1.2.0\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.WindowsAPICodePack">
       <HintPath>..\packages\winapicp.1.1\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
     </Reference>
@@ -144,7 +148,7 @@
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Caliburn.Micro.2.0.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\packages\MahApps.Metro.1.1.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -175,7 +179,7 @@
     <Compile Include="Controls\CircularProgressBar.xaml.cs">
       <DependentUpon>CircularProgressBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ClickableLabel.cs" />
+    <Compile Include="Controls\ClickableLabel.xaml.cs" />
     <Compile Include="Controls\NameValueControl.xaml.cs">
       <DependentUpon>NameValueControl.xaml</DependentUpon>
     </Compile>
@@ -204,13 +208,12 @@
     <Compile Include="Services\RepositoryServiceBase.cs" />
     <Compile Include="Services\IRepoService.cs" />
     <Compile Include="Services\ViewModelDataService.cs" />
-    <Compile Include="ShellViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="AppBootstrapper.cs" />
-    <Compile Include="IShell.cs" />
+    <Compile Include="IRoot.cs" />
     <Compile Include="ViewModels\AvalonEditViewModel.cs" />
     <Compile Include="ViewModels\Entities\GrepContextViewModel.cs" />
     <Compile Include="ViewModels\GrepContextStatusViewModel.cs" />
@@ -253,12 +256,17 @@
     <Compile Include="ViewModels\StatusWindowViewModel.cs" />
     <Compile Include="ViewModels\TreeViewModels\TreeViewItemViewModel.cs" />
     <Compile Include="ViewModels\UniquifyViewModel.cs" />
-    <Compile Include="Views\GrepContextStatusView.xaml.cs">
-      <DependentUpon>GrepContextStatusView.xaml</DependentUpon>
-    </Compile>
+    <Page Include="Controls\ClickableLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\NameValueControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CrumbListView\GrepResultCrumbListViewView.xaml">
       <SubType>Designer</SubType>
@@ -359,10 +367,6 @@
     <Page Include="Views\SelectItemsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ShellView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\StatusWindowView.xaml">
       <SubType>Designer</SubType>

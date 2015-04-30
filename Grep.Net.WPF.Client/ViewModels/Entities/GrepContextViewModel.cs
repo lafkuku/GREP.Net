@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Grep.Net.WPF.Client.Interfaces;
 using Grep.Net.Entities;
 using Caliburn.Micro;
+using System.Threading;
+
 
 namespace Grep.Net.WPF.Client.ViewModels.Entities
 {
@@ -94,6 +96,7 @@ namespace Grep.Net.WPF.Client.ViewModels.Entities
         public virtual List<FileExtension> FileExtensions { get; set; }
 
 
+
         public GrepContextViewModel(GrepContext context)
         {
             Entity = context;
@@ -106,6 +109,15 @@ namespace Grep.Net.WPF.Client.ViewModels.Entities
                 NotifyOfPropertyChange(() => TimeCompleted);
                 CurrentDirectory = "Completed";
             };
+          
+        }
+
+        public void Cancel()
+        {
+            if (this.Entity.CancelToken != null && !this.Entity.CancelToken.IsCancellationRequested)
+            {
+                this.Entity.CancelToken.Cancel();
+            }
         }
     }
 }

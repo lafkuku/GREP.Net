@@ -56,7 +56,7 @@
         {
             base.OnStartup(sender, e);
 
-            DisplayRootViewFor<IShell>();
+            DisplayRootViewFor<IRoot>();
 
             _mainWindow = Application.MainWindow;
    

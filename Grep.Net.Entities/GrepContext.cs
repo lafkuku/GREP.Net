@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
+using System.Threading;
 
 namespace Grep.Net.Entities
 {
@@ -66,11 +67,15 @@ namespace Grep.Net.Entities
         [IgnoreDataMember]
         public Error OnError;
 
+        [XmlIgnore]
+        [IgnoreDataMember]
+        public CancellationTokenSource CancelToken;
 
         public GrepContext()
         {
             PatternPackages = new List<PatternPackage>();
             FileExtensions = new List<FileExtension>();
+            CancelToken = new CancellationTokenSource(); 
         }
     }
 }

@@ -92,6 +92,8 @@ namespace Grep.Net.WPF.Client.ViewModels.Entities
             }
         }
 
+       
+
         public Object SelectedDataGridItem { get; set; }
 
         public PatternPackageViewModel(PatternPackage pPackage)
@@ -142,5 +144,7 @@ namespace Grep.Net.WPF.Client.ViewModels.Entities
                 this.Patterns.Add(new PatternViewModel() { Pattern = p });
             }
         }
+
+       
     }
 }

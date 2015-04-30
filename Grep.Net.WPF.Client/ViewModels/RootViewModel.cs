@@ -14,11 +14,13 @@ using Grep.Net.WPF.Client.Interfaces;
 using Grep.Net.WPF.Client.Services;
 using Grep.Net.Data;
 using System.Threading.Tasks;
+using System.ComponentModel.Composition;
 
 
 namespace Grep.Net.WPF.Client.ViewModels
 {
-    public class RootViewModel : Screen
+        [Export(typeof(IRoot))]
+    public class RootViewModel : Screen, IRoot
     {
         #region Singleton
         
@@ -101,7 +103,7 @@ namespace Grep.Net.WPF.Client.ViewModels
 
             DataService = new DataService();
 
-            GrepService = new GrepService(GTApplication.Instance.GrepModel, DataService);
+            GrepService = new GrepService(GTApplication.Instance.GrepService, DataService);
 
             SettingsViewModel = new Entities.SettingsViewModel(GTApplication.Instance.Settings);
 
@@ -375,11 +377,19 @@ namespace Grep.Net.WPF.Client.ViewModels
         
         public override System.Windows.Style SelectStyle(object item, System.Windows.DependencyObject container)
         {
+            if (item is MatchInfoEditorViewModel ||
+                item is DetailsViewModel ||
+                item is NLogViewModel ||
+                item is GrepContextStatusViewModel)
+                return StaticDocumentStyle;
+
             if (container is Xceed.Wpf.AvalonDock.Controls.LayoutAnchorableItem)
                 return AnchorableStyle;
             
             if (container is Xceed.Wpf.AvalonDock.Controls.LayoutDocumentItem)
                 return DocumentStyle;
+
+           
             
             return DocumentStyle;
         }

@@ -25,7 +25,7 @@ namespace Grep.Net.Model.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data\\PatternPackages")]
+        [global::System.Configuration.DefaultSettingValueAttribute(".\\Data\\PatternPackages")]
         public string PatternPackagesDir {
             get {
                 return ((string)(this["PatternPackagesDir"]));
@@ -37,7 +37,7 @@ namespace Grep.Net.Model.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data\\FileTypeDefinitions")]
+        [global::System.Configuration.DefaultSettingValueAttribute(".\\Data\\FileTypeDefinitions")]
         public string FileTypeDefinitionsDir {
             get {
                 return ((string)(this["FileTypeDefinitionsDir"]));
@@ -49,7 +49,7 @@ namespace Grep.Net.Model.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data\\Templates")]
+        [global::System.Configuration.DefaultSettingValueAttribute(".\\Data\\Templates")]
         public string TemplatesDir {
             get {
                 return ((string)(this["TemplatesDir"]));
@@ -61,7 +61,7 @@ namespace Grep.Net.Model.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data\\Classifications")]
+        [global::System.Configuration.DefaultSettingValueAttribute(".\\Data\\Classifications")]
         public string ClassificationsDir {
             get {
                 return ((string)(this["ClassificationsDir"]));
@@ -193,7 +193,7 @@ namespace Grep.Net.Model.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
         public int PoolRunspaceMin {
             get {
                 return ((int)(this["PoolRunspaceMin"]));
@@ -205,7 +205,7 @@ namespace Grep.Net.Model.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("25")]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
         public int PoolRunspaceMax {
             get {
                 return ((int)(this["PoolRunspaceMax"]));
@@ -237,6 +237,18 @@ namespace Grep.Net.Model.Properties {
             }
             set {
                 this["RecentSearches"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool LogFilesBeforeGrepping {
+            get {
+                return ((bool)(this["LogFilesBeforeGrepping"]));
+            }
+            set {
+                this["LogFilesBeforeGrepping"] = value;
             }
         }
     }
