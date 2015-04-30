@@ -93,8 +93,7 @@ namespace Grep.Net.WPF.Client.ViewModels
         {
             this.Closeable = true;
             this.Editor = new AvalonEditControl();
-
-         
+            
             SearchPanel = SearchPanel.Install(this.Editor.TextArea);
  
             DisplayName = "MatchInfo Details";

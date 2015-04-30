@@ -45,6 +45,10 @@ namespace Grep.Net.WPF.Client.Controls
             }
         }
 
+
+
+        public int MaxFileSize { get; set; }
+
         public static void OnFileInfoChanged(DependencyObject sender, DependencyPropertyChangedEventArgs eventArgs)
         {
             var control = (AvalonEditControl)sender;
@@ -59,13 +63,22 @@ namespace Grep.Net.WPF.Client.Controls
                     System.IO.FileInfo info = new System.IO.FileInfo(newFile); 
                     if (info.Exists)
                     {
-                        System.IO.StreamReader sr = new System.IO.StreamReader(info.FullName);
-                        String s = sr.ReadToEnd();
-                        var high = HighlightingManager.Instance.GetDefinitionByExtension(info.Extension);
+                        if(info.Length > control.MaxFileSize)
+                        {
+                            control.Document.Text = "File too large to display";
 
-                        control.SyntaxHighlighting = high;
-                        //TODO: Add code to editor. 
-                        control.Document.Text = s;
+                        }
+                        else
+                        {
+                            System.IO.StreamReader sr = new System.IO.StreamReader(info.FullName);
+                            String s = sr.ReadToEnd();
+                            var high = HighlightingManager.Instance.GetDefinitionByExtension(info.Extension);
+
+                            control.SyntaxHighlighting = high;
+                            //TODO: Add code to editor. 
+                            control.Document.Text = s;
+                        }
+                       
 
                     }
                     else
@@ -137,41 +150,50 @@ namespace Grep.Net.WPF.Client.Controls
             {
                 return;
             }
-            while ((index = text.IndexOf(this.TextEditor.SelectedText, start)) >= 0)
+            try
             {
-                //Dont screw with the selected text
-
-                if (!(lineStartOffset + index == this.TextEditor.SelectionStart))
+                while ((index = text.IndexOf(this.TextEditor.SelectedText, start)) >= 0)
                 {
-                    base.ChangeLinePart(
-                   lineStartOffset + index, // startOffset
-                   lineStartOffset + index + this.TextEditor.SelectedText.Length, // endOffset
-                   (VisualLineElement element) =>
-                   {
-                       // This lambda gets called once for every VisualLineElement
-                       // between the specified offsets.
-                       Typeface tf = element.TextRunProperties.Typeface;
+                    //Dont screw with the selected text
 
-                       // Replace the typeface with a modified version of
-                       // the same typeface
-                       element.TextRunProperties.SetTypeface(new Typeface(
-                           tf.FontFamily,
-                           FontStyles.Italic,
-                           FontWeights.Bold,
-                           tf.Stretch
-                       ));
+                    if (!(lineStartOffset + index == this.TextEditor.SelectionStart))
+                    {
 
-                       element.TextRunProperties.SetBackgroundBrush(Brushes.Blue);
-                       element.TextRunProperties.SetForegroundBrush(Brushes.Ivory);
-                       //element.TextRunProperties.SetFontRenderingEmSize(element.TextRunProperties.FontRenderingEmSize * 1.5);
-                       element.TextRunProperties.SetFontHintingEmSize(element.TextRunProperties.FontRenderingEmSize * 1.5);
-                   });
+                        base.ChangeLinePart(
+                lineStartOffset + index, // startOffset
+                lineStartOffset + index + this.TextEditor.SelectedText.Length, // endOffset
+                (VisualLineElement element) =>
+                {
+                    // This lambda gets called once for every VisualLineElement
+                    // between the specified offsets.
+                    Typeface tf = element.TextRunProperties.Typeface;
+
+                    // Replace the typeface with a modified version of
+                    // the same typeface
+                    element.TextRunProperties.SetTypeface(new Typeface(
+                        tf.FontFamily,
+                        FontStyles.Italic,
+                        FontWeights.Bold,
+                        tf.Stretch
+                    ));
+
+                    element.TextRunProperties.SetBackgroundBrush(Brushes.Blue);
+                    element.TextRunProperties.SetForegroundBrush(Brushes.Ivory);
+                    //element.TextRunProperties.SetFontRenderingEmSize(element.TextRunProperties.FontRenderingEmSize * 1.5);
+                    element.TextRunProperties.SetFontHintingEmSize(element.TextRunProperties.FontRenderingEmSize * 1.5);
+                });
+                    }
+
+
+
+                    start = index + 1; // search for next occurrence
                 }
-                    
-
-               
-                start = index + 1; // search for next occurrence
             }
+            catch (Exception e)
+            {
+                
+            }
+            
         }
     }
 }

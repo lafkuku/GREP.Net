@@ -111,10 +111,11 @@ namespace Grep.Net.WPF.Client.ViewModels
             SelectItemsViewModel = new SelectItemsViewModel(this.SettingsViewModel, DataService);
 
             GrepContextStatusViewModel = new ViewModels.GrepContextStatusViewModel(DataService);
-            
+          
             GrepResultCrumbListViewViewModel = new GrepResultCrumbListViewViewModel(DataService);
             GrepResultCrumbListViewViewModel.MatchInfoEditorViewModel.Closeable = false;
             GrepResultCrumbListViewViewModel.MatchInfoEditorViewModel.Name = "Editor";
+            GrepResultCrumbListViewViewModel.MatchInfoEditorViewModel.Editor.MaxFileSize = SettingsViewModel.Settings.DisplayMaxFileSize;
             Documents.Add(this.GrepResultCrumbListViewViewModel.MatchInfoEditorViewModel);
             
             DetailsViewModel = new DetailsViewModel();
