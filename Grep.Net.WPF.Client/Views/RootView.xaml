@@ -13,8 +13,9 @@
              xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:actions="clr-namespace:MahApps.Metro.Actions;assembly=MahApps.Metro"
-                   xmlns:converters="clr-namespace:Grep.Net.WPF.Client.Converters"
-                   xmlns:avalonDockProps ="clr-namespace:Xceed.Wpf.AvalonDock.Properties;assembly=Xceed.Wpf.AvalonDock"
+             xmlns:converters="clr-namespace:Grep.Net.WPF.Client.Converters"
+             xmlns:avalonDockProps ="clr-namespace:Xceed.Wpf.AvalonDock.Properties;assembly=Xceed.Wpf.AvalonDock"
+                   xmlns:b="clr-namespace:Grep.Net.WPF.Client.Behaviours"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="900">
     
@@ -24,8 +25,18 @@
                        ToolTip="Import result set."
                        cal:Message.Attach="[Event Click] = [Action ImportResult]">
             </Button>
-            <Button  Content="Options"
-                       cal:Message.Attach="[Event Click] = [Action ShowOptions]">
+            <!-- cal:Message.Attach="[Event Click] = [Action ShowOptions]" -->
+            <Button  Content="Options">
+                <i:Interaction.Behaviors>
+                    <b:ContextMenuOnLeftClickBehavior/>
+                </i:Interaction.Behaviors>
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Settings" />
+                        <MenuItem Header="Check for updates" />
+                        <MenuItem Header="About" />
+                    </ContextMenu>
+                </Button.ContextMenu>
             </Button>
             <Button  Content="Manage"
                        ToolTip="Adds the Manage document to the DockView."

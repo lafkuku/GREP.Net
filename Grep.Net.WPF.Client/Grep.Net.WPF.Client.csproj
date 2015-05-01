@@ -172,6 +172,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviours\ContextMenuOnLeftClickBehavior.cs" />
     <Compile Include="Behaviours\InputBindingsManager.cs" />
     <Compile Include="Commands\DelegateCommand.cs" />
     <Compile Include="Commands\UtilityCommands.cs" />
