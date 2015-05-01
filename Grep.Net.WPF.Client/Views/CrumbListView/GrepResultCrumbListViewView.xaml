@@ -55,7 +55,7 @@
                               cal:Message.Attach="[Event SelectionChanged] = [Action SelectedItemChanged($this.SelectedItems)]"
                               Tag="{Binding DataContext, ElementName=RootElement}">
                         <ListView.ItemContainerStyle>
-                            <Style TargetType="{x:Type ListViewItem}">
+                            <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
                                 <Setter Property="cal:Message.Attach" Value="[Event MouseDoubleClick] = [Action OnNavigate($dataContext)]" />
                                 <Setter Property="cal:Action.TargetWithoutContext" Value="{Binding Tag, RelativeSource={RelativeSource AncestorType=ListView}}" />
                                 <Setter Property="Tag" Value="{Binding Tag, RelativeSource={RelativeSource AncestorType=ListView}}" />
@@ -97,6 +97,7 @@
                 <DataTemplate DataType="{x:Type cvms:PatternPackageCrumb}">
                     <ListView ItemsSource="{Binding ItemsSource}"
                               cal:Message.Attach="[Event SelectionChanged] = [Action SelectedItemChanged($this.SelectedItems)]"
+                              
                              Tag="{Binding DataContext, ElementName=RootElement}">
                         <ListView.View>
                             <GridView>
@@ -136,7 +137,7 @@
                               DockPanel.Dock="Top">
                          
                             <ListView.ItemContainerStyle>
-                                <Style TargetType="{x:Type ListViewItem}">
+                                <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
                                     <Setter Property="cal:Message.Attach" Value="[Event MouseDoubleClick] = [Action ShowResultInWin]" />
                                     <Setter Property="cal:Action.TargetWithoutContext" Value="{Binding Tag, RelativeSource={RelativeSource AncestorType=ListView}}" />
                                     <Setter Property="ToolTip" Value="{Binding Entity.FileInfo.FullName}" />

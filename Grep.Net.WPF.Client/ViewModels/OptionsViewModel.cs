@@ -24,7 +24,8 @@ namespace Grep.Net.WPF.Client.ViewModels
                 NotifyOfPropertyChange(() => Settings); 
             }
         }
-        
+
+        public string Name { get { return DisplayName; } }
         public bool ReuseCodeWindows { get; set; }
 
         public string NewExclusion { get; set; }

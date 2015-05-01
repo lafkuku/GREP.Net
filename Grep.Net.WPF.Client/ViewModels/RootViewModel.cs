@@ -253,8 +253,10 @@ namespace Grep.Net.WPF.Client.ViewModels
         public void ShowOptions()
         {
             OptionsViewModel ovm = new OptionsViewModel();
-            
-            GTWindowManager.Instance.ShowDialog(ovm, 450, 350); 
+
+            this.Documents.Add(ovm);
+
+            ActiveViewModel = ovm;
         }
         
         public void Exit()
@@ -346,7 +348,7 @@ namespace Grep.Net.WPF.Client.ViewModels
         
         public override System.Windows.Style SelectStyle(object item, System.Windows.DependencyObject container)
         {
-            if (item is MatchInfoEditorViewModel ||
+            if (((item is MatchInfoEditorViewModel) && !(item as MatchInfoEditorViewModel).Closeable) ||
                 item is DetailsViewModel ||
                 item is NLogViewModel ||
                 item is GrepContextStatusViewModel)
@@ -354,8 +356,10 @@ namespace Grep.Net.WPF.Client.ViewModels
 
             if (container is Xceed.Wpf.AvalonDock.Controls.LayoutAnchorableItem)
                 return AnchorableStyle;
-            
-            if (container is Xceed.Wpf.AvalonDock.Controls.LayoutDocumentItem)
+
+            if (item is MatchInfoEditorViewModel || 
+                item is OptionsViewModel || 
+                container is Xceed.Wpf.AvalonDock.Controls.LayoutDocumentItem)
                 return DocumentStyle;
 
            

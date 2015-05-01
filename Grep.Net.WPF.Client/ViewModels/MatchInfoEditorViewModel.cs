@@ -96,6 +96,8 @@ namespace Grep.Net.WPF.Client.ViewModels
             this.RootViewMdoel = rvm;
             this.Closeable = true;
             this.Editor = new AvalonEditControl();
+            this.Editor.MaxFileSize = 10000000; 
+           
             
             SearchPanel = SearchPanel.Install(this.Editor.TextArea);
  

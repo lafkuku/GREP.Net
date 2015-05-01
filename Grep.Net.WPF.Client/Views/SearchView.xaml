@@ -12,7 +12,7 @@
             <BitmapImage x:Key="imgSearch" UriSource="../Images/Search.ico" />
         </DockPanel.Resources>
         <DockPanel Height="25" DockPanel.Dock="Top">
-            <Button DockPanel.Dock="Right" Command="{Binding SearchCommand}">
+            <Button DockPanel.Dock="Right" Command="{Binding SearchCommand}" Style="{DynamicResource SquareButtonStyle}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="{StaticResource imgSearch}" />

@@ -250,7 +250,7 @@
                                         
                                     </Grid>
                                     <StackPanel Grid.Row="1" HorizontalAlignment="Stretch">
-                                        <Button cal:Message.Attach="[Event Click] = [Action Start()]"  >
+                                        <Button  Style="{DynamicResource AccentedSquareButtonStyle}"     cal:Message.Attach="[Event Click] = [Action Start()]"  >
                                             <Button.Content>
                                                 <StackPanel Orientation="Horizontal">
                                                     <Image Source="{StaticResource imgStart}" />
@@ -308,7 +308,7 @@
                         <Style TargetType="{x:Type avalonDock:LayoutItem}">
                             <Setter Property="Title" Value="{Binding Model.Name}"/>
                             <Setter Property="CanClose" Value="True"/>
-                            <Setter Property="CanFloat" Value="False" />
+                            <Setter Property="CanFloat" Value="True" />
                         </Style>
                     </vms:LayoutItemStyleSelector.DocumentStyle>
                 </vms:LayoutItemStyleSelector>

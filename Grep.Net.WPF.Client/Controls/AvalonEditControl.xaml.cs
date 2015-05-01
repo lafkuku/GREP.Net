@@ -125,6 +125,8 @@ namespace Grep.Net.WPF.Client.Controls
             this.TextArea.TextView.LineTransformers.Add(transformer);
 
             this.TextArea.SelectionChanged += (x, y) => this.TextArea.TextView.Redraw();
+            this.TextArea.SelectionBrush = Brushes.SlateGray; 
+
         }
     }
 

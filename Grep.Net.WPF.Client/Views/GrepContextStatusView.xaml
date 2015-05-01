@@ -17,7 +17,7 @@
                 </Style>
             </ListView.Resources>
             <ListView.ItemContainerStyle>
-                <Style TargetType="{x:Type ListViewItem}">
+                <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
                     <Setter Property="ContextMenu">
                         <Setter.Value>
                             <ContextMenu>

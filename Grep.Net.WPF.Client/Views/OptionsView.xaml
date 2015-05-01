@@ -9,13 +9,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel>
-
-        <StackPanel DockPanel.Dock="Bottom">
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" >
-                <cont:ClickableLabel Text="Save"     cal:Message.Attach="[Event Click] = [Action Save]" />
-                <cont:ClickableLabel Text="Cancel"   cal:Message.Attach="[Event Click] = [Action Cancel]" />
-            </StackPanel>
-        </StackPanel>
+        <Button Style="{DynamicResource AccentedSquareButtonStyle}" DockPanel.Dock="Bottom"  Content="Update"    cal:Message.Attach="[Event Click] = [Action Save]" />
         <TabControl DockPanel.Dock="Top">
             <TabItem Header="General">
                 <Grid DockPanel.Dock="Top">
