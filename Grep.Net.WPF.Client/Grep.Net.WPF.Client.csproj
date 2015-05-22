@@ -177,6 +177,7 @@
     <Compile Include="Commands\DelegateCommand.cs" />
     <Compile Include="Commands\UtilityCommands.cs" />
     <Compile Include="Controls\AvalonEditControl.xaml.cs" />
+    <Compile Include="Controls\BindingProxy.cs" />
     <Compile Include="Controls\CircularProgressBar.xaml.cs">
       <DependentUpon>CircularProgressBar.xaml</DependentUpon>
     </Compile>
