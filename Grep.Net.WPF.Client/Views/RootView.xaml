@@ -15,10 +15,12 @@
              xmlns:actions="clr-namespace:MahApps.Metro.Actions;assembly=MahApps.Metro"
              xmlns:converters="clr-namespace:Grep.Net.WPF.Client.Converters"
              xmlns:avalonDockProps ="clr-namespace:Xceed.Wpf.AvalonDock.Properties;assembly=Xceed.Wpf.AvalonDock"
-                   xmlns:b="clr-namespace:Grep.Net.WPF.Client.Behaviours"
+             xmlns:b="clr-namespace:Grep.Net.WPF.Client.Behaviours"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="900">
-    
+    <metro:MetroWindow.Resources>
+        <controls:BindingProxy x:Key="_RootDataContextProxy" Data="{Binding }" />
+    </metro:MetroWindow.Resources>
     <metro:MetroWindow.RightWindowCommands>
         <metro:WindowCommands>
             <Button  Content="Import"
@@ -31,8 +33,8 @@
                     <b:ContextMenuOnLeftClickBehavior/>
                 </i:Interaction.Behaviors>
                 <Button.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem Header="Settings" />
+                    <ContextMenu DataContext="{Binding Data, Source={StaticResource _RootDataContextProxy} }"  >
+                        <MenuItem Header="Settings" cal:Message.Attach="[Event Click]=[Action ShowOptions]"/>
                         <MenuItem Header="Check for updates" />
                         <MenuItem Header="About" />
                     </ContextMenu>
@@ -49,6 +51,7 @@
 
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            
         </Grid.RowDefinitions>
         <Grid.Resources>
             <ResourceDictionary>
