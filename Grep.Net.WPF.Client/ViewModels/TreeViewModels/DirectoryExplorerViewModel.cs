@@ -324,43 +324,7 @@ namespace Grep.Net.WPF.Client.ViewModels
     /// </summary>
     public class DirectoryViewModelTreeViewItem : CheckableTreeViewItemViewModel
     {
-         /*
-        public override bool IsExpanded
-        {
-            get
-            {
-                return _isExpanded;
-            }
-            set
-            {
-                if (!_isExpanded &&
-                    _children.Contains(DummyChild))
-                {
-                    RefreshChildren();
-                }
-              
-                _isExpanded = value;
-                NotifyOfPropertyChange(() => IsExpanded);
-            }
-        }
-
-   
-        private bool? _isChecked;
-
-        public bool? IsChecked
-        {
-            get
-            {
-                return _isChecked;
-            }
-            set
-            {
-                _isChecked = value;
-                CheckedStateChanged(value);
-                NotifyOfPropertyChange(() => IsChecked);
-            }
-        }
-        */
+    
         private String _path;
 
         public String Path
@@ -447,75 +411,6 @@ namespace Grep.Net.WPF.Client.ViewModels
             }
         }
 
-        /*
-        /// <summary>
-        /// This logic is so god damn complex, could be refactored at some point. It's all for keeping checks in sync. Works and is quick, but just hard to read could probably condense the two "simialr" statements below. 
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="cascadeToChildren"></param>
-        private void CheckedStateChanged(bool? value, bool cascadeToChildren = true)
-        {
-            if ((value == true || value == false) &&
-                cascadeToChildren &&
-                !this._children.Contains(DummyChild))
-            {
-                foreach (DirectoryViewModelTreeViewItem dvm in this._children)
-                {
-                    if (dvm.IsExpanded)
-                    {
-                        dvm.IsChecked = value;
-                    }
-                    else
-                    {
-                        dvm._isChecked = value;
-                        //Force the notification.
-                        dvm.NotifyOfPropertyChange(() => dvm.IsChecked);
-                    }
-                }
-            }
-            //Check the state of my siblings
-            var parentDVM = (Parent as DirectoryViewModelTreeViewItem);
-
-            if (parentDVM != null)
-            {
-                if (value == false || value == null)
-                {
-                    if (parentDVM._children.Any(x => x.IsChecked == true))
-                        parentDVM.IsChecked = null;
-                    else
-                    {
-                        if (value == false)
-                        { 
-                            parentDVM._isChecked = false; //Set the state, but avoid this callback. 
-                            parentDVM.CheckedStateChanged(false, false);
-                            parentDVM.NotifyOfPropertyChange(() => parentDVM.IsChecked);
-                        }
-                        else
-                        {
-                            parentDVM.IsChecked = null;
-                        }
-                    }
-                }
-                else if (value == true)
-                {
-                    if (parentDVM._children.Any(x => x.IsChecked == false))
-                        parentDVM.IsChecked = null;
-                    else
-                    {
-                        if (value == true)
-                        {
-                            parentDVM._isChecked = true; //Set the state, but avoid this callback. 
-                            parentDVM.CheckedStateChanged(true, false);
-                            parentDVM.NotifyOfPropertyChange(() => parentDVM.IsChecked);
-                        }
-                        else
-                        {
-                            parentDVM.IsChecked = null;
-                        }
-                    }
-                }
-            }
-        }
-         */
+      
     }
 }

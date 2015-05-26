@@ -11,8 +11,6 @@ using Grep.Net.WPF.Client.Data;
 using Grep.Net.WPF.Client.ViewModels.Entities;
 using Grep.Net.WPF.Client.Services;
 
-
-
 namespace Grep.Net.WPF.Client.ViewModels
 {
     public class PatternPackageTreeViewModel : TreeViewItemViewModel

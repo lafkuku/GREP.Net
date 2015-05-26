@@ -62,6 +62,7 @@ namespace Grep.Net.Model.Models
                 ps.RunspacePool = this.RunspacePool;
 
                 Command selectString = new Command("select-string");
+                
                 selectString.Parameters.Add("Path", filesToGrep);
                 selectString.Parameters.Add("Pattern", patterns.Select(x => x.PatternStr).ToArray());
                 selectString.Parameters.Add("Context", new int[] { Settings.LinesBefore, Settings.LinesAfter });
@@ -143,108 +144,6 @@ namespace Grep.Net.Model.Models
             return matchInfos;
         }
 
-        private List<String> GetDirectories(GrepContext gc)
-        {
-            SearchOption so = Settings.Recurse ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
-
-            List<String> dirs = new List<string>();
-            try
-            {
-                
-                DirectoryInfo rootDi = new DirectoryInfo(gc.RootPath);
-
-                foreach (DirectoryInfo dir in rootDi.EnumerateDirectories("*", SearchOption.TopDirectoryOnly))
-                {
-                    try
-                    {
-                        dirs.Add(dir.FullName);
-                       
-                        if (Settings.Recurse)
-                        {
-                            foreach (DirectoryInfo subDir in dir.EnumerateDirectories("*", SearchOption.AllDirectories))
-                            {
-                                try
-                                {
-                                    dirs.Add(subDir.FullName);
-                                }
-                                catch (UnauthorizedAccessException uae)
-                                {
-                                    _logger.Error(uae.Message);
-                                    if (gc.OnError != null)
-                                    {
-                                        gc.OnError(gc, uae.Message);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    catch (UnauthorizedAccessException uae)
-                    {
-                        _logger.Error(uae);
-                        if (gc.OnError != null)
-                        {
-                            gc.OnError(gc, uae.Message);
-                        }
-                    }
-                }
-            }catch (Exception e)
-            {
-                _logger.Error(e.Message);
-                if (gc.OnError != null)
-                {
-                    gc.OnError(gc, e.Message);
-                }
-            }
-            if (!dirs.Contains(gc.RootPath))
-                dirs.Add(gc.RootPath);
-
-            return dirs;
-        }
-
-        private List<String> GetFiles(GrepContext gc, string directory, HashSet<String> extensions = null)
-        {
-         
-            List<String> files = new List<string>();
-
-            try
-            {
-                DirectoryInfo di = new DirectoryInfo(directory);
-
-                if (extensions == null)
-                {
-                    extensions = new HashSet<string>(gc.FileExtensions.Select(x => x.Extension).ToList());
-                }
-
-                foreach (var fi in di.EnumerateFiles("*.*", SearchOption.TopDirectoryOnly))
-                {
-                    try
-                    {
-                        if (extensions.Contains(fi.Extension) || extensions.Contains("*.*"))
-                        {
-                            files.Add(fi.FullName);
-                        }
-                    }
-                    catch (UnauthorizedAccessException uae)
-                    {
-                        _logger.Error(uae);
-                        if (gc.OnError != null)
-                        {
-                            gc.OnError(gc, uae.Message);
-                        }
-                    }
-                }
-
-            }
-            catch (Exception e)
-            {
-                if (gc.OnError != null)
-                {
-                    _logger.Error(e);
-                    gc.OnError(gc, e.Message);
-                }
-            }
-            return files;
-        }
         public async Task<GrepResult> Grep(GrepContext grepContext)
         {
 
@@ -384,6 +283,111 @@ namespace Grep.Net.Model.Models
             }, grepContext);
 
             return result;
+        }
+
+
+        private List<String> GetDirectories(GrepContext gc)
+        {
+            SearchOption so = Settings.Recurse ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
+
+            List<String> dirs = new List<string>();
+            try
+            {
+
+                DirectoryInfo rootDi = new DirectoryInfo(gc.RootPath);
+
+                foreach (DirectoryInfo dir in rootDi.EnumerateDirectories("*", SearchOption.TopDirectoryOnly))
+                {
+                    try
+                    {
+                        dirs.Add(dir.FullName);
+
+                        if (Settings.Recurse)
+                        {
+                            foreach (DirectoryInfo subDir in dir.EnumerateDirectories("*", SearchOption.AllDirectories))
+                            {
+                                try
+                                {
+                                    dirs.Add(subDir.FullName);
+                                }
+                                catch (UnauthorizedAccessException uae)
+                                {
+                                    _logger.Error(uae.Message);
+                                    if (gc.OnError != null)
+                                    {
+                                        gc.OnError(gc, uae.Message);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch (UnauthorizedAccessException uae)
+                    {
+                        _logger.Error(uae);
+                        if (gc.OnError != null)
+                        {
+                            gc.OnError(gc, uae.Message);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.Error(e.Message);
+                if (gc.OnError != null)
+                {
+                    gc.OnError(gc, e.Message);
+                }
+            }
+            if (!dirs.Contains(gc.RootPath))
+                dirs.Add(gc.RootPath);
+
+            return dirs;
+        }
+
+        private List<String> GetFiles(GrepContext gc, string directory, HashSet<String> extensions = null)
+        {
+
+            List<String> files = new List<string>();
+
+            try
+            {
+                DirectoryInfo di = new DirectoryInfo(directory);
+
+                if (extensions == null)
+                {
+                    extensions = new HashSet<string>(gc.FileExtensions.Select(x => x.Extension).ToList());
+                }
+
+                foreach (var fi in di.EnumerateFiles("*.*", SearchOption.TopDirectoryOnly))
+                {
+                    try
+                    {
+                        if (extensions.Contains(fi.Extension) || extensions.Contains("*.*"))
+                        {
+                            files.Add(fi.FullName);
+                        }
+                    }
+                    catch (UnauthorizedAccessException uae)
+                    {
+                        _logger.Error(uae);
+                        if (gc.OnError != null)
+                        {
+                            gc.OnError(gc, uae.Message);
+                        }
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                if (gc.OnError != null)
+                {
+                    _logger.Error(e);
+                    gc.OnError(gc, e.Message);
+                }
+            }
+            return files;
         }
     }
 }

@@ -14,9 +14,6 @@ namespace Grep.Net.Entities
     [DataContract(Namespace = "")]
     public class FileTypeDefinition : IEntity
     {
-
-
-
         [Key]
         [DataMember]
         [XmlElement]

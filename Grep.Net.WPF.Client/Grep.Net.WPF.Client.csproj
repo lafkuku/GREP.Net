@@ -216,6 +216,7 @@
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="IRoot.cs" />
     <Compile Include="ViewModels\AvalonEditViewModel.cs" />
+    <Compile Include="ViewModels\DirectorySelectionViewModel.cs" />
     <Compile Include="ViewModels\Entities\GrepContextViewModel.cs" />
     <Compile Include="ViewModels\GrepContextStatusViewModel.cs" />
     <Compile Include="ViewModels\WpfHelper.cs" />
@@ -274,6 +275,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DirectorySelectionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
