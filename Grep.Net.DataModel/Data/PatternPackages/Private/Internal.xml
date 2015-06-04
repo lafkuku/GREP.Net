@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PatternPackage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>6ca712c2-39e7-41e3-8c1f-73240293112</Id>
+  <Id>6ca712c2-39e7-41e3-8c1f-73240293112a</Id>
   <Name>.Net</Name>
   <Version>0</Version>
-  <Category>.Net</Category>
+  <Category>Intenral</Category>
   <IsEnabled>true</IsEnabled>
   <Patterns>
     <Pattern>
@@ -12,7 +12,7 @@
       <PatternInfo />
       <ReferenceUrl />
       <Recommendation />
-      <PatternPackageId>6ca712c2-39e7-41e3-8c1f-73240293112</PatternPackageId>
+      <PatternPackageId>6ca712c2-39e7-41e3-8c1f-73240293112a</PatternPackageId>
     </Pattern>
   </Patterns>
 </PatternPackage>
