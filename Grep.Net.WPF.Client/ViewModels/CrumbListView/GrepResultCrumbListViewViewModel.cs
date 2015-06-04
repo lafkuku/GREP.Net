@@ -33,9 +33,9 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
 
     public class GrepResultCrumbListViewViewModel : CrumbNavigationListViewBaseViewModel
     {
-        private IEnumerable<MatchInfoViewModel> _selectedMatchInfos;
+        private IEnumerable<MatchInfo> _selectedMatchInfos;
 
-        public IEnumerable<MatchInfoViewModel> SelectedMatchInfos
+        public IEnumerable<MatchInfo> SelectedMatchInfos
         {
             get
             {
@@ -85,7 +85,7 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
                     if (singlePackage)
                     {
                         //If it's only 1 package, we just skip to the matchInfos. (This is also a hack to avoid the PatternPackage for "Searching" since there is only ever 1 package ;). 
-                        Crumbs.Add(new MatchInfosCrumb(grCrumb, new BindableCollection<MatchInfo>(gr.MatchInfos.Cast<MatchInfo>()))
+                        Crumbs.Add(new MatchInfosCrumb(grCrumb, Guid.Empty, gr.Entity.MatchInfos)
                         {
                             Owner = this
                         });
@@ -110,7 +110,7 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
                     PatternPackResultViewModel pp = dataContext as PatternPackResultViewModel;
                     if (crumb != null)
                     {
-                        Crumbs.Add(new MatchInfosCrumb(crumb, new BindableCollection<MatchInfo>(crumb.GrepResult.MatchInfos.Cast<MatchInfo>().Where(x => x.Pattern.PatternPackageId == pp.PatternPackage.Entity.Id)))
+                        Crumbs.Add(new MatchInfosCrumb(crumb, pp.PatternPackage.Entity.Id,  crumb.GrepResult.Entity.MatchInfos)// new BindableCollection<MatchInfo>(crumb.GrepResult.MatchInfos.Cast<MatchInfo>().Where(x => x.Pattern.PatternPackageId == pp.PatternPackage.Entity.Id)))
                         {
                             Owner = this,
                             Display = pp.PatternPackage.Name,
@@ -156,11 +156,11 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
             if (selectedItems == null)
                 return;
             SelectedItems = selectedItems;
-            SelectedMatchInfos = selectedItems.Where(x=> x is MatchInfoViewModel).Cast<MatchInfoViewModel>();
+            SelectedMatchInfos = selectedItems.Where(x => x is MatchInfo).Cast<MatchInfo>();
             if (SelectedMatchInfos.Count() > 0)
             {
-                MatchInfoViewModel mivm = (MatchInfoViewModel)SelectedMatchInfos.ToList()[0];
-                this.MatchInfoEditorViewModel.MatchInfo = mivm.Entity;
+                MatchInfo mivm = (MatchInfo)SelectedMatchInfos.ToList()[0];
+                this.MatchInfoEditorViewModel.MatchInfo = mivm;
             }
             else
             {
@@ -176,21 +176,21 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
         public void ToClipboard(string param)
         {
             StringBuilder sb = new StringBuilder();
-            foreach (MatchInfoViewModel minfo in this.SelectedMatchInfos)
+            foreach (MatchInfo minfo in this.SelectedMatchInfos)
             {
                 switch (param)
                 {
                     case "FileName":
-                        sb.AppendLine(String.Format("{0}", minfo.Entity.FileInfo.Name));
+                        sb.AppendLine(String.Format("{0}", minfo.FileInfo.Name));
                         break;
                     case "FilePath":
-                        sb.AppendLine(String.Format("{0}", minfo.Entity.FileInfo.FullName));
+                        sb.AppendLine(String.Format("{0}", minfo.FileInfo.FullName));
                         break;
                     case "FilePathLine":
-                        sb.AppendLine(String.Format("{0}:{1}", minfo.Entity.FileInfo.FullName, minfo.Entity.LineNumber));
+                        sb.AppendLine(String.Format("{0}:{1}", minfo.FileInfo.FullName, minfo.LineNumber));
                         break;
                     case "FilePathLinePattern":
-                        sb.AppendLine(String.Format("{0}:{1} - {2}", minfo.Entity.FileInfo.FullName, minfo.Entity.LineNumber, minfo.Entity.Pattern.PatternStr));
+                        sb.AppendLine(String.Format("{0}:{1} - {2}", minfo.FileInfo.FullName, minfo.LineNumber, minfo.Pattern.PatternStr));
                         break;
                 }
             }
@@ -358,11 +358,11 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
                         }
                         ppCrumb.GrepResult.MatchInfos.CommitEdit();
                     }
-                    if (item is MatchInfoViewModel)
+                    if (item is MatchInfo)
                     {
-                        var mi = item as MatchInfoViewModel;
+                        var mi = item as MatchInfo;
                         var grepResult = DataService.GrepResultService.Get(mi.GrepResultId);
-                        grepResult.MatchInfos.Remove(mi.Entity);
+                        grepResult.Entity.MatchInfos.Remove(mi);
                     }
                     if (item is GrepResultViewModel)
                     {
@@ -376,7 +376,71 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
             }
         }
 
-       
+
+        public void RemoveSelectedFileName()
+        {
+            //We must be at the MatchInfoCrumb
+            //TODO: Fix this to be modeled slightly better.. 
+            MatchInfosCrumb currentCrumb = CurrentCrumb as MatchInfosCrumb;
+            if (currentCrumb != null)
+            {
+                foreach (var item in this.SelectedItems.ToList())
+                {
+                    if (item is MatchInfo)
+                    {
+                        var mi = item as MatchInfo;
+                        var grepResult = DataService.GrepResultService.Get(mi.GrepResultId);
+
+
+                        var toRemove = grepResult.Entity.MatchInfos.Where(x => x.FileInfo.FullName == mi.FileInfo.FullName && 
+                            (x.Pattern.PatternPackageId == currentCrumb.PatternPackageId || currentCrumb.PatternPackageId == Guid.Empty)).ToList();
+
+                        foreach (var removeMe in toRemove)
+                        {
+                            if (grepResult.Entity.MatchInfos.Contains(removeMe)) {
+                                grepResult.Entity.MatchInfos.Remove(removeMe);
+                            }
+                        }
+                    }
+                }
+                currentCrumb.RefreshChildren();
+
+            }
+        }
+
+        public void RemoveSelectedFileExtension()
+        {
+            //We must be at the MatchInfoCrumb
+            //TODO: Fix this to be modeled slightly better.. 
+            MatchInfosCrumb currentCrumb = CurrentCrumb as MatchInfosCrumb;
+            if (currentCrumb != null)
+            {
+                foreach (var item in this.SelectedItems.ToList())
+                {
+                    if (item is MatchInfo)
+                    {
+                        var mi = item as MatchInfo;
+                        var grepResult = DataService.GrepResultService.Get(mi.GrepResultId);
+
+
+                        var toRemove = grepResult.Entity.MatchInfos.Where(x => {
+                            return x.FileInfo.FileExtension.Equals(mi.FileInfo.FileExtension) && (x.Pattern.PatternPackageId == currentCrumb.PatternPackageId || currentCrumb.PatternPackageId == Guid.Empty);
+                        }).ToList();
+
+                        foreach (var removeMe in toRemove)
+                        {
+                            if (grepResult.Entity.MatchInfos.Contains(removeMe))
+                            {
+                                grepResult.Entity.MatchInfos.Remove(removeMe);
+                            }
+                        }
+                    }
+                }
+                currentCrumb.RefreshChildren();
+
+            }
+
+        }
 
         public void ImportResults()
         {
@@ -401,7 +465,7 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
         {
             if (this.SelectedMatchInfos != null && this.SelectedMatchInfos.Count() > 0)
             {
-                MatchInfoEditorViewModel mievm = new MatchInfoEditorViewModel(RootViewModel) { MatchInfo = this.SelectedMatchInfos.ToList()[0].Entity };
+                MatchInfoEditorViewModel mievm = new MatchInfoEditorViewModel(RootViewModel) { MatchInfo = this.SelectedMatchInfos.ToList()[0] };
 
                 RootViewModel.Documents.Add(mievm);
             }
@@ -461,11 +525,11 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
     {
         //public SyncedBindableCollection<MatchInfo, MatchInfoViewModel> _matchInfos { get; set; }
 
-        private SyncedBindableCollection<MatchInfo, MatchInfoViewModel> _matchInfos;
+        private IEnumerable<MatchInfo> _matchInfos;
 
 
         public CrumbListViewModel Parent { get; set; }
-
+        public Guid PatternPackageId { get; set; }
 
         private String _filterStr;
         public String FilterStr
@@ -482,27 +546,32 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
             }
         }
 
-        public MatchInfosCrumb(CrumbListViewModel parent, BindableCollection<MatchInfo> matchInfos)
+        public MatchInfosCrumb(CrumbListViewModel parent, Guid patternPackageId, IEnumerable<MatchInfo> matchInfos)
         {
 
             Display = "";
-            _matchInfos = new SyncedBindableCollection<MatchInfo, MatchInfoViewModel>(matchInfos,
-                                                                                      (x) => new MatchInfoViewModel() { Entity = x },
-                                                                                      (m, vm) => vm.Entity == m);
-            ItemsSource = new ListCollectionView(_matchInfos);
+            _matchInfos = matchInfos;
+            PatternPackageId = patternPackageId;
+            RefreshChildren(); 
+        }
+
+        public void RefreshChildren()
+        {
+
+            ItemsSource = new ListCollectionView(new BindableCollection<MatchInfo>(_matchInfos.Where(x=> x.Pattern.PatternPackageId == PatternPackageId || PatternPackageId == Guid.Empty)));
             ItemsSource.Filter = new Predicate<object>((x) =>
             {
-                if (!(x is MatchInfoViewModel) || String.IsNullOrEmpty(FilterStr))
+                if (!(x is MatchInfo) || String.IsNullOrEmpty(FilterStr))
                     return true;
 
-                MatchInfoViewModel mivm = x as MatchInfoViewModel;
+                MatchInfo mi = x as MatchInfo;
 
-                if (mivm != null)
+                if (mi != null)
                 {
-                    if (mivm.Entity.Context.Contains(FilterStr))
+                    if (mi.Context.Contains(FilterStr))
                         return true;
 
-                    if (mivm.Entity.FileInfo.FullName.Contains(FilterStr))
+                    if (mi.FileInfo.FullName.Contains(FilterStr))
                         return true;
                 }
 

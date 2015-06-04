@@ -146,8 +146,11 @@
                             
                             <ListView.ContextMenu>
                                 <ContextMenu DataContext="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
-                                    <MenuItem Header="Remove Selected"
-                                          cal:Message.Attach="[Event Click] = [Action RemoveSelected()]" />
+                                    <MenuItem Header="Remove">
+                                        <MenuItem Header="Selected" cal:Message.Attach="[Event Click] = [Action RemoveSelected()]" />
+                                        <MenuItem Header="File Name" cal:Message.Attach="[Event Click] = [Action RemoveSelectedFileName()]" />
+                                        <MenuItem Header="File Extension" cal:Message.Attach="[Event Click] = [Action RemoveSelectedFileExtension()]" />
+                                    </MenuItem>
                                     <MenuItem Header="To Clipboard">
                                         <MenuItem Header="FileName"
                                               cal:Message.Attach="[Event Click] = [Action ToClipboard('FileName')]"    />
@@ -176,19 +179,19 @@
                             </ListView.ContextMenu>
                             <ListView.View>
                                 <GridView VirtualizingPanel.IsVirtualizing="True">
-                                    <GridViewColumn DisplayMemberBinding="{Binding Entity.FileInfo.Name}"
+                                    <GridViewColumn DisplayMemberBinding="{Binding FileInfo.Name}"
                                                 ext:GridViewSort.PropertyName="Entity.FileInfo.Name" 
                                                 Header="File" />
-                                    <GridViewColumn DisplayMemberBinding="{Binding Entity.Pattern.PatternStr}" 
+                                    <GridViewColumn DisplayMemberBinding="{Binding Pattern.PatternStr}" 
                                                 ext:GridViewSort.PropertyName="Entity.Pattern.PatternStr" 
                                                 Header="Pattern" />
-                                    <GridViewColumn DisplayMemberBinding="{Binding Entity.Match}" 
+                                    <GridViewColumn DisplayMemberBinding="{Binding Match}" 
                                                 ext:GridViewSort.PropertyName="Entity.Match" 
                                                 Header="Match" />
-                                    <GridViewColumn DisplayMemberBinding="{Binding Entity.LineNumber}" 
+                                    <GridViewColumn DisplayMemberBinding="{Binding LineNumber}" 
                                                 ext:GridViewSort.PropertyName="Entity.LineNumber" 
                                                 Header="Line#" />
-                                    <GridViewColumn DisplayMemberBinding="{Binding Entity.Line}"
+                                    <GridViewColumn DisplayMemberBinding="{Binding Line}"
                                                 ext:GridViewSort.PropertyName="Entity.Line" 
                                                 Header="Line" />
                                 </GridView>
