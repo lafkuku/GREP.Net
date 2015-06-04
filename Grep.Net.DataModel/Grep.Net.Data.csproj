@@ -217,6 +217,9 @@
     <None Include="Data\PatternPackages\SQLI\SQL.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Content Include="Data\PatternPackages\Private\Internal.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Data\Templates\DefaultTemplate.xml" />
     <Content Include="MigrationSteps.txt" />
   </ItemGroup>
