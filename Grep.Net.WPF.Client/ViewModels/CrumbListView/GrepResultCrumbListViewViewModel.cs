@@ -220,7 +220,7 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
             {
                 case "File":
                     //Get the unique FileNames
-                    IList<String> fNames = crumb.ItemsSource.Cast<MatchInfoViewModel>().Select(x => x.FileInfo.FullName).Distinct().ToList();
+                    IList<String> fNames = crumb.ItemsSource.Cast<MatchInfo>().Select(x => x.FileInfo.FullName).Distinct().ToList();
                     Crumbs.Add(new UniqueCrumb()
                     {
                         Display = "Unique - FileNames",
@@ -228,7 +228,7 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
                     });
                     break;
                 case "Match":
-                    IList<String> matchStrs = crumb.ItemsSource.Cast<MatchInfoViewModel>().Select(x => x.Match).Distinct().ToList();
+                    IList<String> matchStrs = crumb.ItemsSource.Cast<MatchInfo>().Select(x => x.Match).Distinct().ToList();
                     Crumbs.Add(new UniqueCrumb()
                     {
                         Display = "Unique - Matchs",
@@ -236,7 +236,7 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
                     });
                     break;
                 case "Context":
-                    IList<String> contextStrings = crumb.ItemsSource.Cast<MatchInfoViewModel>().Select(x => x.Context).Distinct().ToList();
+                    IList<String> contextStrings = crumb.ItemsSource.Cast<MatchInfo>().Select(x => x.Context).Distinct().ToList();
                     Crumbs.Add(new UniqueCrumb()
                     {
                         Display = "Unique - Contexts",
@@ -244,7 +244,7 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
                     });
                     break;
                 case "Line":
-                    IList<String> lineStrings = crumb.ItemsSource.Cast<MatchInfoViewModel>().Select(x => x.Line).Distinct().ToList();
+                    IList<String> lineStrings = crumb.ItemsSource.Cast<MatchInfo>().Select(x => x.Line).Distinct().ToList();
                     Crumbs.Add(new UniqueCrumb()
                     {
                         Display = "Unique - Line",

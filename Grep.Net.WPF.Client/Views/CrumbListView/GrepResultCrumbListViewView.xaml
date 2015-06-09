@@ -180,19 +180,19 @@
                             <ListView.View>
                                 <GridView VirtualizingPanel.IsVirtualizing="True">
                                     <GridViewColumn DisplayMemberBinding="{Binding FileInfo.Name}"
-                                                ext:GridViewSort.PropertyName="Entity.FileInfo.Name" 
+                                                ext:GridViewSort.PropertyName="FileInfo.Name" 
                                                 Header="File" />
                                     <GridViewColumn DisplayMemberBinding="{Binding Pattern.PatternStr}" 
-                                                ext:GridViewSort.PropertyName="Entity.Pattern.PatternStr" 
+                                                ext:GridViewSort.PropertyName="Pattern.PatternStr" 
                                                 Header="Pattern" />
                                     <GridViewColumn DisplayMemberBinding="{Binding Match}" 
-                                                ext:GridViewSort.PropertyName="Entity.Match" 
+                                                ext:GridViewSort.PropertyName="Match" 
                                                 Header="Match" />
                                     <GridViewColumn DisplayMemberBinding="{Binding LineNumber}" 
-                                                ext:GridViewSort.PropertyName="Entity.LineNumber" 
+                                                ext:GridViewSort.PropertyName="LineNumber" 
                                                 Header="Line#" />
                                     <GridViewColumn DisplayMemberBinding="{Binding Line}"
-                                                ext:GridViewSort.PropertyName="Entity.Line" 
+                                                ext:GridViewSort.PropertyName="Line" 
                                                 Header="Line" />
                                 </GridView>
                             </ListView.View>
