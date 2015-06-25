@@ -20,20 +20,6 @@
     <Setting Name="SaveLayout" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="Exclusions" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;*.dll&lt;/string&gt;
-  &lt;string&gt;*.com&lt;/string&gt;
-  &lt;string&gt;*.exe&lt;/string&gt;
-  &lt;string&gt;*.bin&lt;/string&gt;
-  &lt;string&gt;*.obj&lt;/string&gt;
-  &lt;string&gt;*.pch&lt;/string&gt;
-  &lt;string&gt;*.pdb&lt;/string&gt;
-  &lt;string&gt;*.sdf&lt;/string&gt;
-  &lt;string&gt;*.mdf&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
     <Setting Name="PathShortCuts" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
@@ -71,6 +57,25 @@
     </Setting>
     <Setting Name="DisplayMaxFileSize" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">104857600</Value>
+    </Setting>
+    <Setting Name="Exclusions" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;*.dll&lt;/string&gt;
+  &lt;string&gt;*.com&lt;/string&gt;
+  &lt;string&gt;*.exe&lt;/string&gt;
+  &lt;string&gt;*.bin&lt;/string&gt;
+  &lt;string&gt;*.obj&lt;/string&gt;
+  &lt;string&gt;*.pch&lt;/string&gt;
+  &lt;string&gt;*.pdb&lt;/string&gt;
+  &lt;string&gt;*.sdf&lt;/string&gt;
+  &lt;string&gt;*.mdf&lt;/string&gt;
+  &lt;string&gt;*.zip&lt;/string&gt;
+  &lt;string&gt;*.msi&lt;/string&gt;
+  &lt;string&gt;*.rar&lt;/string&gt;
+  &lt;string&gt;*.iso&lt;/string&gt;
+  &lt;string&gt;*.chm&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -97,29 +97,6 @@ namespace Grep.Net.Model.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
-<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>*.dll</string>
-  <string>*.com</string>
-  <string>*.exe</string>
-  <string>*.bin</string>
-  <string>*.obj</string>
-  <string>*.pch</string>
-  <string>*.pdb</string>
-  <string>*.sdf</string>
-  <string>*.mdf</string>
-</ArrayOfString>")]
-        public global::System.Collections.Specialized.StringCollection Exclusions {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["Exclusions"]));
-            }
-            set {
-                this["Exclusions"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
             "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" />")]
         public global::System.Collections.Specialized.StringCollection PathShortCuts {
@@ -261,6 +238,34 @@ namespace Grep.Net.Model.Properties {
             }
             set {
                 this["DisplayMaxFileSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>*.dll</string>
+  <string>*.com</string>
+  <string>*.exe</string>
+  <string>*.bin</string>
+  <string>*.obj</string>
+  <string>*.pch</string>
+  <string>*.pdb</string>
+  <string>*.sdf</string>
+  <string>*.mdf</string>
+  <string>*.zip</string>
+  <string>*.msi</string>
+  <string>*.rar</string>
+  <string>*.iso</string>
+  <string>*.chm</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection Exclusions {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["Exclusions"]));
+            }
+            set {
+                this["Exclusions"] = value;
             }
         }
     }
