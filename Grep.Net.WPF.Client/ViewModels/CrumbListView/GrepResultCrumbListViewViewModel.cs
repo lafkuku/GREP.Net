@@ -17,6 +17,7 @@ using Grep.Net.WPF.Client.Commands;
 using System.Windows.Data;
 using Grep.Net.WPF.Client.Services;
 using Grep.Net.WPF.Client.Interfaces;
+using System.Text.RegularExpressions;
 
 
 namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
@@ -378,6 +379,84 @@ namespace Grep.Net.WPF.Client.ViewModels.CrumbListView
 
 
         public void RemoveSelectedFileName()
+        {
+            //We must be at the MatchInfoCrumb
+            //TODO: Fix this to be modeled slightly better.. 
+            MatchInfosCrumb currentCrumb = CurrentCrumb as MatchInfosCrumb;
+            if (currentCrumb != null)
+            {
+                foreach (var item in this.SelectedItems.ToList())
+                {
+                    if (item is MatchInfo)
+                    {
+                        var mi = item as MatchInfo;
+                        var grepResult = DataService.GrepResultService.Get(mi.GrepResultId);
+
+
+                        var toRemove = grepResult.Entity.MatchInfos.Where(x => x.FileInfo.Name == mi.FileInfo.Name &&
+                            (x.Pattern.PatternPackageId == currentCrumb.PatternPackageId || currentCrumb.PatternPackageId == Guid.Empty)).ToList();
+
+                        foreach (var removeMe in toRemove)
+                        {
+                            if (grepResult.Entity.MatchInfos.Contains(removeMe))
+                            {
+                                grepResult.Entity.MatchInfos.Remove(removeMe);
+                            }
+                        }
+                    }
+                }
+                currentCrumb.RefreshChildren();
+            }
+        }
+
+        public void RemoveFromPattern()
+        {
+            //We must be at the MatchInfoCrumb
+            //TODO: Fix this to be modeled slightly better.. 
+            MatchInfosCrumb currentCrumb = CurrentCrumb as MatchInfosCrumb;
+            if (currentCrumb != null)
+            {
+
+                //Show a input dialog. 
+
+                InputDialogViewModel iDialog = new InputDialogViewModel();
+                iDialog.Question = "Enter regex pattern to remove";
+
+                if (!(GTWindowManager.Instance.ShowDialog(iDialog, 175, 325) == true) || 
+                     String.IsNullOrEmpty(iDialog.Input))
+                {
+                    return;
+                }
+
+
+
+                foreach (var item in this.SelectedItems.ToList())
+                {
+                    if (item is MatchInfo)
+                    {
+                        var mi = item as MatchInfo;
+                        var grepResult = DataService.GrepResultService.Get(mi.GrepResultId);
+
+
+                        var toRemove = grepResult.Entity.MatchInfos.Where(x =>  Regex.IsMatch(x.FileInfo.Name, iDialog.Input) &&
+                            (x.Pattern.PatternPackageId == currentCrumb.PatternPackageId || currentCrumb.PatternPackageId == Guid.Empty)).ToList();
+
+                        foreach (var removeMe in toRemove)
+                        {
+                            if (grepResult.Entity.MatchInfos.Contains(removeMe))
+                            {
+                                grepResult.Entity.MatchInfos.Remove(removeMe);
+                            }
+                        }
+                    }
+                }
+                currentCrumb.RefreshChildren();
+
+            }
+        }
+
+
+        public void RemoveSelectedFileNameOnPath()
         {
             //We must be at the MatchInfoCrumb
             //TODO: Fix this to be modeled slightly better.. 
