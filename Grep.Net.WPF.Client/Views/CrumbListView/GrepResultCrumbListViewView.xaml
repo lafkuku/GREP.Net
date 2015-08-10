@@ -147,9 +147,21 @@
                             <ListView.ContextMenu>
                                 <ContextMenu DataContext="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
                                     <MenuItem Header="Remove">
-                                        <MenuItem Header="Selected" cal:Message.Attach="[Event Click] = [Action RemoveSelected()]" />
-                                        <MenuItem Header="File Name" cal:Message.Attach="[Event Click] = [Action RemoveSelectedFileName()]" />
-                                        <MenuItem Header="File Extension" cal:Message.Attach="[Event Click] = [Action RemoveSelectedFileExtension()]" />
+                                        <MenuItem Header="Selected" 
+                                                  cal:Message.Attach="[Event Click] = [Action RemoveSelected()]"
+                                                  ToolTip="Removes the selected MatchInfo"/>
+                                        <MenuItem Header="FileName" 
+                                                  cal:Message.Attach="[Event Click] = [Action RemoveSelectedFileName()]"
+                                                  ToolTip="Removes matches with the same file name (regardless of path)"/>
+                                        <MenuItem Header="Full FileName" 
+                                                  cal:Message.Attach="[Event Click] = [Action RemoveSelectedFileNameOnPath()]" 
+                                                  ToolTip="Removes matches originating from the full filename"/> 
+                                        <MenuItem Header="File Extension" 
+                                                  cal:Message.Attach="[Event Click] = [Action RemoveSelectedFileExtension()]" 
+                                                  ToolTip="Removes matches with the selected matchinfo's extension"/>
+                                        <MenuItem Header="FileName Pattern" 
+                                                  cal:Message.Attach="[Event Click] = [Action RemoveFromPattern()]" 
+                                                  ToolTip="Removes matches where the filename matches a pattern"/>
                                     </MenuItem>
                                     <MenuItem Header="To Clipboard">
                                         <MenuItem Header="FileName"

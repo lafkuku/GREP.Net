@@ -11,7 +11,7 @@ using Grep.Net.WPF.Client.Controls;
 using ICSharpCode.AvalonEdit.Search;
 using NLog;
 using Grep.Net.WPF.Client.Commands;
-
+using System.Windows.Threading;
 
 namespace Grep.Net.WPF.Client.ViewModels
 {
@@ -96,7 +96,7 @@ namespace Grep.Net.WPF.Client.ViewModels
             this.RootViewMdoel = rvm;
             this.Closeable = true;
             this.Editor = new AvalonEditControl();
-            this.Editor.MaxFileSize = 10000000; 
+            this.Editor.MaxFileSize = 100000; 
            
             
             SearchPanel = SearchPanel.Install(this.Editor.TextArea);
@@ -114,13 +114,43 @@ namespace Grep.Net.WPF.Client.ViewModels
                 }
                 try
                 {
-                    var ln = this.Editor.Document.GetLineByNumber(_matchInfo.LineNumber);
-                    if (ln != null)
+
+                    //Well this is ugly, so i best explain or i'll forget. 
+
+                    //The editor will load the document in an async fashion, as such, we need to also tell it update the scroll posistion. 
+                    //So we dispatch an action when the async load document completes, but wait that's not all
+                    //We also need to do the scrolling from the UI thread, so our action then queues an action for the UI thread to do the scroll. Whew. 
+                    //Technically a race condition still exits but would be rare
+                    var scrollTo = new System.Action(()=>{
+                        //Verify that we can actually scroll to the line. 
+                        if (this.Editor.Document.LineCount >= _matchInfo.LineNumber)
+                        {
+                            var ln = this.Editor.Document.GetLineByNumber(_matchInfo.LineNumber);
+                            if (ln != null)
+                            {
+                                //Editor.UpdateLayout();   
+                                Editor.ScrollTo(ln.LineNumber, 0);
+                                Editor.Select(ln.Offset, ln.Length);
+                            }
+                        }
+                      
+                    });
+                    if (Editor.TextLoadingTask == null || Editor.TextLoadingTask.IsCompleted)
                     {
-                        //Editor.UpdateLayout();   
-                        Editor.ScrollTo(ln.LineNumber, 0);
-                        Editor.Select(ln.Offset, ln.Length);
+                        scrollTo();
                     }
+                    else
+                    {
+                        Editor.TextLoadingTask.ContinueWith((x) =>
+                        {
+                            Editor.Dispatcher.BeginInvoke(new System.Action(delegate
+                            {
+                                scrollTo();
+                            }), DispatcherPriority.Normal);
+                          
+                        });
+                    }
+                   
                 }
                 catch (Exception e)
                 {

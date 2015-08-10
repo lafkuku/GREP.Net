@@ -9,7 +9,9 @@ using ICSharpCode.AvalonEdit.Rendering;
 using NLog;
 using System.Globalization;
 using System.Windows.Media;
-
+using System.Threading.Tasks;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace Grep.Net.WPF.Client.Controls
 {
@@ -45,8 +47,8 @@ namespace Grep.Net.WPF.Client.Controls
             }
         }
 
-
-
+        public Task TextLoadingTask { get; set; }
+        public CancellationTokenSource TextLoadingToken { get; set; }
         public int MaxFileSize { get; set; }
 
         public static void OnFileInfoChanged(DependencyObject sender, DependencyPropertyChangedEventArgs eventArgs)
@@ -63,23 +65,63 @@ namespace Grep.Net.WPF.Client.Controls
                     System.IO.FileInfo info = new System.IO.FileInfo(newFile); 
                     if (info.Exists)
                     {
-                        if(info.Length > control.MaxFileSize)
-                        {
-                            control.Document.Text = "File too large to display";
+                        bool isTooLarge = (info.Length > control.MaxFileSize);
 
+                        if(isTooLarge){
+                            MessageBoxResult result = MessageBox.Show("File size too large, display anyways?", "File too large", MessageBoxButton.YesNo);
+
+                            if (result == MessageBoxResult.Yes)
+                            {
+                                isTooLarge = false;
+                            }
+                        }
+
+
+                        if (control.TextLoadingTask != null && !control.TextLoadingTask.IsCompleted)
+                        {
+                            control.TextLoadingToken.Cancel();
+                        }
+
+                        if(!isTooLarge){
+
+                            control.Document.Text = "Loading...";
+                            var highLighter = HighlightingManager.Instance.GetDefinitionByExtension(info.Extension);
+                            control.SyntaxHighlighting = highLighter;
+                            
+                            //Create a loading task. 
+                            control.TextLoadingTask = Task.Factory.StartNew(async ()=>{
+                                TextDocument td = new TextDocument(); 
+                               
+                                System.IO.StreamReader sr = new System.IO.StreamReader(info.FullName);
+                                String s = sr.ReadToEnd();
+                               
+                                //TODO: Add code to editor. 
+                                td.Text = s;
+
+                                td.SetOwnerThread(control.Dispatcher.Thread);
+                              
+                                var operation = control.Dispatcher.BeginInvoke(new Action(delegate
+                                {
+                                    control.Document = td;
+                                   
+                                }), DispatcherPriority.Normal);
+                                operation.Wait(new TimeSpan(0,0,5));
+                                if (operation.Status != DispatcherOperationStatus.Completed){
+                                    operation.Abort();
+                                    control.Dispatcher.Invoke(new Action(delegate
+                                    {
+                                        TextDocument timedout = new TextDocument();
+                                        timedout.Text = "Timedout loading document";
+                                        control.Document = timedout;
+                                    }), DispatcherPriority.Normal);
+                                }
+                               
+                            }, control.TextLoadingToken.Token);
                         }
                         else
                         {
-                            System.IO.StreamReader sr = new System.IO.StreamReader(info.FullName);
-                            String s = sr.ReadToEnd();
-                            var high = HighlightingManager.Instance.GetDefinitionByExtension(info.Extension);
-
-                            control.SyntaxHighlighting = high;
-                            //TODO: Add code to editor. 
-                            control.Document.Text = s;
+                            control.Document.Text = "File too large";
                         }
-                       
-
                     }
                     else
                     {
@@ -118,15 +160,15 @@ namespace Grep.Net.WPF.Client.Controls
         public AvalonEditControl() : base()
         {
             this.ShowLineNumbers = true;
-            this.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
-            this.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
-
+            this.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+            this.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
+            
             HighlightSelectedSameWords transformer = new HighlightSelectedSameWords(this);
             this.TextArea.TextView.LineTransformers.Add(transformer);
-
+            
             this.TextArea.SelectionChanged += (x, y) => this.TextArea.TextView.Redraw();
-            this.TextArea.SelectionBrush = Brushes.SlateGray; 
-
+            this.TextArea.SelectionBrush = Brushes.SlateGray;
+            this.TextLoadingToken = new CancellationTokenSource(); 
         }
     }
 
@@ -162,28 +204,28 @@ namespace Grep.Net.WPF.Client.Controls
                     {
 
                         base.ChangeLinePart(
-                lineStartOffset + index, // startOffset
-                lineStartOffset + index + this.TextEditor.SelectedText.Length, // endOffset
-                (VisualLineElement element) =>
-                {
-                    // This lambda gets called once for every VisualLineElement
-                    // between the specified offsets.
-                    Typeface tf = element.TextRunProperties.Typeface;
+                            lineStartOffset + index, // startOffset
+                            lineStartOffset + index + this.TextEditor.SelectedText.Length, // endOffset
+                            (VisualLineElement element) =>
+                            {
+                                // This lambda gets called once for every VisualLineElement
+                                // between the specified offsets.
+                                Typeface tf = element.TextRunProperties.Typeface;
 
-                    // Replace the typeface with a modified version of
-                    // the same typeface
-                    element.TextRunProperties.SetTypeface(new Typeface(
-                        tf.FontFamily,
-                        FontStyles.Italic,
-                        FontWeights.Bold,
-                        tf.Stretch
-                    ));
+                                // Replace the typeface with a modified version of
+                                // the same typeface
+                                element.TextRunProperties.SetTypeface(new Typeface(
+                                    tf.FontFamily,
+                                    FontStyles.Italic,
+                                    FontWeights.Bold,
+                                    tf.Stretch
+                                ));
 
-                    element.TextRunProperties.SetBackgroundBrush(Brushes.Blue);
-                    element.TextRunProperties.SetForegroundBrush(Brushes.Ivory);
-                    //element.TextRunProperties.SetFontRenderingEmSize(element.TextRunProperties.FontRenderingEmSize * 1.5);
-                    element.TextRunProperties.SetFontHintingEmSize(element.TextRunProperties.FontRenderingEmSize * 1.5);
-                });
+                                element.TextRunProperties.SetBackgroundBrush(Brushes.Blue);
+                                element.TextRunProperties.SetForegroundBrush(Brushes.Ivory);
+                                //element.TextRunProperties.SetFontRenderingEmSize(element.TextRunProperties.FontRenderingEmSize * 1.5);
+                                element.TextRunProperties.SetFontHintingEmSize(element.TextRunProperties.FontRenderingEmSize * 1.5);
+                            });
                     }
 
 
