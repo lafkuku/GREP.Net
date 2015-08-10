@@ -89,7 +89,7 @@ namespace Grep.Net.WPF.Client.Controls
                             control.SyntaxHighlighting = highLighter;
                             
                             //Create a loading task. 
-                            control.TextLoadingTask = Task.Factory.StartNew(async ()=>{
+                            control.TextLoadingTask = Task.Factory.StartNew(()=>{
                                 TextDocument td = new TextDocument(); 
                                
                                 System.IO.StreamReader sr = new System.IO.StreamReader(info.FullName);
@@ -103,9 +103,13 @@ namespace Grep.Net.WPF.Client.Controls
                                 var operation = control.Dispatcher.BeginInvoke(new Action(delegate
                                 {
                                     control.Document = td;
-                                   
+                                    control.TextArea.TextView.UpdateLayout();
                                 }), DispatcherPriority.Normal);
-                                operation.Wait(new TimeSpan(0,0,5));
+                                
+                                //We have an issue when updating text in AvalonEdit. Complex binary files are causing the UI thread to hang. I needed a way to timeout. 
+                                //This seems to work but is a huge hack. 
+                                operation.Wait(new TimeSpan(0,0,2)); //This is such a hack, but works atm. Need to investigate a better fix. 
+                                
                                 if (operation.Status != DispatcherOperationStatus.Completed){
                                     operation.Abort();
                                     control.Dispatcher.Invoke(new Action(delegate
