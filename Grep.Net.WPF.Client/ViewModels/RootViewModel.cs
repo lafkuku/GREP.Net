@@ -290,14 +290,16 @@ namespace Grep.Net.WPF.Client.ViewModels
                     if (!String.IsNullOrEmpty(fileName) &&
                         File.Exists(fileName))
                     {
-                        StreamReader sr = new StreamReader(fileName);
-                        PatternPackage pp = PatternPackage.CreateFromFile(sr.ReadToEnd());
-                        PatternPackageViewModel ppvm = new PatternPackageViewModel(pp);
-                        string fname = System.IO.Path.GetFileNameWithoutExtension(fileName);
-                        pp.Name = fname; 
-                        if (GTWindowManager.Instance.ShowOkCanelDialog(ppvm, 300, 300) == true)
+                        using (var sr = new StreamReader(fileName))
                         {
-                            DataService.PatternPackageService.Add(pp);
+                            PatternPackage pp = PatternPackage.CreateFromFile(sr.ReadToEnd());
+                            PatternPackageViewModel ppvm = new PatternPackageViewModel(pp);
+                            string fname = System.IO.Path.GetFileNameWithoutExtension(fileName);
+                            pp.Name = fname;
+                            if (GTWindowManager.Instance.ShowOkCanelDialog(ppvm, 300, 300) == true)
+                            {
+                                DataService.PatternPackageService.Add(pp);
+                            }
                         }
                     }
                 }
