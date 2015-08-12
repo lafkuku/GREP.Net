@@ -68,7 +68,7 @@ namespace Grep.Net.WPF.Client.Controls
                         bool isTooLarge = (info.Length > control.MaxFileSize);
 
                         if(isTooLarge){
-                            MessageBoxResult result = MessageBox.Show("File size too large, display anyways?", "File too large", MessageBoxButton.YesNo);
+                            MessageBoxResult result = MessageBox.Show(String.Format("File size too large. The size is {0}kb display anyways?", info.Length/1024), "File too large", MessageBoxButton.YesNo);
 
                             if (result == MessageBoxResult.Yes)
                             {

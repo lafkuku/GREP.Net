@@ -56,7 +56,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="DisplayMaxFileSize" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">104857600</Value>
+      <Value Profile="(Default)">500000</Value>
     </Setting>
     <Setting Name="Exclusions" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
