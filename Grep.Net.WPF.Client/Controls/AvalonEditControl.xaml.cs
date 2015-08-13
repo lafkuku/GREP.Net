@@ -90,13 +90,14 @@ namespace Grep.Net.WPF.Client.Controls
                             
                             //Create a loading task. 
                             control.TextLoadingTask = Task.Factory.StartNew(()=>{
-                                TextDocument td = new TextDocument(); 
-                               
-                                System.IO.StreamReader sr = new System.IO.StreamReader(info.FullName);
-                                String s = sr.ReadToEnd();
-                               
-                                //TODO: Add code to editor. 
-                                td.Text = s;
+                                TextDocument td = new TextDocument();
+
+                                using (System.IO.StreamReader sr = new System.IO.StreamReader(info.FullName))
+                                {
+                                    String s = sr.ReadToEnd();
+                                    //TODO: Add code to editor. 
+                                    td.Text = s;
+                                }
 
                                 td.SetOwnerThread(control.Dispatcher.Thread);
                               
