@@ -19,7 +19,7 @@ using System.ComponentModel.Composition;
 
 namespace Grep.Net.WPF.Client.ViewModels
 {
-        [Export(typeof(IRoot))]
+    [Export(typeof(IRoot))]
     public class RootViewModel : Screen, IRoot
     {
       
