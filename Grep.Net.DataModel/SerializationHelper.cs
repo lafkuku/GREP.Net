@@ -63,17 +63,21 @@ namespace Grep.Net.Data
         {
             using (FileStream fs = File.Open(filePath, FileMode.Open))
             {
-                StreamReader sr = new StreamReader(fs);
-
-                XmlReaderSettings settings = new XmlReaderSettings();
-                settings.IgnoreWhitespace = true;
-                XmlTextReader xtr = new XmlTextReader(sr);
-
-                //xtr.Normalization = false;
-                xtr.WhitespaceHandling = WhitespaceHandling.Significant;
                
-                //Deserialize the collection type. 
-                return DeserializeXml(t, xtr);
+                using (var sr = new StreamReader(fs))
+                {
+                    XmlReaderSettings settings = new XmlReaderSettings();
+
+                    settings.IgnoreWhitespace = true;
+                    using (var xtr = new XmlTextReader(sr))
+                    {
+                        //xtr.Normalization = false;
+                        xtr.WhitespaceHandling = WhitespaceHandling.Significant;
+
+                        //Deserialize the collection type. 
+                        return DeserializeXml(t, xtr);
+                    }
+                }
             }
         }
 
