@@ -231,7 +231,7 @@ namespace Grep.Net.Model.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("500000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("15000000")]
         public int DisplayMaxFileSize {
             get {
                 return ((int)(this["DisplayMaxFileSize"]));

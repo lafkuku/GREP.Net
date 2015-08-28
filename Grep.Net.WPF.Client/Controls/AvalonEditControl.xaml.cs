@@ -94,7 +94,15 @@ namespace Grep.Net.WPF.Client.Controls
 
                                 using (System.IO.StreamReader sr = new System.IO.StreamReader(info.FullName))
                                 {
-                                    String s = sr.ReadToEnd();
+                                    String s = "";
+                                    try
+                                    {
+                                        s = sr.ReadToEnd();
+                                    }
+                                    catch (OutOfMemoryException oom)
+                                    {
+                                        s = "Out of Memory";
+                                    }
                                     //TODO: Add code to editor. 
                                     td.Text = s;
                                 }
@@ -104,7 +112,6 @@ namespace Grep.Net.WPF.Client.Controls
                                 var operation = control.Dispatcher.BeginInvoke(new Action(delegate
                                 {
                                     control.Document = td;
-                                    control.TextArea.TextView.UpdateLayout();
                                 }), DispatcherPriority.Normal);
                                 
                                 //We have an issue when updating text in AvalonEdit. Complex binary files are causing the UI thread to hang. I needed a way to timeout. 
@@ -173,7 +180,32 @@ namespace Grep.Net.WPF.Client.Controls
             
             this.TextArea.SelectionChanged += (x, y) => this.TextArea.TextView.Redraw();
             this.TextArea.SelectionBrush = Brushes.SlateGray;
-            this.TextLoadingToken = new CancellationTokenSource(); 
+            this.TextLoadingToken = new CancellationTokenSource();
+            this.TextArea.TextView.ElementGenerators.Add(new TruncateLongLines());
+        }
+    }
+
+    public class TruncateLongLines : VisualLineElementGenerator
+    {
+        const int maxLength = 2000;
+        const string ellipsis = "...";
+        const int charactersAfterEllipsis = 100;
+
+        public override int GetFirstInterestedOffset(int startOffset)
+        {
+            DocumentLine line = CurrentContext.VisualLine.LastDocumentLine;
+            if (line.Length > maxLength)
+            {
+                int ellipsisOffset = line.Offset + maxLength - charactersAfterEllipsis - ellipsis.Length;
+                if (startOffset <= ellipsisOffset)
+                    return ellipsisOffset;
+            }
+            return -1;
+        }
+
+        public override VisualLineElement ConstructElement(int offset)
+        {
+            return new FormattedTextElement(ellipsis, CurrentContext.VisualLine.LastDocumentLine.EndOffset - offset - charactersAfterEllipsis);
         }
     }
 
