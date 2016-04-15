@@ -97,9 +97,8 @@ namespace Grep.Net.Model.Models
                     try
                     {
                         matchStr =  msMatchInfo.Matches[0].Value;
-                    }catch{
-
-
+                    }catch(Exception e){
+                        _logger.Error(e);
                     }
 
                     MatchInfo mi = new MatchInfo()
