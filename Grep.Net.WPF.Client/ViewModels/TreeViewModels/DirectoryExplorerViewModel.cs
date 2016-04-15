@@ -57,7 +57,11 @@ namespace Grep.Net.WPF.Client.ViewModels
                         var contents = File.ReadAllLines(file);
                         foreach (var dir in file)
                         {
-                            this.SettingsManager.PathShortCuts.Add(Path);
+                            if (!settingsManager.PathShortCuts.Contains(dir.ToString()))
+                            {
+                                this.SettingsManager.PathShortCuts.Add(Path);
+                                this.SettingsManager.Save();
+                            }
                         }
                     }
                     settingsManager.Save();
@@ -73,8 +77,12 @@ namespace Grep.Net.WPF.Client.ViewModels
                 if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
                 {
                     var path = dialog.FileName;
-                    settingsManager.PathShortCuts.Add(path);
-                    settingsManager.Save();
+                    if (!settingsManager.PathShortCuts.Contains(path))
+                    {
+                        settingsManager.PathShortCuts.Add(path);
+                        settingsManager.Save();
+                    }
+                   
                     //AddFolderToRoot(path);
                 }
             });
@@ -99,11 +107,6 @@ namespace Grep.Net.WPF.Client.ViewModels
                     }
                 }
 
-            }, (x) =>
-            {
-                return x != null && 
-                       x is String && 
-                       settingsManager.PathShortCuts.Contains(x as String);
             });
             #endregion
 
@@ -119,6 +122,7 @@ namespace Grep.Net.WPF.Client.ViewModels
             //Adding the drives. 
             foreach (DriveInfo di in System.IO.DriveInfo.GetDrives())
             {
+               
                 AddFolderToRootInternal(di.RootDirectory.FullName);
             }
             
@@ -137,13 +141,25 @@ namespace Grep.Net.WPF.Client.ViewModels
                 AddAllPathsFromSettings();
             });
         }
-
+        private bool ContainsPath(string path)
+        {
+            foreach(var item in this._rootItems)
+            {
+                if (item.Path.Equals(path, StringComparison.CurrentCultureIgnoreCase))
+                    return true;
+            }
+            return false;
+        }
         private DirectoryViewModelTreeViewItem AddFolderToRootInternal(string path, string name = null)
         {
             if (path == null)
             {
                 logger.Error("Invalid argument, Path");
                 throw new ArgumentException("Invalid Arugment: Path");
+            }
+            if (this.ContainsPath(path))
+            {
+                logger.Error("Already contains this path");
             }
             //If we get passed a null name, we try to get the name from the path. 
             if (name == null)
@@ -169,11 +185,16 @@ namespace Grep.Net.WPF.Client.ViewModels
 
         public void AddFolderToRoot(String path)
         {
-            var ret = AddFolderToRootInternal(path);
-            if (ret != null)
+            if (!this.ContainsPath(path))
             {
-                CustomPaths.Add(ret);
+                var ret = AddFolderToRootInternal(path);
+                if (ret != null)
+                {
+                    CustomPaths.Add(ret);
+                }
+
             }
+          
         }
 
         public void ResetCustomPaths()

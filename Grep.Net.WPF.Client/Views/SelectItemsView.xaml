@@ -300,6 +300,7 @@
             </TabControl.Resources>
             <TabItem Header="Directories" Controls:ControlsHelper.HeaderFontSize="14">
                 <ContentControl cal:View.Model="{Binding DirectoryExplorer}" Margin="0,10,0,0" />
+
             </TabItem>
             <TabItem Header="Extensions"  Controls:ControlsHelper.HeaderFontSize="14">
                 <ContentControl cal:View.Model="{Binding FileTypeDefinitionTreeViewModel}"  Margin="0,10,0,0" />

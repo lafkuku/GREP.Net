@@ -8,7 +8,10 @@ namespace Grep.Net.WPF.Client.ViewModels
     {
         public FileTypeDefinitionTreeViewModel FileTypeDefinitionTreeViewModel { get; set; }
 
+
+       // public SelectedFileItemViewModel SelectedFileItemsViewModel { get; set; }
         public DirectoryExplorerViewModel DirectoryExplorer { get; set; }
+      
 
         public PatternPackageTreeViewModel PatternPatckageTreeView { get; set; }
 
@@ -35,6 +38,7 @@ namespace Grep.Net.WPF.Client.ViewModels
         {
             this.DataService = dataService;
             this.DirectoryExplorer = new DirectoryExplorerViewModel(settingsManager);
+           // this.SelectedFileItemsViewModel = new SelectedFileItemViewModel(); 
             this.PatternPatckageTreeView = new PatternPackageTreeViewModel(dataService);
             this.FileTypeDefinitionTreeViewModel = new FileTypeDefinitionTreeViewModel(dataService);
             this.SearchViewModel = new SearchViewModel(rvm);
