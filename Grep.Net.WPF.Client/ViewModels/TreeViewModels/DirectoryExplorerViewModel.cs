@@ -11,6 +11,7 @@ using Grep.Net.WPF.Client.ViewModels.TreeViewModels;
 using Grep.Net.WPF.Client.Data;
 using Grep.Net.WPF.Client.Interfaces;
 using Grep.Net.WPF.Client.Services;
+using Grep.Net.Model;
 
 
 namespace Grep.Net.WPF.Client.ViewModels
@@ -213,7 +214,7 @@ namespace Grep.Net.WPF.Client.ViewModels
         {
             foreach (var path in SettingsManager.PathShortCuts)
             {
-                if (Directory.Exists(path))
+                if (Grep.Net.Model.Utilities.DirectoryExists(path, 3000))
                 {
                     AddFolderToRoot(path);
                 }
@@ -398,7 +399,7 @@ namespace Grep.Net.WPF.Client.ViewModels
         public override void RefreshChildren()
         {
             _children.Clear(); 
-            if (!String.IsNullOrEmpty(Path) && Directory.Exists(Path))
+            if (!String.IsNullOrEmpty(Path) && Grep.Net.Model.Utilities.DirectoryExists(Path))
             {
                 try
                 {
