@@ -123,7 +123,8 @@ namespace Grep.Net.WPF.Client.ViewModels
                     //Technically a race condition still exits but would be rare
                     var scrollTo = new System.Action(()=>{
                         //Verify that we can actually scroll to the line. 
-                        if (this.Editor != null && 
+                        if (this != null &&
+                            this.Editor != null && 
                             this.Editor.Document != null && 
                             this.Editor.Document.LineCount >= _matchInfo.LineNumber)
                         {
