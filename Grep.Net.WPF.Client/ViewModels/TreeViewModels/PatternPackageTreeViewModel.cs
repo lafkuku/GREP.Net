@@ -358,7 +358,11 @@ namespace Grep.Net.WPF.Client.ViewModels
                         PatternStr = idvm.Input,
                         PatternPackageId = this.PatternPackageViewModel.Entity.Id
                     };
-                    this.PatternPackageViewModel.Entity.Patterns.Add(p);
+                    PatternViewModel pvm = new PatternViewModel();
+                    pvm.Pattern = p;
+                    
+                    this.PatternPackageViewModel.Patterns.Add(pvm);
+                    this.RefreshChildren();
                 }
             });
 
@@ -461,9 +465,17 @@ namespace Grep.Net.WPF.Client.ViewModels
                 {
                     if (MessageBox.Show("Are you sure you want to delete this Pattern?", "Are you sure?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                     {
+                       
                         var patternVM = x as PatternTreeViewItemViewModel;
-                        PatternPackage pp = DataService.PatternPackageService.Get(patternVM.PatternViewModel.Pattern.PatternPackageId).Entity;
-                        pp.Patterns.Remove(patternVM.PatternViewModel.Pattern);
+                        if(patternVM.Parent != null)
+                        {
+                            PatternPackageTreeViewItemViewModel ppvm = patternVM.Parent as PatternPackageTreeViewItemViewModel;
+                            if(ppvm.PatternPackageViewModel != null)
+                            {
+                                ppvm.PatternPackageViewModel.Patterns.Remove(patternVM.PatternViewModel); 
+                            }
+                           
+                        }
                     }
                 }
             });
