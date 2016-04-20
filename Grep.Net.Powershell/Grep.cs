@@ -83,7 +83,8 @@ namespace Grep.Net.Powershell
                 WriteObject("Invalid RootDirectory. The value is null or empty");
                 return;
             }
-            if (!System.IO.Directory.Exists(RootDirectory))
+           
+            if (!Utilities.DirectoryExists(RootDirectory))
             {
                 WriteObject("The supplied RootDirectory does not exist");
                 return;

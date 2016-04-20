@@ -114,7 +114,7 @@ namespace Grep.Net.WPF.Client.ViewModels.Entities
                 }
                 if (y.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Remove)
                 {
-                    foreach (var item in y.NewItems.Cast<PatternViewModel>())
+                    foreach (var item in y.OldItems.Cast<PatternViewModel>())
                     {
                         _patternPackage.Patterns.Remove(item._pattern);
                     }
@@ -129,10 +129,20 @@ namespace Grep.Net.WPF.Client.ViewModels.Entities
         public void DeleteSelectedPattern()
         {
             if (this.SelectedDataGridItem != null &&
-                this.SelectedDataGridItem is Pattern &&
-                this.Entity.Patterns.Contains(SelectedDataGridItem as Pattern))
+                this.SelectedDataGridItem is PatternViewModel)
             {
-                this.Entity.Patterns.Remove(this.SelectedDataGridItem as Pattern);
+                var pvm = this.SelectedDataGridItem as PatternViewModel;
+                if (this.Patterns.Contains(pvm))
+                {
+                    this.Patterns.Remove(pvm);
+                }
+
+               // if (this.Entity.Patterns.Contains(pvm.Pattern))
+               // {
+                //    this.Entity.Patterns.Remove(pvm.Pattern);
+                 //   this.Patterns.Refresh();
+               // }
+                
             }
         }
 
