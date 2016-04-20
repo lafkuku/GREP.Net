@@ -224,10 +224,6 @@
     <None Include="Data\PatternPackages\SQLI\SQL.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Data\PatternPackages\Private\Internal.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <Content Include="Data\Templates\DefaultTemplate.xml" />
     <Content Include="MigrationSteps.txt" />
   </ItemGroup>
@@ -253,6 +249,9 @@
       <Project>{887cbc1c-da59-4e54-aaea-d7e6c4b0426f}</Project>
       <Name>Grep.Net.Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\PatternPackages\Private\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
